@@ -1,0 +1,742 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  <link href="//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Android," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.5.0" />
+
+
+
+
+
+
+<meta name="description" content="原文地址
+前言接触了这么久的Android，发现有些术语的理解还是模模糊糊，所以今天就来理清一下这些概念。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android术语">
+<meta property="og:url" content="/2016/03/19/Android术语/index.html">
+<meta property="og:site_name" content="守心的博客">
+<meta property="og:description" content="原文地址
+前言接触了这么久的Android，发现有些术语的理解还是模模糊糊，所以今天就来理清一下这些概念。">
+<meta property="og:updated_time" content="2016-03-24T04:04:37.493Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Android术语">
+<meta name="twitter:description" content="原文地址
+前言接触了这么久的Android，发现有些术语的理解还是模模糊糊，所以今天就来理清一下这些概念。">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> Android术语 | 守心的博客 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//tajs.qq.com/stats?sId=55064070";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">守心的博客</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">享受生活</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Android术语
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-03-19T15:18:52+08:00" content="2016-03-19">
+              2016-03-19
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><a href="http://blog.qiji.tech/archives/1296" target="_blank" rel="external">原文地址</a></p>
+<h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><p>接触了这么久的Android，发现有些术语的理解还是模模糊糊，所以今天就来理清一下这些概念。<br><a id="more"></a></p>
+<h4 id="apk扩展名"><a href="#apk扩展名" class="headerlink" title="apk扩展名"></a>apk扩展名</h4><p>apk是Android包的扩展名，一个Android包包含了与某个Android应用程序相关的所有文件，apk文件将AndroidManifest.xml文件、应用程序代码(dex文件)、资源文件和其他文件组成一个压缩包，一个项目只能打包压缩成一个apk文件。</p>
+<h4 id="API"><a href="#API" class="headerlink" title="API"></a>API</h4><p>Application Programming Interface，简称：API，又称为应用编程接口，就是软件系统不同组成部分衔接的约定。良好的接口设计可以降低系统各部分的相互依赖，提高组成单元的内聚性，降低组成单元间的耦合程度，从而提高系统的维护性和扩展性。（关于Android开发中API的详细解释请看<a href="http://blog.qiji.tech/archives/2193" target="_blank" rel="external">[Android Studio]API level</a>）</p>
+<h4 id="dex扩展名"><a href="#dex扩展名" class="headerlink" title=".dex扩展名"></a>.dex扩展名</h4><p>Android的程序被编译成.dex(Dalvik Executable)格式文件, 然后再进行打包生成可被直接安装的apk文件。</p>
+<h4 id="应用程序-APP"><a href="#应用程序-APP" class="headerlink" title="应用程序(APP)"></a>应用程序(APP)</h4><p>一个或多个Activity、服务、监听和Intent接收器的集合，一个应用程序有一个文件清单，并且打包成一个apk文件。</p>
+<h4 id="Action"><a href="#Action" class="headerlink" title="Action"></a>Action</h4><p>对Intent发送器意图的描述，一个活动是一个指派给Intent的字符串值。活动字符串可以由Android定义，也可以由第三方开发者定义。例如，在网页URL中使用的android.intent.action.VIEW或者在用户应用程序中使用的 com.example.rumbler.SHAKE_PHONE来使电话震动。</p>
+<h4 id="ADB（-Android-Debug-Bridge-）"><a href="#ADB（-Android-Debug-Bridge-）" class="headerlink" title="ADB（ Android Debug Bridge ）"></a>ADB（ Android Debug Bridge ）</h4><p>SDK自带的一个基于命令行的调试程序。它提供了设备浏览工具、设备上的拷贝工具和为调试转寄端口的功能。更多信息请参考附录三（Android的ADB工具使用）。</p>
+<h4 id="AIDL"><a href="#AIDL" class="headerlink" title="AIDL"></a>AIDL</h4><p>(Android接口描述语言)：是一种接口描述语言; 编译器可以通过aidl文件生成一段代码，通过预先定义的接口达到两个进程内部通信进程的目的.<br>内容源<br>内容源是建立在类ContentProvider之上的用于处理指定格式的内容请求字符串，并返回指定格式的数据的类。关于内容源的使用信息请参考本书第7章内容。</p>
+<h4 id="Dalvik-Android"><a href="#Dalvik-Android" class="headerlink" title="Dalvik Android"></a>Dalvik Android</h4><p>虚拟机的名字,Dalvik虚拟机是一个只能解释执行dex文件的虚拟机，dex文件针对存储性能和内存管理进行了优化。 Dalvik虚拟机是基于寄存器的虚拟机，并且能够运行经过Dalvik自带的“dx”工具转换过的Java类。 虚拟机运行在兼容Posix的操作系统上，依赖于底层的功能(如线程和低级内存管理)。Dalvik的核心类库有意做得与Java标准版非常类似，但它明显更适合小型移动设备。</p>
+<h4 id="DDMS"><a href="#DDMS" class="headerlink" title="DDMS"></a>DDMS</h4><p>调试监视服务(Dalvik Debug Monitor ServiceDalvik)是SDK自带的一个可视的调试工具。它提供了屏幕捕捉、日志存储和进程检测能力。</p>
+<h4 id="Drawable"><a href="#Drawable" class="headerlink" title="Drawable"></a>Drawable</h4><p>编译过的可视化资源，可以用来做背景、标题或屏幕的其他部分。它被编译在android.graphics.drawable子类中。</p>
+<h4 id="意图-Intent"><a href="#意图-Intent" class="headerlink" title="意图(Intent)"></a>意图(Intent)</h4><p>意图是一个Intent类，它包含很多描述调用者意图做什么的字段。调用者发送意图到Android意图处理器，意图处理器会遍历所有应用程序的意图过滤器来查找与该意图最匹配的Activity。意图字段包括渴望的动作、种类、数据、数据的MIME类型、一个处理类和其他约束。</p>
+<h4 id="意图过滤器-intent-filter"><a href="#意图过滤器-intent-filter" class="headerlink" title="意图过滤器(intent-filter)"></a>意图过滤器(intent-filter)</h4><p>Activity和意图接收器(Receiver)在它们的文件清单中包含一个或多个过滤器，用来描述什么类型的意图或者信息是它们能处理或想接收的。一个意图过滤器列出了一系列要求，例如，意图或信息必须满足的数据类型、被请求的动作和URI的格式。 对于Activity，Android搜索意图和Activity过滤器匹配程度最高的Activity；对于消息，Android会将消息转发给所有匹配意图过滤器的接收器。</p>
+<h4 id="Intent接收器-Receiver"><a href="#Intent接收器-Receiver" class="headerlink" title="Intent接收器(Receiver)"></a>Intent接收器(Receiver)</h4><p>一个监听是由Context.broadcastIntent()发出的信息广播的类,详细信息请参考本书第9章。</p>
+<h4 id="JNI"><a href="#JNI" class="headerlink" title="JNI"></a>JNI</h4><p>JNI是Java Native Interface的缩写，中文为JAVA本地调用。从Java1.1开始，Java Native Interface(JNI)标准成为java平台的一部分，它允许Java代码和其他语言写的代码进行交互。JNI一开始是为了本地已编译语言，尤其是C和C++而设计的，但是它并不妨碍你使用其他语言，只要调用约定受支持就可以了。</p>
+<h4 id="Native-代码"><a href="#Native-代码" class="headerlink" title="Native 代码"></a>Native 代码</h4><p>Native代码主要是C或者C++的。代码编写者可以使用JNI从Java的程序中调用Native代码。</p>
+<h4 id="NDK"><a href="#NDK" class="headerlink" title="NDK"></a>NDK</h4><p>Native Development Kit,NDK提供了一系列的工具，帮助开发者快速开发C（或C++）的动态库，并能自动将so和java应用一起打包成apk。</p>
+<h4 id="布局资源"><a href="#布局资源" class="headerlink" title="布局资源"></a>布局资源</h4><p>一个描述Activity屏幕布局的XML文件。</p>
+<h4 id="文件清单"><a href="#文件清单" class="headerlink" title="文件清单"></a>文件清单</h4><p>应用程序中的一个XML文件，用于描述包中多个Activity、Intent过滤器、服务和其他内容。可以打开AndroidManifest.xml查看其包含的内容。</p>
+<h4 id="资源"><a href="#资源" class="headerlink" title="资源"></a>资源</h4><p>用户提供的XML、位图或其他文件，构建程序时会导入进来，稍后会被代码加载，Android支持多种类型的资源，请参考Resources中的详细描述，程序定义的资源文件应当保存在res/ 子目录下。</p>
+<h4 id="服务-Service"><a href="#服务-Service" class="headerlink" title="服务(Service)"></a>服务(Service)</h4><p>运行在后台执行多种固定任务的类，如播放音乐或检测网络活动。</p>
+<h4 id="主题-Theme"><a href="#主题-Theme" class="headerlink" title="主题(Theme)"></a>主题(Theme)</h4><p>一系列定义多种默认显示设置的参数(文字大小、背景颜色等)。Android在R.style中提供了几个标准的主题(以”Theme_”开头)。</p>
+<h4 id="URIs"><a href="#URIs" class="headerlink" title="URIs"></a>URIs</h4><p>Android使用URI字符串请求数据(如通信录列表)和动作(如在浏览器中打开网页)。URI字符串可以具有不同的格式。所有请求数据的URI必须以“content://” 开头。有效的动作URI字符串会被设备上的适当的程序处理，例如，以“ http://” 开头的URI字符串会被浏览器处理。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Android/" rel="tag">#Android</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/03/19/Android中的序列化/" rel="next" title="Android中的序列化">
+                <i class="fa fa-chevron-left"></i> Android中的序列化
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/03/19/Activity的结构/" rel="prev" title="Activity的结构">
+                Activity的结构 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/default_avatar.jpg"
+               alt="zhangzixu" />
+          <p class="site-author-name" itemprop="name">zhangzixu</p>
+          <p class="site-description motion-element" itemprop="description">Androider</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">14</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/zzx2016" target="_blank">
+                  
+                    <i class="fa fa-github"></i> GitHub
+                  
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        <div class="links-of-blogroll motion-element">
+          
+            <div class="links-of-blogroll-title">���ù���</div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.w3school.com.cn/" target="_blank">w3school</a>
+                </li>
+              
+            </ul>
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator">
+            <i class="fa fa-angle-double-up"></i>
+          </div>
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#apk扩展名"><span class="nav-number">2.</span> <span class="nav-text">apk扩展名</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#API"><span class="nav-number">3.</span> <span class="nav-text">API</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#dex扩展名"><span class="nav-number">4.</span> <span class="nav-text">.dex扩展名</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#应用程序-APP"><span class="nav-number">5.</span> <span class="nav-text">应用程序(APP)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Action"><span class="nav-number">6.</span> <span class="nav-text">Action</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ADB（-Android-Debug-Bridge-）"><span class="nav-number">7.</span> <span class="nav-text">ADB（ Android Debug Bridge ）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#AIDL"><span class="nav-number">8.</span> <span class="nav-text">AIDL</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Dalvik-Android"><span class="nav-number">9.</span> <span class="nav-text">Dalvik Android</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#DDMS"><span class="nav-number">10.</span> <span class="nav-text">DDMS</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Drawable"><span class="nav-number">11.</span> <span class="nav-text">Drawable</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#意图-Intent"><span class="nav-number">12.</span> <span class="nav-text">意图(Intent)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#意图过滤器-intent-filter"><span class="nav-number">13.</span> <span class="nav-text">意图过滤器(intent-filter)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Intent接收器-Receiver"><span class="nav-number">14.</span> <span class="nav-text">Intent接收器(Receiver)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#JNI"><span class="nav-number">15.</span> <span class="nav-text">JNI</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Native-代码"><span class="nav-number">16.</span> <span class="nav-text">Native 代码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#NDK"><span class="nav-number">17.</span> <span class="nav-text">NDK</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#布局资源"><span class="nav-number">18.</span> <span class="nav-text">布局资源</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#文件清单"><span class="nav-number">19.</span> <span class="nav-text">文件清单</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#资源"><span class="nav-number">20.</span> <span class="nav-text">资源</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#服务-Service"><span class="nav-number">21.</span> <span class="nav-text">服务(Service)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#主题-Theme"><span class="nav-number">22.</span> <span class="nav-text">主题(Theme)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#URIs"><span class="nav-number">23.</span> <span class="nav-text">URIs</span></a></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator">
+            <i class="fa fa-angle-double-down"></i>
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2015 - 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">zhangzixu</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+
+  
+
+
+
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=0.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=0.5.0"></script>
+
+
+
+  
+  
+
+  
+  
+<script type="text/javascript" src="/js/src/scrollspy.js?v=0.5.0"></script>
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 1 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = NexT.utils.escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    NexT.motion.middleWares.sidebar = function () {
+      var $tocContent = $('.post-toc-content');
+
+      if (CONFIG.sidebar.display === 'post' || CONFIG.sidebar.display === 'always') {
+        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+          NexT.utils.displaySidebar();
+        }
+      }
+    };
+  });
+</script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=0.5.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+  
+  
+  
+
+  
+
+
+</body>
+</html>

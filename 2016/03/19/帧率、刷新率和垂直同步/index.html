@@ -1,0 +1,720 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  <link href="//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Android," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.5.0" />
+
+
+
+
+
+
+<meta name="description" content="提到显卡的帧率（FPS）、显示器刷新率和垂直同步的关系，第一印象是这些概念之间似乎没有直接的关系，实则不然。首先来解释帧率（FPS，即Frame Per Second，帧/秒）。通俗来说，帧率是用来衡量显卡渲染能力的一个指标。显卡在处理图像数据时，性能越强的显卡，在均等时间内（比如1秒），渲染出的静态图像的数量（这一幅静态图像就称为一帧）。一幅一幅的静态图像按顺序以一定的速度出现在我们面前，由于人">
+<meta property="og:type" content="article">
+<meta property="og:title" content="帧率、刷新率和垂直同步">
+<meta property="og:url" content="/2016/03/19/帧率、刷新率和垂直同步/index.html">
+<meta property="og:site_name" content="守心的博客">
+<meta property="og:description" content="提到显卡的帧率（FPS）、显示器刷新率和垂直同步的关系，第一印象是这些概念之间似乎没有直接的关系，实则不然。首先来解释帧率（FPS，即Frame Per Second，帧/秒）。通俗来说，帧率是用来衡量显卡渲染能力的一个指标。显卡在处理图像数据时，性能越强的显卡，在均等时间内（比如1秒），渲染出的静态图像的数量（这一幅静态图像就称为一帧）。一幅一幅的静态图像按顺序以一定的速度出现在我们面前，由于人">
+<meta property="og:updated_time" content="2016-03-24T04:04:37.494Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="帧率、刷新率和垂直同步">
+<meta name="twitter:description" content="提到显卡的帧率（FPS）、显示器刷新率和垂直同步的关系，第一印象是这些概念之间似乎没有直接的关系，实则不然。首先来解释帧率（FPS，即Frame Per Second，帧/秒）。通俗来说，帧率是用来衡量显卡渲染能力的一个指标。显卡在处理图像数据时，性能越强的显卡，在均等时间内（比如1秒），渲染出的静态图像的数量（这一幅静态图像就称为一帧）。一幅一幅的静态图像按顺序以一定的速度出现在我们面前，由于人">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> 帧率、刷新率和垂直同步 | 守心的博客 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//tajs.qq.com/stats?sId=55064070";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">守心的博客</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">享受生活</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                帧率、刷新率和垂直同步
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-03-19T14:30:49+08:00" content="2016-03-19">
+              2016-03-19
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>提到显卡的帧率（FPS）、显示器刷新率和垂直同步的关系，第一印象是这些概念之间似乎没有直接的关系，实则不然。<br>首先来解释帧率（FPS，即Frame Per Second，帧/秒）。通俗来说，帧率是用来衡量显卡渲染能力的一个指标。显卡在处理图像数据时，性能越强的显卡，在均等时间内（比如1秒），渲染出的静态图像的数量（这一幅静态图像就称为一帧）。一幅一幅的静态图像按顺序以一定的速度出现在我们面前，由于人眼具有的视觉暂留特性，使得我们感觉画面里的物体似乎在运动，也就形成了动画（和典型的动画片一个原理）。如果在一定时间内出现在我们眼前的静态画面越多（帧率越高），我们就感觉画面越流畅。性能强悍的显卡可以在一秒内渲染更多的帧，画面也自然越流畅，其FPS指标自然就高。<br><a id="more"></a><br>先跳过温度，解释下显示器刷新率。显卡渲染出多帧图像，是需要显示设备呈现在我们面前的。这个显示设备就是我们熟知的显示器。显示器有一个概念叫做刷新率（Windows系统在控制面板，显示里设置），是指在1秒内，重新刷新屏幕的次数。</p>
+<h4 id="帧率和刷新率"><a href="#帧率和刷新率" class="headerlink" title="帧率和刷新率"></a>帧率和刷新率</h4><p>人眼可以直接感知的画面是来自显示器，因此，所谓的画面是否流畅，是从显示器观察而来。显卡的帧率是否能让我们感知到（换句话说就是画面是否流畅）是受到显示器的刷新率的制约的。现在的显卡通常可以将CS的帧率渲染到120以上，即120FPS。可通常我们使用的显示器只能达到60HZ的刷新率。显然，即使显卡在1秒内将画面变化了120次，但显示器只有展示其中60幅的能力。这种时候，我们感知的流畅度其实是60FPS。上面的情况是显卡渲染的帧率大于显示器刷新率的情况，如果帧率低于刷新率呢？比如显卡性能稍弱，在某些时候只能达到30FPS左右的帧率时，是怎样的呢？显示器的刷新率是固定的，无论显卡帧率如何，一定会按照其固有的刷新率更新画面，如果显卡帧率是30，显示器刷新率是60HZ，其实每一秒我们看到的画面还是更新了60次，不过其中一些更新，画面没有任何变化罢了（通俗的例子，帧率30，显示器会把显卡渲染出的一帧在屏幕上刷新两次，同一帧刷两次，2帧画面自然一致，我们感觉画面似乎没变）。</p>
+<h4 id="垂直同步"><a href="#垂直同步" class="headerlink" title="垂直同步"></a>垂直同步</h4><p>垂直同步又称场同步(Vertical Hold)，显示器的刷新一帧后就会产生一个垂直同步信号。当我们选择“垂直同步”(即打开垂直同步)时，显卡在渲染每一帧之前会等待垂直同步信号，只有显示器完成了一次刷新时，发出垂直同步信号，显卡才会渲染下一帧。这种情况下，显卡的渲染能力会受到显示器刷新率的制约。如果显示器刷新率是60Hz，显卡帧率最多只会达到60。对于高端显卡，这种情况下，显然会制约其性能发挥。如果显卡渲染能力不高于显示器刷新率，则显卡性能不会受到影响。</p>
+<h4 id="显卡设置垂直同步"><a href="#显卡设置垂直同步" class="headerlink" title="显卡设置垂直同步"></a>显卡设置垂直同步</h4><p>这里，我要从人的体验角度来回答这个问题。资料表明：一般12FPS就可以让人形成连贯的视觉感受，认为20FPS是RPG类游戏运行的最低标准，但对CS、极品飞车等高速游戏来说，60FPS才能得到比较理想的效果。人眼可以接受的最大图像频率是每秒62格。 要获得最大的真实性, 就必须使视网膜的吸纳接近饱和。根据资料，人眼可以接受的图像变化范围是每秒62格（当然这一定是个平均数）。通常可以认为，如果显卡帧率大于62，已经达到了人眼可以接受的极限。根据显卡帧率和显示器的刷新率的关系，帧率的展现收到显示器刷新率的制约，而通常的显示器刷新率为60Hz，因此我们可以认为，显卡帧率可以达到60就可以为我们提供完美的游戏体验。（再提供几个参考数据：通常PAL制式的电视帧率为25，NTSC制式的电视帧率为29.97。中国采用的是PAL制。这已经可以满足我们大部分的观看需要了）</p>
+<h4 id="小结："><a href="#小结：" class="headerlink" title="小结："></a>小结：</h4><p>现在来正式回答要不要关闭垂直同步的问题。高端的显卡（足够将您要运行的游戏渲染到每秒60帧以上，甚至更高的显卡），不要关闭垂直同步。一来显卡全速运行的高帧率我们无法体会到（远超人眼接受画面的极限和显示器的刷新率），还会造成显卡温度飙升，不仅浪费能源还缩短显卡的使用寿命。二来，在运行某些游戏时，关闭垂直同步反而会造成画面撕裂，跳帧（感觉不流畅）等的问题。至于中端或者低端的显卡，因为显卡能力有限，开启不开启垂直同步，对使用体验影响不大。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Android/" rel="tag">#Android</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/03/18/hello-world/" rel="next" title="Hello World">
+                <i class="fa fa-chevron-left"></i> Hello World
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/03/19/Picasso图片加载库/" rel="prev" title="Picasso图片加载库">
+                Picasso图片加载库 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/default_avatar.jpg"
+               alt="zhangzixu" />
+          <p class="site-author-name" itemprop="name">zhangzixu</p>
+          <p class="site-description motion-element" itemprop="description">Androider</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">14</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/zzx2016" target="_blank">
+                  
+                    <i class="fa fa-github"></i> GitHub
+                  
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        <div class="links-of-blogroll motion-element">
+          
+            <div class="links-of-blogroll-title">���ù���</div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.w3school.com.cn/" target="_blank">w3school</a>
+                </li>
+              
+            </ul>
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator">
+            <i class="fa fa-angle-double-up"></i>
+          </div>
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#帧率和刷新率"><span class="nav-number">1.</span> <span class="nav-text">帧率和刷新率</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#垂直同步"><span class="nav-number">2.</span> <span class="nav-text">垂直同步</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#显卡设置垂直同步"><span class="nav-number">3.</span> <span class="nav-text">显卡设置垂直同步</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#小结："><span class="nav-number">4.</span> <span class="nav-text">小结：</span></a></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator">
+            <i class="fa fa-angle-double-down"></i>
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2015 - 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">zhangzixu</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+
+  
+
+
+
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=0.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=0.5.0"></script>
+
+
+
+  
+  
+
+  
+  
+<script type="text/javascript" src="/js/src/scrollspy.js?v=0.5.0"></script>
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 1 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = NexT.utils.escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    NexT.motion.middleWares.sidebar = function () {
+      var $tocContent = $('.post-toc-content');
+
+      if (CONFIG.sidebar.display === 'post' || CONFIG.sidebar.display === 'always') {
+        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+          NexT.utils.displaySidebar();
+        }
+      }
+    };
+  });
+</script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=0.5.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+  
+  
+  
+
+  
+
+
+</body>
+</html>
