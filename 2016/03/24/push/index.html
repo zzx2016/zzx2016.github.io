@@ -1,0 +1,844 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  <link href="//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.5.0" />
+
+
+
+
+
+
+<meta name="description" content="push调研Android push通道调研文档
+第三方push通道较早的JPush、个推，后来小米push、腾讯信鸽、百度推送、华为推送、友盟推送。官方统计的到达率都是99%+，算法是 送达率 = 送达数 / 计划推送 × 100%，计划推送是指目标推送的设备数，已去除了错误或无效的设备，所以到达率算出来很高。而大众反馈的到达率基本在40%~60%之间。
+第三方push特点JPush（极光）支持">
+<meta property="og:type" content="article">
+<meta property="og:title" content="守心的博客">
+<meta property="og:url" content="/2016/03/24/push/index.html">
+<meta property="og:site_name" content="守心的博客">
+<meta property="og:description" content="push调研Android push通道调研文档
+第三方push通道较早的JPush、个推，后来小米push、腾讯信鸽、百度推送、华为推送、友盟推送。官方统计的到达率都是99%+，算法是 送达率 = 送达数 / 计划推送 × 100%，计划推送是指目标推送的设备数，已去除了错误或无效的设备，所以到达率算出来很高。而大众反馈的到达率基本在40%~60%之间。
+第三方push特点JPush（极光）支持">
+<meta property="og:image" content="http://7q5ctm.com1.z0.glb.clouddn.com/20160324170743.png">
+<meta property="og:updated_time" content="2016-03-24T09:34:56.702Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="守心的博客">
+<meta name="twitter:description" content="push调研Android push通道调研文档
+第三方push通道较早的JPush、个推，后来小米push、腾讯信鸽、百度推送、华为推送、友盟推送。官方统计的到达率都是99%+，算法是 送达率 = 送达数 / 计划推送 × 100%，计划推送是指目标推送的设备数，已去除了错误或无效的设备，所以到达率算出来很高。而大众反馈的到达率基本在40%~60%之间。
+第三方push特点JPush（极光）支持">
+<meta name="twitter:image" content="http://7q5ctm.com1.z0.glb.clouddn.com/20160324170743.png">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title>  | 守心的博客 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//tajs.qq.com/stats?sId=55064070";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">守心的博客</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">享受生活</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-03-24T18:06:26+08:00" content="2016-03-24">
+              2016-03-24
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="push调研"><a href="#push调研" class="headerlink" title="push调研"></a>push调研</h1><p>Android push通道调研文档</p>
+<h2 id="第三方push通道"><a href="#第三方push通道" class="headerlink" title="第三方push通道"></a>第三方push通道</h2><p>较早的JPush、个推，后来小米push、腾讯信鸽、百度推送、华为推送、友盟推送。官方统计的到达率都是99%+，算法是 <em>送达率 = 送达数 / 计划推送 × 100%</em>，计划推送是指目标推送的设备数，已去除了错误或无效的设备，所以到达率算出来很高。而大众反馈的到达率基本在40%~60%之间。</p>
+<h2 id="第三方push特点"><a href="#第三方push特点" class="headerlink" title="第三方push特点"></a>第三方push特点</h2><h3 id="JPush（极光）"><a href="#JPush（极光）" class="headerlink" title="JPush（极光）"></a>JPush（极光）</h3><p>支持透传</p>
+<h4 id="多种推送方式"><a href="#多种推送方式" class="headerlink" title="多种推送方式"></a>多种推送方式</h4><ol>
+<li>通知：推送文本内容直接展示在用户的通知栏中。</li>
+<li>自定义消息：推送自定义的消息内容透传给应用处理。</li>
+<li>富媒体：推送预先编辑好的图文并茂的HTML页面内容。</li>
+</ol>
+<h4 id="灵活的推送目标"><a href="#灵活的推送目标" class="headerlink" title="灵活的推送目标"></a>灵活的推送目标</h4><ol>
+<li>广播推送：向所有的注册用户发送一条广播消息。</li>
+<li>标签推送：根据属性对用户设置标签分组，向群组用户发送。</li>
+<li>别名推送：客户端绑定用户别名，向具体的单个用户推送。</li>
+</ol>
+<h4 id="用户分群"><a href="#用户分群" class="headerlink" title="用户分群"></a>用户分群</h4><p>根据JPush提供的多条件组合进行用户群组划分，实时筛选实时推送。</p>
+<h4 id="评价"><a href="#评价" class="headerlink" title="评价"></a>评价</h4><p>在某些网络运营商下,会注册失败；容易出现提交tag和alias延迟，推送到达率还可以，就普遍都比较慢，但后来因为量实在太高，即使是企业合作，费用还是高得有点难接受；比百度和个推到达率要高很多</p>
+<h4 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h4><p>高德地图、圆通快递、百姓网</p>
+<h3 id="个推"><a href="#个推" class="headerlink" title="个推"></a>个推</h3><p>支持透传</p>
+<h4 id="个推1-0-实时推送"><a href="#个推1-0-实时推送" class="headerlink" title="个推1.0-实时推送"></a>个推1.0-实时推送</h4><ol>
+<li>消息实时到达，提高用户活跃度</li>
+<li>多个App合并通道，省电省流量</li>
+<li>应用进程相互看护，活跃有保障</li>
+<li>精确数据报表，数据实时统计反馈</li>
+</ol>
+<h4 id="个推2-0-智能推送"><a href="#个推2-0-智能推送" class="headerlink" title="个推2.0-智能推送"></a>个推2.0-智能推送</h4><ol>
+<li>智能标签，建立精准用户画像</li>
+<li>避免盲目推送，实现精细化运营</li>
+<li>分组对比测试，优化推送决策</li>
+<li>强大的数据联盟，清晰的行业报告</li>
+</ol>
+<h4 id="个推3-0-应景推送"><a href="#个推3-0-应景推送" class="headerlink" title="个推3.0-应景推送"></a>个推3.0-应景推送</h4><ol>
+<li>精准捕捉场景，合适地点触发消息</li>
+<li>进入、停留、离开，情景化推送</li>
+<li>性别、年龄、爱好，智能标签分类</li>
+<li>学校、商场、火车站，地理围栏调用</li>
+</ol>
+<h4 id="评价-1"><a href="#评价-1" class="headerlink" title="评价"></a>评价</h4><p>创业公司个推用了两年，现在换做信鸽，慢慢尝试中，个推的问题主要有消息被缓存后不能顺序送达，信号不好网络切换频繁以及一些奇葩网络环境，如电信移动需加代理的情形是无可送达的，服务被干掉时有发生且在诸如华为这样的机型上是没法自启，后面信鸽也出现了，可能是业界难题，可对于带点IM性质的app很致命；延迟太大，普通情况下都有几十分钟的延迟。</p>
+<h4 id="案例-1"><a href="#案例-1" class="headerlink" title="案例"></a>案例</h4><p>新浪微博、墨迹天气、PPTV、唱吧、招商银行、美图秀秀、去哪儿</p>
+<h3 id="小米push"><a href="#小米push" class="headerlink" title="小米push"></a>小米push</h3><p>支持透传，在一些拥有应用启动管理功能的Android系统上（如MIUI），透传的实现需要应用在后台处于启动状态</p>
+<h4 id="使用简单灵活"><a href="#使用简单灵活" class="headerlink" title="使用简单灵活"></a>使用简单灵活</h4><p>集成仅需半天，不用写代码即可直接推送消息，也可通过服务端API与业务深度结合。<br>既可根据用户不同特征给用户打标签再针对标签进行推送，也可直接指定用户做精准推送。</p>
+<h4 id="服务稳定安全"><a href="#服务稳定安全" class="headerlink" title="服务稳定安全"></a>服务稳定安全</h4><ol>
+<li>高吞吐：每分钟千万级消息推送；高稳定：亿级同时在线；高到达率：99.8%的消息可以300毫秒内到达。</li>
+<li>提供数据统计功能，可以在线查看推送的实时数据和历史数据，同时提供数据API方便开发者与自身的统计系统结合。</li>
+</ol>
+<h4 id="Android全平台支持"><a href="#Android全平台支持" class="headerlink" title="Android全平台支持"></a>Android全平台支持</h4><p>小米推送服务支持所有Android平台，在MIUI上属于系统服务框架，共享系统级长连接。</p>
+<h4 id="限制"><a href="#限制" class="headerlink" title="限制"></a>限制</h4><p>目前针对首批合作开发者,小米推送服务没有设置任何推送频率的使用限制,之后出于防止恶意应用攻击等考虑,可能会增加对推送消息的频率、对单一用户可以接收的数量等做一些限制,但不会影响开发者的正常使用。而且所提供的推送服务完全免费。</p>
+<h4 id="评价-2"><a href="#评价-2" class="headerlink" title="评价"></a>评价</h4><p>大众点评13年的时候用过小米推送，到达率统计有60%左右，属于小米推送的早期用户吧，据说踩了不少坑，后面自己去做了推送。</p>
+<h4 id="案例-2"><a href="#案例-2" class="headerlink" title="案例"></a>案例</h4><p>58同城、淘宝、爱奇艺、百度视频、暴风影音、携程、美丽说、蘑菇街、今日头条</p>
+<h3 id="腾讯信鸽"><a href="#腾讯信鸽" class="headerlink" title="腾讯信鸽"></a>腾讯信鸽</h3><p>支持透传</p>
+<h4 id="多种推送方式-灵活方便"><a href="#多种推送方式-灵活方便" class="headerlink" title="多种推送方式 灵活方便"></a>多种推送方式 灵活方便</h4><ol>
+<li>通知：推送文本内容直接展示在用户的通知栏中</li>
+<li>消息命令：推送自定义的消息内容透传给应用处理</li>
+</ol>
+<h4 id="推送目标分类-精准营销"><a href="#推送目标分类-精准营销" class="headerlink" title="推送目标分类 精准营销"></a>推送目标分类 精准营销</h4><ol>
+<li>标签推送：根据属性特性对用户设置标签分组，向群组用户发送</li>
+<li>别名推送：客户端绑定用户别名，向具体的单个用户推送</li>
+<li>全量推送：向所有的注册用户发送一条广播消息</li>
+<li>标签推送新增高级标签 —— 潜在流失用户、潜在付费用户，推送让你快人一步</li>
+</ol>
+<h4 id="推送数据统计-效果跟踪"><a href="#推送数据统计-效果跟踪" class="headerlink" title="推送数据统计 效果跟踪"></a>推送数据统计 效果跟踪</h4><ol>
+<li>推送数据：推送量、抵达量数据统计</li>
+<li>效果跟踪：单个推送通知目标用户行为30天持续跟踪</li>
+</ol>
+<h4 id="评价-3"><a href="#评价-3" class="headerlink" title="评价"></a>评价</h4><p>不是很稳定，有时推送较慢，不及时；有很多问题，不稳定是主要的，另外就是到达率不高，好的情况下60%，坏的情况下40%也不到；比较小众，腾讯自己的产品都不用</p>
+<h4 id="案例-3"><a href="#案例-3" class="headerlink" title="案例"></a>案例</h4><p>美丽说、掌上英雄联盟</p>
+<h3 id="百度推送"><a href="#百度推送" class="headerlink" title="百度推送"></a>百度推送</h3><p>支持透传</p>
+<ul>
+<li><p><strong>安全稳定：</strong> 消息下发速度高达每秒数十万次，保证稳定秒级到达</p>
+</li>
+<li><p><strong>智能推送：</strong> 依托百度大数据，准确定位目标客户，实现精准推送</p>
+</li>
+<li><p><strong>统计分析：</strong> 强大的数据统计报表支撑，可以智能化分析推送</p>
+</li>
+<li><p><strong>省电省流量：</strong> 百度云推送提供免费服务且设备能耗更低，消息推送更快，连接更稳定</p>
+</li>
+<li><p><strong>个性化设置：</strong> 定时推送，离线设置，自定义标签，支持富媒体，多种个性化功能</p>
+</li>
+<li><p><strong>管理控制台：</strong> 可视化页面帮您通过控制台针对特定用户群快速完成推送</p>
+</li>
+</ul>
+<h4 id="评价-4"><a href="#评价-4" class="headerlink" title="评价"></a>评价</h4><p>到达率差不多60%，但太多坑，各种不兼容造成崩溃、Application循环重启、手机发烫等问题；百度推送过来的通知消息如果隔了较长时间才去点击通知的话，打开对应的应用挺久才反应过来，不知道是不是手机卡的问题，用的是三星S5。小米推送的不会，隔了较长时间点击通知基本上马上打开。</p>
+<h4 id="案例-4"><a href="#案例-4" class="headerlink" title="案例"></a>案例</h4><p>手机百度、百度地图、爱奇艺、聚美优品</p>
+<h3 id="华为推送"><a href="#华为推送" class="headerlink" title="华为推送"></a>华为推送</h3><p>支持透传，在华为上属于系统服务框架，共享系统级长连接。</p>
+<ul>
+<li><p><strong>推送透传消息：</strong> 以透传方式将自定义的内容发送给应用。开发者的应用自主解析自定义的内容，并触发相关动作。利用此功能开者可实现IP呼叫、好友邀请等等功能，完全自由发挥。</p>
+</li>
+<li><p><strong>推送通知栏消息：</strong> 消息推送到手机的系统通知栏展现。</p>
+</li>
+<li><p><strong>推送富媒体消息：</strong> 消息推送可自由编排的富媒体内容到手机展现，支持表格、图片、音频、连接地址等，类似Html5页面效果。</p>
+</li>
+<li><p><strong>按地理位置触发消息(LBS消息)：</strong> 在地图上划定一块区域，消息推送到进入该区域的用户。</p>
+</li>
+<li><p><strong>在线编辑内容和推送：</strong> 可以在开发者联盟Portal上编辑消息内容，并选择用户群推送</p>
+</li>
+<li><p><strong>支持自定义标签：</strong> 开发者可以对用户打上私有签标，细分用户群，推送时可以选择推给特定标签的用户。</p>
+</li>
+<li><p><strong>统计报表：</strong> 提供消息推送情况和用户发展情况的统计报表。</p>
+</li>
+</ul>
+<h4 id="案例-5"><a href="#案例-5" class="headerlink" title="案例"></a>案例</h4><p>未列出</p>
+<h3 id="友盟推送"><a href="#友盟推送" class="headerlink" title="友盟推送"></a>友盟推送</h3><p>支持透传</p>
+<h4 id="多维度用户分群"><a href="#多维度用户分群" class="headerlink" title="多维度用户分群"></a>多维度用户分群</h4><p>帮助开发者将不同用户按照不同特征分群，从而为不同分群的用户推送最合适的内容，大幅度提升消息打开率和用户满意度。</p>
+<h4 id="自由选择发送内容"><a href="#自由选择发送内容" class="headerlink" title="自由选择发送内容"></a>自由选择发送内容</h4><ol>
+<li><p>开发者可以选择发送通知或者自定义消息，自主决定发送内容是否被展示给用户。</p>
+</li>
+<li><p>开发者可以自由配置用户查看消息后的操作，支持打开 APP指定页面、打开指定网页以及其它自定义行为。</p>
+</li>
+</ol>
+<h4 id="灵活接入"><a href="#灵活接入" class="headerlink" title="灵活接入"></a>灵活接入</h4><ol>
+<li><p>支持开发者通过Web 端操作或者 API接入，满足不同场景下的推送需求。</p>
+</li>
+<li><p>Web端后台操作：开发者可以在 Web后台人工操作，按多个维度筛选用户并群发消息。</p>
+</li>
+<li><p>API接入方式：开发者可以通过 API对接友盟服务器，自动化的推送消息。</p>
+</li>
+</ol>
+<h4 id="案例-6"><a href="#案例-6" class="headerlink" title="案例"></a>案例</h4><p>斗鱼、暴风影音、墨迹天气</p>
+<h3 id="gcm推送"><a href="#gcm推送" class="headerlink" title="gcm推送"></a>gcm推送</h3><p>gcm要求设备运行在Android系统2.2或更高版本并且安装了Google play商店应用，但是并不限制你的应用必须部署在Google play商店。如果想要使用gcm 新的API就需要设备运行在Android系统2.3或更高版本，在一个现有连接Google服务的设备上，对于3.0之前的设备，就要求在Android设备上设置Google账号，4.0.4或者更高版本则不需要设置Google账号。支持透传。</p>
+<h4 id="gcm的一些限制"><a href="#gcm的一些限制" class="headerlink" title="gcm的一些限制"></a>gcm的一些限制</h4><ol>
+<li><p>在国内，首先就是Google被墙，无法连接到Google服务器，需要你走VPN或者其它方式可以连接到Google服务器。</p>
+</li>
+<li><p>Android客户端，要求安装了Google核心服务Google Play服务，而有些厂商会去掉Google Play服务</p>
+</li>
+<li><p>由于国内2G和移动3G的NAT超时时间都小于GCM心跳时间(28分钟)，TCP长连接必然无法保活，每次都要等28分钟心跳失败重连后才能收到Push。</p>
+</li>
+<li><p>某些运营商可能限制了5228端口，移动3G/2G下，发现几乎无法连接上GCM服务器，也就无法获得GCM通知，某些放后台10分钟后，经常很长时间都收不到Push消息。</p>
+</li>
+</ol>
+<h2 id="集成方案"><a href="#集成方案" class="headerlink" title="集成方案"></a>集成方案</h2><p>先看一下Android相关设备占比，如下图</p>
+<p><img src="http://7q5ctm.com1.z0.glb.clouddn.com/20160324170743.png" alt="Android相关设备占比"></p>
+<p>其他：19.84%、三星：15.06%、华为：11.07%、小米：7.90%、红米：7.63%、Vivo：7.61%、Oppo：6.65%。</p>
+<p>为了提高到达率，最好采用集成多种push通道，针对小米手机优先使用小米push，华为手机使用华为push，其他手机选择个推或者其他，从开发者认知度来看，认知度由高到低排列如下：小米推送&gt;华为=个推&gt;其他(腾讯信鸽、JPush、百度推送、友盟推送)，华为推送暂无数据，其中百度，腾讯的推送口碑最差，自己都不用。小米和华为的push由于是保持系统级长连接，所以到达率很高。从官方文档来看，只有个推支持多个App合并通道，也就是说其他使用个推的app会保持push通道的活性，因为新浪微博使用了个推，所以在很大程度上保证了个推通道的畅通。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/03/24/数据库的最简单实现/" rel="next" title="数据库的最简单实现">
+                <i class="fa fa-chevron-left"></i> 数据库的最简单实现
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/default_avatar.jpg"
+               alt="zhangzixu" />
+          <p class="site-author-name" itemprop="name">zhangzixu</p>
+          <p class="site-description motion-element" itemprop="description">Androider</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">15</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/zzx2016" target="_blank">
+                  
+                    <i class="fa fa-github"></i> GitHub
+                  
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        <div class="links-of-blogroll motion-element">
+          
+            <div class="links-of-blogroll-title">���ù���</div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.w3school.com.cn/" target="_blank">w3school</a>
+                </li>
+              
+            </ul>
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator">
+            <i class="fa fa-angle-double-up"></i>
+          </div>
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#push调研"><span class="nav-number">1.</span> <span class="nav-text">push调研</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#第三方push通道"><span class="nav-number">1.1.</span> <span class="nav-text">第三方push通道</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第三方push特点"><span class="nav-number">1.2.</span> <span class="nav-text">第三方push特点</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#JPush（极光）"><span class="nav-number">1.2.1.</span> <span class="nav-text">JPush（极光）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#多种推送方式"><span class="nav-number">1.2.1.1.</span> <span class="nav-text">多种推送方式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#灵活的推送目标"><span class="nav-number">1.2.1.2.</span> <span class="nav-text">灵活的推送目标</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#用户分群"><span class="nav-number">1.2.1.3.</span> <span class="nav-text">用户分群</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#评价"><span class="nav-number">1.2.1.4.</span> <span class="nav-text">评价</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#案例"><span class="nav-number">1.2.1.5.</span> <span class="nav-text">案例</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#个推"><span class="nav-number">1.2.2.</span> <span class="nav-text">个推</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#个推1-0-实时推送"><span class="nav-number">1.2.2.1.</span> <span class="nav-text">个推1.0-实时推送</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#个推2-0-智能推送"><span class="nav-number">1.2.2.2.</span> <span class="nav-text">个推2.0-智能推送</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#个推3-0-应景推送"><span class="nav-number">1.2.2.3.</span> <span class="nav-text">个推3.0-应景推送</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#评价-1"><span class="nav-number">1.2.2.4.</span> <span class="nav-text">评价</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#案例-1"><span class="nav-number">1.2.2.5.</span> <span class="nav-text">案例</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#小米push"><span class="nav-number">1.2.3.</span> <span class="nav-text">小米push</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#使用简单灵活"><span class="nav-number">1.2.3.1.</span> <span class="nav-text">使用简单灵活</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#服务稳定安全"><span class="nav-number">1.2.3.2.</span> <span class="nav-text">服务稳定安全</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Android全平台支持"><span class="nav-number">1.2.3.3.</span> <span class="nav-text">Android全平台支持</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#限制"><span class="nav-number">1.2.3.4.</span> <span class="nav-text">限制</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#评价-2"><span class="nav-number">1.2.3.5.</span> <span class="nav-text">评价</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#案例-2"><span class="nav-number">1.2.3.6.</span> <span class="nav-text">案例</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#腾讯信鸽"><span class="nav-number">1.2.4.</span> <span class="nav-text">腾讯信鸽</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#多种推送方式-灵活方便"><span class="nav-number">1.2.4.1.</span> <span class="nav-text">多种推送方式 灵活方便</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#推送目标分类-精准营销"><span class="nav-number">1.2.4.2.</span> <span class="nav-text">推送目标分类 精准营销</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#推送数据统计-效果跟踪"><span class="nav-number">1.2.4.3.</span> <span class="nav-text">推送数据统计 效果跟踪</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#评价-3"><span class="nav-number">1.2.4.4.</span> <span class="nav-text">评价</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#案例-3"><span class="nav-number">1.2.4.5.</span> <span class="nav-text">案例</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#百度推送"><span class="nav-number">1.2.5.</span> <span class="nav-text">百度推送</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#评价-4"><span class="nav-number">1.2.5.1.</span> <span class="nav-text">评价</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#案例-4"><span class="nav-number">1.2.5.2.</span> <span class="nav-text">案例</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#华为推送"><span class="nav-number">1.2.6.</span> <span class="nav-text">华为推送</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#案例-5"><span class="nav-number">1.2.6.1.</span> <span class="nav-text">案例</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#友盟推送"><span class="nav-number">1.2.7.</span> <span class="nav-text">友盟推送</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#多维度用户分群"><span class="nav-number">1.2.7.1.</span> <span class="nav-text">多维度用户分群</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#自由选择发送内容"><span class="nav-number">1.2.7.2.</span> <span class="nav-text">自由选择发送内容</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#灵活接入"><span class="nav-number">1.2.7.3.</span> <span class="nav-text">灵活接入</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#案例-6"><span class="nav-number">1.2.7.4.</span> <span class="nav-text">案例</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#gcm推送"><span class="nav-number">1.2.8.</span> <span class="nav-text">gcm推送</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#gcm的一些限制"><span class="nav-number">1.2.8.1.</span> <span class="nav-text">gcm的一些限制</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#集成方案"><span class="nav-number">1.3.</span> <span class="nav-text">集成方案</span></a></li></ol></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator">
+            <i class="fa fa-angle-double-down"></i>
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2015 - 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">zhangzixu</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+
+  
+
+
+
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=0.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=0.5.0"></script>
+
+
+
+  
+  
+
+  
+  
+<script type="text/javascript" src="/js/src/scrollspy.js?v=0.5.0"></script>
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 1 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = NexT.utils.escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    NexT.motion.middleWares.sidebar = function () {
+      var $tocContent = $('.post-toc-content');
+
+      if (CONFIG.sidebar.display === 'post' || CONFIG.sidebar.display === 'always') {
+        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+          NexT.utils.displaySidebar();
+        }
+      }
+    };
+  });
+</script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=0.5.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+  
+  
+  
+
+  
+
+
+</body>
+</html>
