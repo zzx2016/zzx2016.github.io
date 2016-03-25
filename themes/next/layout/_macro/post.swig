@@ -36,7 +36,7 @@
                     <i class="fa fa-thumb-tack"></i>
                   </span>
                 {% endif %}
-                <a class="post-title-link" href="{{ url_for(post.path) }}" itemprop="url">
+                <a class="post-title-link" target="_blank" href="{{ url_for(post.path) }}" itemprop="url">
                   {{ post.title | default(__('post.untitled'))}}
                 </a>
               {% else %}
@@ -145,14 +145,14 @@
         {% if post.description %}
           {{ post.description }}
           <div class="post-more-link text-center">
-            <a class="btn" href="{{ url_for(post.path) }}">
+            <a class="btn" href="{{ url_for(post.path) }}" target="_blank">
               {{ __('post.read_more') }} &raquo;
             </a>
           </div>
         {% elif post.excerpt  %}
           {{ post.excerpt }}
           <div class="post-more-link text-center">
-            <a class="btn" href="{{ url_for(post.path) }}{% if theme.scroll_to_more %}#more{% endif %}" rel="contents">
+            <a class="btn" href="{{ url_for(post.path) }}{% if theme.scroll_to_more %}#more{% endif %}" rel="contents" target="_blank">
               {{ __('post.read_more') }} &raquo;
             </a>
           </div>
@@ -162,7 +162,7 @@
           {% if content.length > theme.auto_excerpt.length %}...{% endif %}
 
           <div class="post-more-link text-center">
-            <a class="btn" href="{{ url_for(post.path) }}{% if theme.scroll_to_more %}#more{% endif %}" rel="contents">
+            <a class="btn" href="{{ url_for(post.path) }}{% if theme.scroll_to_more %}#more{% endif %}" rel="contents" target="_blank">
               {{ __('post.read_more') }} &raquo;
             </a>
           </div>
