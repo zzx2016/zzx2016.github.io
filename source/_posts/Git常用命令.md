@@ -6,6 +6,8 @@ tags: Git
 
 一下罗列的只是平时常用的命令，更高级详尽的命令请参考[廖雪峰](http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000/)的教程，没有最牛逼只有更牛逼。
 
+<!--more-->
+
 设置git的user name和email
 ```
 git config --global user.name "xxx"
