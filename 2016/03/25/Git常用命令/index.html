@@ -41,7 +41,7 @@
 <link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Android," />
+  <meta name="keywords" content="Git," />
 
 
 
@@ -57,19 +57,25 @@
 
 
 
-<meta name="description" content="原文地址
-measure方法用来测量控件的大小，此方法不能重载，系统提供onMeasure方法来供我们重写。">
+<meta name="description" content="一下罗列的只是平时常用的命令，更高级详尽的命令请参考廖雪峰的教程，没有最牛逼只有更牛逼。
+设置git的user name和email12git config --global user.name &amp;quot;xxx&amp;quot;git config --global user.email &amp;quot;xxx@gmail.com&amp;quot;
+查看git的参数设置1git config --list
+生">
 <meta property="og:type" content="article">
-<meta property="og:title" content="measure方法详解">
-<meta property="og:url" content="/2016/03/19/measure方法详解/index.html">
+<meta property="og:title" content="Git常用命令">
+<meta property="og:url" content="/2016/03/25/Git常用命令/index.html">
 <meta property="og:site_name" content="守心的博客">
-<meta property="og:description" content="原文地址
-measure方法用来测量控件的大小，此方法不能重载，系统提供onMeasure方法来供我们重写。">
-<meta property="og:updated_time" content="2016-03-24T04:12:02.913Z">
+<meta property="og:description" content="一下罗列的只是平时常用的命令，更高级详尽的命令请参考廖雪峰的教程，没有最牛逼只有更牛逼。
+设置git的user name和email12git config --global user.name &amp;quot;xxx&amp;quot;git config --global user.email &amp;quot;xxx@gmail.com&amp;quot;
+查看git的参数设置1git config --list
+生">
+<meta property="og:updated_time" content="2016-03-25T12:06:11.623Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="measure方法详解">
-<meta name="twitter:description" content="原文地址
-measure方法用来测量控件的大小，此方法不能重载，系统提供onMeasure方法来供我们重写。">
+<meta name="twitter:title" content="Git常用命令">
+<meta name="twitter:description" content="一下罗列的只是平时常用的命令，更高级详尽的命令请参考廖雪峰的教程，没有最牛逼只有更牛逼。
+设置git的user name和email12git config --global user.name &amp;quot;xxx&amp;quot;git config --global user.email &amp;quot;xxx@gmail.com&amp;quot;
+查看git的参数设置1git config --list
+生">
 
 
 
@@ -87,7 +93,7 @@ measure方法用来测量控件的大小，此方法不能重载，系统提供o
   };
 </script>
 
-  <title> measure方法详解 | 守心的博客 </title>
+  <title> Git常用命令 | 守心的博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -246,7 +252,7 @@ measure方法用来测量控件的大小，此方法不能重载，系统提供o
             
             
               
-                measure方法详解
+                Git常用命令
               
             
           </h1>
@@ -258,8 +264,8 @@ measure方法用来测量控件的大小，此方法不能重载，系统提供o
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-03-19T15:26:07+08:00" content="2016-03-19">
-              2016-03-19
+            <time itemprop="dateCreated" datetime="2016-03-25T14:14:18+08:00" content="2016-03-25">
+              2016-03-25
             </time>
           </span>
 
@@ -285,24 +291,19 @@ measure方法用来测量控件的大小，此方法不能重载，系统提供o
       
 
       
-        <p><a href="http://blog.csdn.net/jjwwmlp456/article/details/43964785" target="_blank" rel="external">原文地址</a></p>
-<p>measure方法用来测量控件的大小，此方法不能重载，系统提供onMeasure方法来供我们重写。<br><a id="more"></a></p>
-<h4 id="在View-java中的定义："><a href="#在View-java中的定义：" class="headerlink" title="在View.java中的定义："></a>在View.java中的定义：</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">void</span> <span class="title">measure</span><span class="params">(<span class="keyword">int</span> widthMeasureSpec,<span class="keyword">int</span> heightMeasureSpec)</span></span>&#123;</span><br><span class="line">    ... </span><br><span class="line">    onMeasure();</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onMeasure</span><span class="params">(<span class="keyword">int</span> widthMeasureSpec,<span class="keyword">int</span> heightMeasureSpec)</span> </span>&#123;</span><br><span class="line">    setMeasuredDimension(getDefaultSize(getSuggestedMinimumWidth(), widthMeasureSpec),getDefaultSize(getSuggestedMinimumHeight(), heightMeasureSpec));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">getDefaultSize</span><span class="params">(<span class="keyword">int</span> size, <span class="keyword">int</span> measureSpec)</span> </span>&#123;  </span><br><span class="line">    <span class="keyword">int</span> result = size;  </span><br><span class="line">    <span class="keyword">int</span> specMode = MeasureSpec.getMode(measureSpec);  </span><br><span class="line">    <span class="keyword">int</span> specSize = MeasureSpec.getSize(measureSpec);  </span><br><span class="line">    <span class="keyword">switch</span> (specMode) &#123;  </span><br><span class="line">        <span class="keyword">case</span> MeasureSpec.UNSPECIFIED: <span class="comment">//未指定  </span></span><br><span class="line">            result = size;  </span><br><span class="line">            <span class="keyword">break</span>;  </span><br><span class="line">        <span class="keyword">case</span> MeasureSpec.AT_MOST: <span class="comment">//至多  </span></span><br><span class="line">        <span class="keyword">case</span> MeasureSpec.EXACTLY: <span class="comment">//精确  </span></span><br><span class="line">            result = specSize;  </span><br><span class="line">            <span class="keyword">break</span>;  </span><br><span class="line">    &#125; </span><br><span class="line">    <span class="keyword">return</span> result;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="在ViewGroup中："><a href="#在ViewGroup中：" class="headerlink" title="在ViewGroup中："></a>在ViewGroup中：</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">measureChildren</span><span class="params">(<span class="keyword">int</span> widthMeasureSpec, <span class="keyword">int</span> heightMeasureSpec)</span> </span>&#123;  </span><br><span class="line">     <span class="keyword">final</span> <span class="keyword">int</span> size = mChildrenCount;  </span><br><span class="line">     <span class="keyword">final</span> View[] children = mChildren;  </span><br><span class="line">     <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; size; ++i) &#123;  </span><br><span class="line">         <span class="keyword">final</span> View child = children[i];  </span><br><span class="line">         <span class="keyword">if</span> ((child.mViewFlags &amp; VISIBILITY_MASK) != GONE) &#123;  </span><br><span class="line">             measureChild(child, widthMeasureSpec, heightMeasureSpec);  </span><br><span class="line">         &#125;  </span><br><span class="line">     &#125;  </span><br><span class="line"> &#125;  </span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">measureChild</span><span class="params">(View child, <span class="keyword">int</span> parentWidthMeasureSpec, <span class="keyword">int</span> parentHeightMeasureSpec)</span> </span>&#123;  </span><br><span class="line">    <span class="keyword">final</span> LayoutParams lp = child.getLayoutParams();  </span><br><span class="line">    <span class="keyword">final</span> <span class="keyword">int</span> childWidthMeasureSpec = getChildMeasureSpec(parentWidthMeasureSpec, mPaddingLeft + mPaddingRight, lp.width);  </span><br><span class="line">    <span class="keyword">final</span> <span class="keyword">int</span> childHeightMeasureSpec = getChildMeasureSpec(parentHeightMeasureSpec, mPaddingTop + mPaddingBottom, lp.height);  </span><br><span class="line">    child.measure(childWidthMeasureSpec, childHeightMeasureSpec);  </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">measureChildWithMargins</span><span class="params">(View child, <span class="keyword">int</span> parentWidthMeasureSpec, <span class="keyword">int</span> widthUsed, <span class="keyword">int</span> parentHeightMeasureSpec, <span class="keyword">int</span> heightUsed)</span> </span>&#123;  </span><br><span class="line">    <span class="keyword">final</span> MarginLayoutParams lp = (MarginLayoutParams) child.getLayoutParams();  </span><br><span class="line">    <span class="keyword">final</span> <span class="keyword">int</span> childWidthMeasureSpec = getChildMeasureSpec(parentWidthMeasureSpec, mPaddingLeft + mPaddingRight + lp.leftMargin + lp.rightMargin + widthUsed, lp.width);  </span><br><span class="line">    <span class="keyword">final</span> <span class="keyword">int</span> childHeightMeasureSpec = getChildMeasureSpec(parentHeightMeasureSpec, mPaddingTop + mPaddingBottom + lp.topMargin + lp.bottomMargin + heightUsed, lp.height);  </span><br><span class="line">    child.measure(childWidthMeasureSpec, childHeightMeasureSpec);  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="说明："><a href="#说明：" class="headerlink" title="说明："></a>说明：</h4><ol>
-<li><p>measure是final修饰的方法，不可被重写。<br> 在外部调用时，直接调用view.measure(int wSpec, int hSpec)。<br> measure中调用了onMeasure。<br> 自定义view时，重写onMeasure即可。</p>
-</li>
-<li><p>MeasureSpec 这是一个含mode和size的结合体，不需要我们来具体的关心。当在测量时，可以调用MeasureSpec.getSize|getMode 得到相应的size和mode。然后使用MeasureSpec.makeMeasureSpec(size,mode); 来创建MeasureSpec对象。那么mode是怎么来的呢？是根据使用该自定义view时的layoutWith|height参数决定的，所以不能自己随便new一个。而size可以自己指定，也可以直接使用 measureSpec.getSize。</p>
-</li>
-<li><p>如果是一个View，重写onMeasure时要注意：如果在使用自定义view时，用了wrap_content。那么在onMeasure中就要调用setMeasuredDimension，来指定view的宽高。如果使用的fill_parent或者一个具体的dp值。那么直接使用super.onMeasure即可。</p>
-</li>
-<li><p>如果是一个ViewGroup，重写onMeasure时要注意：首先，结合上面两条，来测量自身的宽高。然后，需要测量子View的宽高。测量子view的方式有：</p>
-<ul>
-<li>getChildAt(int index).可以拿到index上的子view。通过getChildCount得到子view的数目，再循环遍历出子view。接着，subView.measure(int wSpec, int hSpec); //使用子view自身的测量方法</li>
-<li>或者调用viewGroup的测量子view的方法：<br> //某一个子view，多宽，多高, 内部加上了viewGroup的padding值<br> measureChild(subView, int wSpec, int hSpec);<br> //所有子view 都是 多宽，多高, 内部调用了measureChild方法<br> measureChildren(int wSpec, int hSpec);<br> //某一个子view，多宽，多高, 内部加上了viewGroup的padding值、margin值和传入的宽高wUsed、hUsed<br> measureChildWithMargins(subView, intwSpec, int wUsed, int hSpec, int hUsed);</li>
-</ul>
-</li>
-</ol>
+        <p>一下罗列的只是平时常用的命令，更高级详尽的命令请参考<a href="http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000/" target="_blank" rel="external">廖雪峰</a>的教程，没有最牛逼只有更牛逼。</p>
+<p>设置git的user name和email<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name &quot;xxx&quot;</span><br><span class="line">git config --global user.email &quot;xxx@gmail.com&quot;</span><br></pre></td></tr></table></figure></p>
+<p>查看git的参数设置<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config --list</span><br></pre></td></tr></table></figure></p>
+<p>生存密钥：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &quot;xxx@gmail.com&quot;</span><br></pre></td></tr></table></figure></p>
+<p>创建空的 Git 目录<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git init</span><br></pre></td></tr></table></figure></p>
+<p>clone远程仓库<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/XXX/YYY.git</span><br></pre></td></tr></table></figure></p>
+<p>追踪test.txt<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git add test.txt</span><br><span class="line">或者</span><br><span class="line">git add -A</span><br></pre></td></tr></table></figure></p>
+<p>将修改内容提交到本地仓库<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git commit -m &quot;描述信息&quot;</span><br></pre></td></tr></table></figure></p>
+<p>将本地仓库push到远程分支XXX<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push origin XXX</span><br></pre></td></tr></table></figure></p>
+<p>查看当前状态<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git status</span><br></pre></td></tr></table></figure></p>
+<p>新建分支<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git branch XXX</span><br><span class="line">或者</span><br><span class="line">git checkout -b XXX</span><br></pre></td></tr></table></figure></p>
+<p>切换分支<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout XXX</span><br></pre></td></tr></table></figure></p>
+<p>将XXX分支merge到当前分支<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git merge XXX</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -317,7 +318,7 @@ measure方法用来测量控件的大小，此方法不能重载，系统提供o
       
         <div class="post-tags">
           
-            <a href="/tags/Android/" rel="tag">#Android</a>
+            <a href="/tags/Git/" rel="tag">#Git</a>
           
         </div>
       
@@ -326,17 +327,13 @@ measure方法用来测量控件的大小，此方法不能重载，系统提供o
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/03/19/Activity的结构/" rel="next" title="Activity的结构">
-                <i class="fa fa-chevron-left"></i> Activity的结构
+              <a href="/2016/03/25/Android-push方案调研/" rel="next" title="Android push方案调研">
+                <i class="fa fa-chevron-left"></i> Android push方案调研
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/03/19/requestcode和resultcode作用/" rel="prev" title="requestcode和resultcode作用">
-                requestcode和resultcode作用 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -467,7 +464,7 @@ measure方法用来测量控件的大小，此方法不能重载，系统提供o
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#在View-java中的定义："><span class="nav-number">1.</span> <span class="nav-text">在View.java中的定义：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#在ViewGroup中："><span class="nav-number">2.</span> <span class="nav-text">在ViewGroup中：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#说明："><span class="nav-number">3.</span> <span class="nav-text">说明：</span></a></li></ol></div>
+              <p class="post-toc-empty">此文章未包含目录</p>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">
