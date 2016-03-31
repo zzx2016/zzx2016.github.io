@@ -57,22 +57,19 @@
 
 
 
-<meta name="description" content="这里不赘述单例模式的概念了，直接演示几种不同的实现方式。
-Eager initialization如果程序一开始就需要某个单例，并且创建这个单例并不那么费时，我们可以考虑用这种方式：
-123456789public class Singleton &amp;#123;    private static final Singleton INSTANCE = new Singleton();    priv">
+<meta name="description" content="原文地址
+这里不赘述单例模式的概念了，直接演示几种不同的实现方式。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java单例模式总结">
 <meta property="og:url" content="/2016/03/31/Java单例总结/index.html">
 <meta property="og:site_name" content="守心的博客">
-<meta property="og:description" content="这里不赘述单例模式的概念了，直接演示几种不同的实现方式。
-Eager initialization如果程序一开始就需要某个单例，并且创建这个单例并不那么费时，我们可以考虑用这种方式：
-123456789public class Singleton &amp;#123;    private static final Singleton INSTANCE = new Singleton();    priv">
-<meta property="og:updated_time" content="2016-03-31T09:45:37.393Z">
+<meta property="og:description" content="原文地址
+这里不赘述单例模式的概念了，直接演示几种不同的实现方式。">
+<meta property="og:updated_time" content="2016-03-31T09:47:20.847Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java单例模式总结">
-<meta name="twitter:description" content="这里不赘述单例模式的概念了，直接演示几种不同的实现方式。
-Eager initialization如果程序一开始就需要某个单例，并且创建这个单例并不那么费时，我们可以考虑用这种方式：
-123456789public class Singleton &amp;#123;    private static final Singleton INSTANCE = new Singleton();    priv">
+<meta name="twitter:description" content="原文地址
+这里不赘述单例模式的概念了，直接演示几种不同的实现方式。">
 
 
 
@@ -288,7 +285,9 @@ Eager initialization如果程序一开始就需要某个单例，并且创建这
       
 
       
-        <p>这里不赘述单例模式的概念了，直接演示几种不同的实现方式。</p>
+        <p><a href="http://hukai.me/java-notes-singleton-pattern/" target="_blank" rel="external">原文地址</a></p>
+<p>这里不赘述单例模式的概念了，直接演示几种不同的实现方式。</p>
+<a id="more"></a>
 <h4 id="Eager-initialization"><a href="#Eager-initialization" class="headerlink" title="Eager initialization"></a>Eager initialization</h4><p>如果程序一开始就需要某个单例，并且创建这个单例并不那么费时，我们可以考虑用这种方式：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Singleton</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Singleton INSTANCE = <span class="keyword">new</span> Singleton();</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">Singleton</span><span class="params">()</span> </span>&#123;&#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Singleton <span class="title">getInstance</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> INSTANCE;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>这种实现方式有几个特点：</p>
