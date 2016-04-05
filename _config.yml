@@ -72,3 +72,7 @@ deploy:
   type: git
   repository: https://github.com/zzx2016/zzx2016.github.io.git
   branch: master
+  
+# duoshuo
+duoshuo_shortname: zhangzixu
+disqus_shortname: 守心
