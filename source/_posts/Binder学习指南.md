@@ -1,7 +1,9 @@
 ---
 title: Binder学习指南
 date: 2016-04-05 14:38:50
-tags: Android
+tags:
+- Android
+- Binder
 ---
 
 [原文地址](http://www.jianshu.com/p/af2993526daf)
