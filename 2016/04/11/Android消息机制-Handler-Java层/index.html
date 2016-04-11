@@ -41,7 +41,7 @@
 <link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Android" />
+  <meta name="keywords" content="Android,消息机制," />
 
 
 
@@ -57,15 +57,29 @@
 
 
 
-<meta name="description" content="Androider">
-<meta property="og:type" content="website">
-<meta property="og:title" content="守心的博客">
-<meta property="og:url" content="/index.html">
+<meta name="description" content="本文基于Android 6.0的源代码，来分析Java层的handler消息处理机制
+
+相关源码
+1234framework/base/core/java/andorid/os/Handler.javaframework/base/core/java/andorid/os/Looper.javaframework/base/core/java/andorid/os/Message.javafra">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android消息机制-Handler(Java层)">
+<meta property="og:url" content="/2016/04/11/Android消息机制-Handler-Java层/index.html">
 <meta property="og:site_name" content="守心的博客">
-<meta property="og:description" content="Androider">
+<meta property="og:description" content="本文基于Android 6.0的源代码，来分析Java层的handler消息处理机制
+
+相关源码
+1234framework/base/core/java/andorid/os/Handler.javaframework/base/core/java/andorid/os/Looper.javaframework/base/core/java/andorid/os/Message.javafra">
+<meta property="og:image" content="http://7q5ctm.com1.z0.glb.clouddn.com/Android%E6%B6%88%E6%81%AF%E6%9C%BA%E5%88%B6-Handler%28Java%E5%B1%82%29-1.jpg">
+<meta property="og:image" content="http://7q5ctm.com1.z0.glb.clouddn.com/Android%E6%B6%88%E6%81%AF%E6%9C%BA%E5%88%B6-Handler%28Java%E5%B1%82%29-2.png">
+<meta property="og:image" content="http://7q5ctm.com1.z0.glb.clouddn.com/Android%E6%B6%88%E6%81%AF%E6%9C%BA%E5%88%B6-Handler%28Java%E5%B1%82%29-3.jpg">
+<meta property="og:updated_time" content="2016-04-11T07:02:44.600Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="守心的博客">
-<meta name="twitter:description" content="Androider">
+<meta name="twitter:title" content="Android消息机制-Handler(Java层)">
+<meta name="twitter:description" content="本文基于Android 6.0的源代码，来分析Java层的handler消息处理机制
+
+相关源码
+1234framework/base/core/java/andorid/os/Handler.javaframework/base/core/java/andorid/os/Looper.javaframework/base/core/java/andorid/os/Message.javafra">
+<meta name="twitter:image" content="http://7q5ctm.com1.z0.glb.clouddn.com/Android%E6%B6%88%E6%81%AF%E6%9C%BA%E5%88%B6-Handler%28Java%E5%B1%82%29-1.jpg">
 
 
 
@@ -83,7 +97,7 @@
   };
 </script>
 
-  <title> 守心的博客 </title>
+  <title> Android消息机制-Handler(Java层) | 守心的博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -123,9 +137,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left 
-   page-home 
- ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -212,9 +224,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
   
@@ -234,10 +246,7 @@
             
             
               
-                
-                <a class="post-title-link" target="_blank" href="/2016/04/11/Android消息机制-Handler-Java层/" itemprop="url">
-                  Android消息机制-Handler(Java层)
-                </a>
+                Android消息机制-Handler(Java层)
               
             
           </h1>
@@ -283,9 +292,7 @@
       
 
       
-        
-          
-            <blockquote>
+        <blockquote>
 <p>本文基于Android 6.0的源代码，来分析Java层的handler消息处理机制</p>
 </blockquote>
 <p>相关源码</p>
@@ -490,927 +497,53 @@
 <li>Handler的默认方法：Handler.handleMessage(msg)，优先级最低。</li>
 </ul>
 
-          
-        
       
     </div>
 
     <div>
       
+        
+      
     </div>
 
     <footer class="post-footer">
       
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" target="_blank" href="/2016/04/06/Android-Binder设计与实现-设计篇/" itemprop="url">
-                  Android Binder设计与实现-设计篇
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-04-06T17:56:38+08:00" content="2016-04-06">
-              2016-04-06
-            </time>
-          </span>
-
+        <div class="post-tags">
           
-
+            <a href="/tags/Android/" rel="tag">#Android</a>
           
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/04/06/Android-Binder设计与实现-设计篇/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/06/Android-Binder设计与实现-设计篇/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
+            <a href="/tags/消息机制/" rel="tag">#消息机制</a>
           
-
-          
-
-          
-          
-
         </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          <p><a href="http://blog.csdn.net/universus/article/details/6211589">原文地址</a></p>
-<h3 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h3><p>Binder是Android系统进程间通信（IPC）方式之一。Linux已经拥有管道，system V IPC，socket等IPC手段，却还要倚赖Binder来实现进程间通信，说明Binder具有无可比拟的优势。深入了解Binder并将之与传统IPC做对比有助于我们深入领会进程间通信的实现和性能优化。本文将对Binder的设计细节做一个全面的阐述，首先通过介绍Binder通信模型和Binder通信协议了解Binder的设计需求；然后分别阐述Binder在系统不同部分的表述方式和起的作用；最后还会解释Binder在数据接收端的设计考虑，包括线程池管理，内存映射和等待队列管理等。通过本文对Binder的详细介绍以及与其它IPC通信方式的对比，读者将对Binder的优势和使用Binder作为Android主要IPC方式的原因有深入了解。</p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/04/06/Android-Binder设计与实现-设计篇/#more" rel="contents" target="_blank">
-              阅读全文 &raquo;
-            </a>
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/04/06/Android-Binder设计与实现-设计篇/" rel="next" title="Android Binder设计与实现-设计篇">
+                <i class="fa fa-chevron-left"></i> Android Binder设计与实现-设计篇
+              </a>
+            
           </div>
-        
-      
-    </div>
 
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
+          <div class="post-nav-prev post-nav-item">
             
-            
-              
-                
-                <a class="post-title-link" target="_blank" href="/2016/04/05/Binder学习指南/" itemprop="url">
-                  Binder学习指南
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-04-05T14:38:50+08:00" content="2016-04-05">
-              2016-04-05
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/04/05/Binder学习指南/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/05/Binder学习指南/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p><a href="http://www.jianshu.com/p/af2993526daf">原文地址</a></p>
-<p>毫不夸张地说，Binder是Android系统中最重要的特性之一；正如其名“粘合剂”所喻，它是系统间各个组件的桥梁，Android系统的开放式设计也很大程度上得益与这种及其方便的跨进程通信机制。</p>
-<p>理解Binder对于理解整个Android系统有着非常重要的作用，Android系统的四大组件，AMS，PMS等系统服务无一不与Binder挂钩；如果对Binder不甚了解，那么就很难了解这些系统机制，从而仅仅浮游与表面，不懂Binder你都不好意思说自己会Android开发；要深入Android，Binder是必须迈出的一步。</p>
-<p>现在网上有不少资料介绍Binder，个人觉得最好的两篇如下：</p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/04/05/Binder学习指南/#more" rel="contents" target="_blank">
-              阅读全文 &raquo;
-            </a>
           </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" target="_blank" href="/2016/03/31/Java单例总结/" itemprop="url">
-                  Java单例模式总结
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-03-31T17:36:11+08:00" content="2016-03-31">
-              2016-03-31
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/03/31/Java单例总结/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/31/Java单例总结/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
         </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          <p><a href="http://hukai.me/java-notes-singleton-pattern/">原文地址</a></p>
-<p>这里不赘述单例模式的概念了，直接演示几种不同的实现方式。</p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/03/31/Java单例总结/#more" rel="contents" target="_blank">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </article>
 
 
-    
-      
 
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" target="_blank" href="/2016/03/31/Android属性动画/" itemprop="url">
-                  Android属性动画
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-03-31T16:43:41+08:00" content="2016-03-31">
-              2016-03-31
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/03/31/Android属性动画/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/31/Android属性动画/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>属性动画待补充…</p>
-
-          
-        
+    <div class="post-spread">
       
     </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" target="_blank" href="/2016/03/31/Android视图动画/" itemprop="url">
-                  Android视图动画
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-03-31T16:20:26+08:00" content="2016-03-31">
-              2016-03-31
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/03/31/Android视图动画/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/31/Android视图动画/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p><a href="http://www.cnblogs.com/wondertwo/p/5295976.html">原文地址</a></p>
-<h4 id="视图动画的基本用法"><a href="#视图动画的基本用法" class="headerlink" title="视图动画的基本用法"></a>视图动画的基本用法</h4><p>提起 Android 动画很多初学者就会一脸懵逼二阶茫然，当初翻遍图书馆的一大堆入门书籍都找不到一本书在讲 Android 动画机制，好在一颗痴迷技术的心让我自备燃料有始有终，最后总算弄明白了 Android 动画到底是个什么鬼。其实我们有木有经常用手机拍了很多漂亮照片以后，打开相册，点击更多，点击自动播放，这些静态的照片就会连贯的播放起来了有木有？这其实就是逐帧动画，类似于动画片的效果。是不是很简单呢？关于Android动画的分类我查了很多资料，最初只有两种动画即逐帧动画(frame-by-frame animation)和补间动画(tweened animation)，补间动画只需要开发者设置动画的起始值和结束值，中间的动画由系统自动帮我们完成，下面要介绍的视图动画就属于补间动画。但是从Android 3.x开始谷歌引入了一种全新的动画——属性动画，相对于视图动画只能给View对象设置动画效果来说，属性动画要强大的太多，只要是一个Object对象属性动画都能为其设置动画属性，不管这个对象能不能看得见，会不会与用户产生交互。关于属性动画的用法会在下一篇博客中详细介绍，下面的主要以讲解视图动画为主。视图动画即我们常说的 View Animation， 有四种效果如下：</p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/03/31/Android视图动画/#more" rel="contents" target="_blank">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" target="_blank" href="/2016/03/30/Git简明指南/" itemprop="url">
-                  Git简明指南
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-03-30T11:45:15+08:00" content="2016-03-30">
-              2016-03-30
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/03/30/Git简明指南/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/30/Git简明指南/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p><a href="http://rogerdudler.github.io/git-guide/index.zh.html">原文地址</a></p>
-<p>git常用命令，方便平时查阅。</p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/03/30/Git简明指南/#more" rel="contents" target="_blank">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" target="_blank" href="/2016/03/25/Git常用命令/" itemprop="url">
-                  Git常用命令
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-03-25T14:14:18+08:00" content="2016-03-25">
-              2016-03-25
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/03/25/Git常用命令/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/25/Git常用命令/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>一下罗列的只是平时常用的命令，更高级详尽的命令请参考<a href="http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000/">廖雪峰</a>的教程，没有最牛逼只有更牛逼。</p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/03/25/Git常用命令/#more" rel="contents" target="_blank">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" target="_blank" href="/2016/03/25/Android-push方案调研/" itemprop="url">
-                  Android push方案调研
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-03-25T10:48:12+08:00" content="2016-03-25">
-              2016-03-25
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/03/25/Android-push方案调研/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/25/Android-push方案调研/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1 id="push调研"><a href="#push调研" class="headerlink" title="push调研"></a>push调研</h1><p>Android push通道调研文档</p>
-<h2 id="第三方push通道"><a href="#第三方push通道" class="headerlink" title="第三方push通道"></a>第三方push通道</h2><p>较早的JPush、个推，后来小米push、腾讯信鸽、百度推送、华为推送、友盟推送。官方统计的到达率都是99%+，算法是 <em>送达率 = 送达数 / 计划推送 × 100%</em>，计划推送是指目标推送的设备数，已去除了错误或无效的设备，所以到达率算出来很高。而大众反馈的到达率基本在40%~60%之间。</p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/03/25/Android-push方案调研/#more" rel="contents" target="_blank">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" target="_blank" href="/2016/03/24/数据库的最简单实现/" itemprop="url">
-                  数据库的最简单实现
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-03-24T11:27:29+08:00" content="2016-03-24">
-              2016-03-24
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/03/24/数据库的最简单实现/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/24/数据库的最简单实现/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>转载：<a href="http://www.ruanyifeng.com/blog/2014/07/database_implementation.html">原文地址</a></p>
-<p>所有应用软件之中，数据库可能是最复杂的。</p>
-<p>MySQL的手册有3000多页，PostgreSQL的手册有2000多页，Oracle的手册更是比它们相加还要厚。</p>
-<p>但是，自己写一个最简单的数据库，做起来并不难。Reddit上面有一个帖子，只用了几百个字，就把原理讲清楚了。下面是我根据这个帖子整理的内容。</p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/03/24/数据库的最简单实现/#more" rel="contents" target="_blank">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-  </section>
-
-  
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
-  </nav>
-
+  </div>
 
 
           </div>
@@ -1418,6 +551,14 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/04/11/Android消息机制-Handler-Java层/"
+           data-title="Android消息机制-Handler(Java层)" data-url="/2016/04/11/Android消息机制-Handler-Java层/">
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -1437,8 +578,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/default_avatar.jpg"
@@ -1502,6 +652,23 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator">
+            <i class="fa fa-angle-double-up"></i>
+          </div>
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#概述"><span class="nav-number">1.</span> <span class="nav-text">概述</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#模型"><span class="nav-number">1.1.</span> <span class="nav-text">模型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#架构图"><span class="nav-number">1.2.</span> <span class="nav-text">架构图</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#典型实例"><span class="nav-number">1.3.</span> <span class="nav-text">典型实例</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Looper"><span class="nav-number">2.</span> <span class="nav-text">Looper</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#prepare"><span class="nav-number">2.1.</span> <span class="nav-text">prepare()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#loop"><span class="nav-number">2.2.</span> <span class="nav-text">loop()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#quit"><span class="nav-number">2.3.</span> <span class="nav-text">quit()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#常用方法"><span class="nav-number">2.4.</span> <span class="nav-text">常用方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#new-Handler"><span class="nav-number">2.5.</span> <span class="nav-text">new Handler()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#dispatchMessage"><span class="nav-number">2.6.</span> <span class="nav-text">dispatchMessage</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#sendMessage"><span class="nav-number">2.7.</span> <span class="nav-text">sendMessage</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#常用方法-1"><span class="nav-number">2.8.</span> <span class="nav-text">常用方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#new-MessageQueue"><span class="nav-number">2.9.</span> <span class="nav-text">new MessageQueue()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#next-提取下一条message"><span class="nav-number">2.10.</span> <span class="nav-text">next()提取下一条message</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#enqueueMessage添加一条消息到消息队列"><span class="nav-number">2.11.</span> <span class="nav-text">enqueueMessage添加一条消息到消息队列</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#removeMessages"><span class="nav-number">2.12.</span> <span class="nav-text">removeMessages</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Message"><span class="nav-number">3.</span> <span class="nav-text">Message</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#创建消息"><span class="nav-number">3.1.</span> <span class="nav-text">创建消息</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#消息池"><span class="nav-number">3.2.</span> <span class="nav-text">消息池</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结"><span class="nav-number">4.</span> <span class="nav-text">总结</span></a></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator">
+            <i class="fa fa-angle-double-down"></i>
+          </div>
+        </section>
       
 
     </div>
@@ -1586,6 +753,167 @@
   
 
   
+  
+<script type="text/javascript" src="/js/src/scrollspy.js?v=0.5.0"></script>
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 1 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = NexT.utils.escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    NexT.motion.middleWares.sidebar = function () {
+      var $tocContent = $('.post-toc-content');
+
+      if (CONFIG.sidebar.display === 'post' || CONFIG.sidebar.display === 'always') {
+        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+          NexT.utils.displaySidebar();
+        }
+      }
+    };
+  });
+</script>
+
+
 
   
 
