@@ -37,7 +37,7 @@ android {
 
 如果你的 app module 依赖了一个使用 data binding 的库，那么你的 app module 的 build.gradle 也必须配置 data binding。
 
-同时，确定使用了支持该特性的 Android Studio。在 Android Studio 1.3 以及之后的版本提供了 data binding 的支持，详见[Android Studio Support for Data Binding](#Android-Studio-对-Data-binding-的支持)。
+同时，确定使用了支持该特性的 Android Studio。在 Android Studio 1.3 以及之后的版本提供了 data binding 的支持，详见[Android Studio对Data binding的支持](#Android-Studio-对-Data-binding-的支持)。
 
 ### Data Binding布局文件
 
