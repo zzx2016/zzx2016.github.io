@@ -69,7 +69,7 @@ Data Binding Library 提供了灵活性与通用性 － 它是一个 support lib
 这个文档用于解释如何使用 Data Binding Library 编写声明式的布局，减少应用中逻辑以及布局所需要的“胶水代码”。
 Data Binding Library 提供了灵活性与通用性 － 它是一个 support library，可以在 Android 2.1(API level 7+)以上的平台使用。
 为了使用 data binding，gradle plugin的版本必须">
-<meta property="og:updated_time" content="2016-04-11T12:12:12.199Z">
+<meta property="og:updated_time" content="2016-04-11T12:13:54.720Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Data Binding 指南">
 <meta name="twitter:description" content="原文地址
@@ -471,7 +471,7 @@ Data Binding Library 提供了灵活性与通用性 － 它是一个 support lib
 </tr>
 </tbody>
 </table>
-<h3 id="数据对象-1"><a href="#数据对象-1" class="headerlink" title="数据对象"></a>数据对象</h3><p>任何 POJO 都能用在 data binding 中，但是更改 POJO 并不会同步更新 UI。data binding 的强大之处就在于它可以让你的数据拥有更新通知的能力。这里有三种不同的数据变动通知机制，<a href="#Observable对象">Observable 对象</a>，<a href="#observable域">observable 域</a>，与 <a href="observable容器类">observable 容器类</a>。</p>
+<h3 id="数据对象-1"><a href="#数据对象-1" class="headerlink" title="数据对象"></a>数据对象</h3><p>任何 POJO 都能用在 data binding 中，但是更改 POJO 并不会同步更新 UI。data binding 的强大之处就在于它可以让你的数据拥有更新通知的能力。这里有三种不同的数据变动通知机制，<a href="#Observable对象">Observable 对象</a>，<a href="#Observable域">observable 域</a>，与 <a href="#Observable容器类">observable 容器类</a>。</p>
 <p>当以上的 observable 对象绑定在 UI 上，数据发生变化时，UI 就会同步更新。</p>
 <h4 id="Observable对象"><a href="#Observable对象" class="headerlink" title="Observable对象"></a>Observable对象</h4><p>当一个类声明了 Observable 接口时，data binding 会设置一个 listener 在绑定的对象上，以便监听对象域的变动。</p>
 <p>Observable 接口有一个添加/移除 listener 的机制，但通知取决于开发者。为了简化开发，我们创建了一个基类 BaseObservable，来实现 listener 注册机制。这个类也实现了域变动的通知，你只需要在 getter 上使用 Bindable 注解，并在 setter 中实现通知。</p>
