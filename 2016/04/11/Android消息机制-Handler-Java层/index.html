@@ -57,28 +57,34 @@
 
 
 
-<meta name="description" content="本文基于Android 6.0的源代码，来分析Java层的handler消息处理机制
+<meta name="description" content="原文链接
+
+本文基于Android 6.0的源代码，来分析Java层的handler消息处理机制
 
 相关源码
-1234framework/base/core/java/andorid/os/Handler.javaframework/base/core/java/andorid/os/Looper.javaframework/base/core/java/andorid/os/Message.javafra">
+1234framework/base/core/java/andorid/os/Handler.javaframework/base/core/java/andorid/os/Looper.javaframework/base/core/java/andorid/os/Message.ja">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Android消息机制-Handler(Java层)">
 <meta property="og:url" content="/2016/04/11/Android消息机制-Handler-Java层/index.html">
 <meta property="og:site_name" content="守心的博客">
-<meta property="og:description" content="本文基于Android 6.0的源代码，来分析Java层的handler消息处理机制
+<meta property="og:description" content="原文链接
+
+本文基于Android 6.0的源代码，来分析Java层的handler消息处理机制
 
 相关源码
-1234framework/base/core/java/andorid/os/Handler.javaframework/base/core/java/andorid/os/Looper.javaframework/base/core/java/andorid/os/Message.javafra">
+1234framework/base/core/java/andorid/os/Handler.javaframework/base/core/java/andorid/os/Looper.javaframework/base/core/java/andorid/os/Message.ja">
 <meta property="og:image" content="http://7q5ctm.com1.z0.glb.clouddn.com/Android%E6%B6%88%E6%81%AF%E6%9C%BA%E5%88%B6-Handler%28Java%E5%B1%82%29-1.jpg">
 <meta property="og:image" content="http://7q5ctm.com1.z0.glb.clouddn.com/Android%E6%B6%88%E6%81%AF%E6%9C%BA%E5%88%B6-Handler%28Java%E5%B1%82%29-2.png">
 <meta property="og:image" content="http://7q5ctm.com1.z0.glb.clouddn.com/Android%E6%B6%88%E6%81%AF%E6%9C%BA%E5%88%B6-Handler%28Java%E5%B1%82%29-3.jpg">
-<meta property="og:updated_time" content="2016-04-11T07:15:43.031Z">
+<meta property="og:updated_time" content="2016-04-11T07:18:22.815Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android消息机制-Handler(Java层)">
-<meta name="twitter:description" content="本文基于Android 6.0的源代码，来分析Java层的handler消息处理机制
+<meta name="twitter:description" content="原文链接
+
+本文基于Android 6.0的源代码，来分析Java层的handler消息处理机制
 
 相关源码
-1234framework/base/core/java/andorid/os/Handler.javaframework/base/core/java/andorid/os/Looper.javaframework/base/core/java/andorid/os/Message.javafra">
+1234framework/base/core/java/andorid/os/Handler.javaframework/base/core/java/andorid/os/Looper.javaframework/base/core/java/andorid/os/Message.ja">
 <meta name="twitter:image" content="http://7q5ctm.com1.z0.glb.clouddn.com/Android%E6%B6%88%E6%81%AF%E6%9C%BA%E5%88%B6-Handler%28Java%E5%B1%82%29-1.jpg">
 
 
@@ -292,11 +298,13 @@
       
 
       
-        <blockquote>
+        <p><a href="http://gityuan.com/2015/12/26/handler-message-framework/" target="_blank" rel="external">原文链接</a></p>
+<blockquote>
 <p>本文基于Android 6.0的源代码，来分析Java层的handler消息处理机制</p>
 </blockquote>
 <p>相关源码</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">framework/base/core/java/andorid/os/Handler.java</span><br><span class="line">framework/base/core/java/andorid/os/Looper.java</span><br><span class="line">framework/base/core/java/andorid/os/Message.java</span><br><span class="line">framework/base/core/java/andorid/os/MessageQueue.java</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
 <h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p>在整个Android的源码世界里，有两大利剑，其一是Binder IPC机制，，另一个便是消息机制(由Handler/Looper/MessageQueue等构成的)。关于Binder在Binder系列中详细讲解过，有兴趣看看。</p>
 <p>Android有大量的消息驱动方式来进行交互，比如Android的四剑客Activity, Service, Broadcast, ContentProvider的启动过程的交互，都离不开消息机制，Android某种意义上也可以说成是一个以消息驱动的系统。消息机制涉及MessageQueue/Message/Looper/Handler这4个类。</p>
 <h4 id="模型"><a href="#模型" class="headerlink" title="模型"></a>模型</h4><p>消息机制主要包含：</p>
