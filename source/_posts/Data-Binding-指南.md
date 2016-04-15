@@ -226,7 +226,7 @@ data标签内可以有多个 import 标签。你可以在布局文件中像使�
     <import type="com.example.User"/>
     <import type="java.util.List"/>
     <variable name="user" type="User"/>
-    <variable name="userList" type="List&lt;User>"/>
+    <variable name="userList" type="List<User>"/>
 </data>
 ```
 
@@ -268,17 +268,17 @@ data 标签中可以有任意数量的 variable 标签。每个 variable 标签�
 </data>
 ```
 
-变量类型会在编译时被检查，所以如果变量声明了 Observable 接口或者是一个可观察容器类，那它会被反射使用。如果变量是一个没有声明 Observable* 接口的基类或借口，变量的变动则不会引起 UI 的变化！
+变量类型会在编译时被检查，所以如果变量声明了 Observable 接口或者是一个可观察容器类，那它会被反射使用。如果变量是一个没有声明 Observable 接口的基类或借口，变量的变动则不会引起 UI 的变化！
 
 当针对不同配置编写不同的布局文件时（比如横屏竖屏的布局），变量会被合并。所以这些不同配置的布局文件之间不能存在冲突。
 
 自动生成的 binding 类会为每一个变量生产 getter/setter 函数。这些变量会使用 Java 的默认赋值，直到 setter 函数被调用。默认赋值有 null，0(int)，false(boolean)等。
 
-binding 类也会生一个一个命名为 context 的特殊变量，这个变量被用于表达式中。context 变量其实就是 rootView 的 getContext()) 的返回值。context 变量会被同名的显式变量覆盖。
+binding 类也会生成一个命名为 context 的特殊变量，这个变量被用于表达式中。context 变量其实就是 rootView 的 getContext()) 的返回值。context 变量会被同名的显式变量覆盖。
 
 #### 自定义 Binding 类名
 
-默认情况下，binding 类的名称取决于布局文件的命名，以大写字母开头，移除下划线，后续字母大写并追加 “Binding” 结尾。这个类会被放置在 databinding 包中。举个例子，布局文件 contact_item.xml 会生成 ContactItemBinding 类。如果 module 包名为 com.example.my.app，binding 类会被放在 com.example.my.app.databinding 中。
+默认情况下，binding 类的名称取决于布局文件的命名，以大写字母开头，移除下划线，后续字母大写并追加 “Binding” 结尾。这个类会被放置在 databinding 包中。举个例子，布局文件 contact_item.xml 会生成 ContactItemBinding类。如果module包名为com.example.my.app，binding类会被放在 com.example.my.app.databinding 中。
 
 通过修改 data标签中的class 属性，可以修改 Binding 类的命名与位置。举个例子：
 
@@ -387,7 +387,7 @@ instanceof
 
 ```xml
 android:text="@{String.valueOf(index + 1)}"
-android:visibility="@{age &lt; 13 ? View.GONE : View.VISIBLE}"
+android:visibility="@{age > 13 ? View.GONE : View.VISIBLE}"
 android:transitionName='@{"image_" + id}'
 ```
 
@@ -438,9 +438,9 @@ android:text="@{user.lastName}"
     <import type="android.util.SparseArray"/>
     <import type="java.util.Map"/>
     <import type="java.util.List"/>
-    <variable name="list" type="List&lt;String>"/>
-    <variable name="sparse" type="SparseArray&lt;String>"/>
-    <variable name="map" type="Map&lt;String, String>"/>
+    <variable name="list" type="List<String>"/>
+    <variable name="sparse" type="SparseArray<String>"/>
+    <variable name="map" type="Map<String, String>"/>
     <variable name="index" type="int"/>
     <variable name="key" type="String"/>
 </data>
@@ -460,11 +460,11 @@ android:text="@{map[key]}"
 android:text='@{map["firstName"]}'
 ```
 
-也可以用双引号将属性包起来。这样的话，字符串字面量就可以用&quot;或者反引号(`) 来调用
+也可以用双引号将属性包起来。这样的话，字符串字面量就可以用"或者反引号(`) 来调用
 
 ```xml
 android:text="@{map[`firstName`}"
-android:text="@{map[&quot;firstName&quot;]}"
+android:text="@{map["firstName"]}"
 ```
 
 ##### 资源
@@ -576,7 +576,7 @@ user.put("age", 17);
 ```xml
 <data>
     <import type="android.databinding.ObservableMap"/>
-    <variable name="user" type="ObservableMap&lt;String, Object>"/>
+    <variable name="user" type="ObservableMap<String, Object>"/>
 </data>
 …
 <TextView
@@ -604,7 +604,7 @@ user.add(17);
 <data>
     <import type="android.databinding.ObservableList"/>
     <import type="com.example.my.app.Fields"/>
-    <variable name="user" type="ObservableList&lt;Object>"/>
+    <variable name="user" type="ObservableList<Object>"/>
 </data>
 …
 <TextView
