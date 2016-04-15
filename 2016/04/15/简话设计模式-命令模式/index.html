@@ -41,7 +41,7 @@
 <link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Android," />
+  <meta name="keywords" content="Android" />
 
 
 
@@ -57,16 +57,16 @@
 
 
 
-<meta name="description" content="项目实际需求中可能会有设置ViewPager禁止滑动的需求，此时需要重写ViewPager处理触屏事件">
+<meta name="description" content="Androider">
 <meta property="og:type" content="article">
-<meta property="og:title" content="禁止ViewPager滑动">
-<meta property="og:url" content="/2016/03/19/禁止ViewPager滑动/index.html">
+<meta property="og:title" content="简话设计模式-命令模式">
+<meta property="og:url" content="/2016/04/15/简话设计模式-命令模式/index.html">
 <meta property="og:site_name" content="守心的博客">
-<meta property="og:description" content="项目实际需求中可能会有设置ViewPager禁止滑动的需求，此时需要重写ViewPager处理触屏事件">
-<meta property="og:updated_time" content="2016-03-24T04:12:02.914Z">
+<meta property="og:description" content="Androider">
+<meta property="og:updated_time" content="2016-04-15T07:29:16.580Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="禁止ViewPager滑动">
-<meta name="twitter:description" content="项目实际需求中可能会有设置ViewPager禁止滑动的需求，此时需要重写ViewPager处理触屏事件">
+<meta name="twitter:title" content="简话设计模式-命令模式">
+<meta name="twitter:description" content="Androider">
 
 
 
@@ -84,7 +84,7 @@
   };
 </script>
 
-  <title> 禁止ViewPager滑动 | 守心的博客 </title>
+  <title> 简话设计模式-命令模式 | 守心的博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -233,7 +233,7 @@
             
             
               
-                禁止ViewPager滑动
+                简话设计模式-命令模式
               
             
           </h1>
@@ -245,8 +245,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-03-19T14:54:37+08:00" content="2016-03-19">
-              2016-03-19
+            <time itemprop="dateCreated" datetime="2016-04-15T15:29:16+08:00" content="2016-04-15">
+              2016-04-15
             </time>
           </span>
 
@@ -256,8 +256,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/03/19/禁止ViewPager滑动/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/19/禁止ViewPager滑动/" itemprop="commentsCount"></span>
+                <a href="/2016/04/15/简话设计模式-命令模式/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/15/简话设计模式-命令模式/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -279,9 +279,7 @@
       
 
       
-        <p>项目实际需求中可能会有设置ViewPager禁止滑动的需求，此时需要重写ViewPager处理触屏事件<br><a id="more"></a></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> classCustomViewPager extends ViewPager &#123;</span><br><span class="line">    <span class="keyword">private</span> booleanisPagingEnabled=<span class="keyword">true</span>;</span><br><span class="line">    publicCustomViewPager(Context context) &#123;</span><br><span class="line">        <span class="keyword">super</span>(context);</span><br><span class="line">    &#125;</span><br><span class="line">    publicCustomViewPager(Context context, AttributeSet attrs) &#123;</span><br><span class="line">        <span class="keyword">super</span>(context, attrs);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">booleanonTouchEvent</span><span class="params">(MotionEvent event)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.isPagingEnabled&amp;&amp;<span class="keyword">super</span>.onTouchEvent(event);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">booleanonInterceptTouchEvent</span><span class="params">(MotionEvent event)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.isPagingEnabled&amp;&amp;<span class="keyword">super</span>.onInterceptTouchEvent(event);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">voidsetPagingEnabled</span><span class="params">(booleanb)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.isPagingEnabled= b;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+        
       
     </div>
 
@@ -293,28 +291,18 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/Android/" rel="tag">#Android</a>
-          
-        </div>
-      
 
       
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/03/19/Picasso图片加载库/" rel="next" title="Picasso图片加载库">
-                <i class="fa fa-chevron-left"></i> Picasso图片加载库
+              <a href="/2016/04/14/简话设计模式-策略模式/" rel="next" title="简话设计模式-策略模式">
+                <i class="fa fa-chevron-left"></i> 简话设计模式-策略模式
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/03/19/屏幕适配尺寸/" rel="prev" title="屏幕适配尺寸">
-                屏幕适配尺寸 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -329,10 +317,10 @@
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2016/03/19/禁止ViewPager滑动/"
-     data-title="禁止ViewPager滑动"
+        <div class="ds-share flat" data-thread-key="2016/04/15/简话设计模式-命令模式/"
+     data-title="简话设计模式-命令模式"
      data-content=""
-     data-url="/2016/03/19/禁止ViewPager滑动/">
+     data-url="/2016/04/15/简话设计模式-命令模式/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -359,8 +347,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/03/19/禁止ViewPager滑动/"
-           data-title="禁止ViewPager滑动" data-url="/2016/03/19/禁止ViewPager滑动/">
+      <div class="ds-thread" data-thread-key="2016/04/15/简话设计模式-命令模式/"
+           data-title="简话设计模式-命令模式" data-url="/2016/04/15/简话设计模式-命令模式/">
       </div>
     
   </div>
