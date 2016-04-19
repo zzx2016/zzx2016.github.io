@@ -57,33 +57,18 @@
 
 
 
-<meta name="description" content="概述上一篇已经介绍过视图动画，只支持简单的缩放、平移、旋转、透明度基本的动画，且有一定的局限性。比如：你希望View有一个颜色的切换动画；你希望可以使用3D旋转动画；你希望当动画停止时，View的位置就是当前的位置；只能作用在View；这些需求视图动画都无法做到。这就是属性动画产生的原因。
-属性动画动画从创建到执行总共可以分成以下两步
-1. 计算属性值
-计算过程分为三步：
-
-计算已完成动画分数。为">
+<meta name="description" content="概述上一篇已经介绍过视图动画，只支持简单的缩放、平移、旋转、透明度基本的动画，且有一定的局限性。比如：你希望View有一个颜色的切换动画；你希望可以使用3D旋转动画；你希望当动画停止时，View的位置就是当前的位置；只能作用在View；这些需求视图动画都无法做到。这就是属性动画产生的原因。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Android属性动画">
 <meta property="og:url" content="/2016/03/31/Android属性动画/index.html">
 <meta property="og:site_name" content="守心的博客">
-<meta property="og:description" content="概述上一篇已经介绍过视图动画，只支持简单的缩放、平移、旋转、透明度基本的动画，且有一定的局限性。比如：你希望View有一个颜色的切换动画；你希望可以使用3D旋转动画；你希望当动画停止时，View的位置就是当前的位置；只能作用在View；这些需求视图动画都无法做到。这就是属性动画产生的原因。
-属性动画动画从创建到执行总共可以分成以下两步
-1. 计算属性值
-计算过程分为三步：
-
-计算已完成动画分数。为">
+<meta property="og:description" content="概述上一篇已经介绍过视图动画，只支持简单的缩放、平移、旋转、透明度基本的动画，且有一定的局限性。比如：你希望View有一个颜色的切换动画；你希望可以使用3D旋转动画；你希望当动画停止时，View的位置就是当前的位置；只能作用在View；这些需求视图动画都无法做到。这就是属性动画产生的原因。">
 <meta property="og:image" content="http://7q5ctm.com1.z0.glb.clouddn.com/%E5%B1%9E%E6%80%A7%E5%8A%A8%E7%94%BB-1.png">
 <meta property="og:image" content="http://7q5ctm.com1.z0.glb.clouddn.com/%E5%B1%9E%E6%80%A7%E5%8A%A8%E7%94%BB-2.png">
-<meta property="og:updated_time" content="2016-04-19T08:44:59.181Z">
+<meta property="og:updated_time" content="2016-04-19T10:03:21.101Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android属性动画">
-<meta name="twitter:description" content="概述上一篇已经介绍过视图动画，只支持简单的缩放、平移、旋转、透明度基本的动画，且有一定的局限性。比如：你希望View有一个颜色的切换动画；你希望可以使用3D旋转动画；你希望当动画停止时，View的位置就是当前的位置；只能作用在View；这些需求视图动画都无法做到。这就是属性动画产生的原因。
-属性动画动画从创建到执行总共可以分成以下两步
-1. 计算属性值
-计算过程分为三步：
-
-计算已完成动画分数。为">
+<meta name="twitter:description" content="概述上一篇已经介绍过视图动画，只支持简单的缩放、平移、旋转、透明度基本的动画，且有一定的局限性。比如：你希望View有一个颜色的切换动画；你希望可以使用3D旋转动画；你希望当动画停止时，View的位置就是当前的位置；只能作用在View；这些需求视图动画都无法做到。这就是属性动画产生的原因。">
 <meta name="twitter:image" content="http://7q5ctm.com1.z0.glb.clouddn.com/%E5%B1%9E%E6%80%A7%E5%8A%A8%E7%94%BB-1.png">
 
 
@@ -328,6 +313,7 @@
 
       
         <h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p>上一篇已经介绍过<a href="http://zzx2016.github.io/2016/03/31/Android%E8%A7%86%E5%9B%BE%E5%8A%A8%E7%94%BB/" target="_blank" rel="external">视图动画</a>，只支持简单的缩放、平移、旋转、透明度基本的动画，且有一定的局限性。比如：你希望View有一个颜色的切换动画；你希望可以使用3D旋转动画；你希望当动画停止时，View的位置就是当前的位置；只能作用在View；这些需求视图动画都无法做到。这就是属性动画产生的原因。</p>
+<a id="more"></a>
 <h3 id="属性动画"><a href="#属性动画" class="headerlink" title="属性动画"></a>属性动画</h3><p>动画从创建到执行总共可以分成以下两步</p>
 <h4 id="1-计算属性值"><a href="#1-计算属性值" class="headerlink" title="1. 计算属性值"></a>1. 计算属性值</h4><p><img src="http://7q5ctm.com1.z0.glb.clouddn.com/%E5%B1%9E%E6%80%A7%E5%8A%A8%E7%94%BB-1.png" alt="计算属性值"></p>
 <p>计算过程分为三步：</p>
