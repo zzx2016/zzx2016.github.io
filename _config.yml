@@ -12,7 +12,7 @@ timezone:
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: /
+url: http://www.in-droid.com
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
@@ -72,6 +72,7 @@ deploy:
   type: git
   repository: https://github.com/zzx2016/zzx2016.github.io.git
   branch: master
+  plugins: -hexo-generator-cname
   
 # duoshuo
 duoshuo_shortname: zhangzixu
