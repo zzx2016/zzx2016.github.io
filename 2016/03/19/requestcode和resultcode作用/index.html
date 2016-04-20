@@ -58,18 +58,18 @@
 
 
 <meta name="description" content="requestCode请求码：startActivityForResult()的参数。
-resultCode结果码：setResut()的参数。">
+resultCode结果码：setResult()的参数。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="requestcode和resultcode作用">
 <meta property="og:url" content="/2016/03/19/requestcode和resultcode作用/index.html">
 <meta property="og:site_name" content="守心的博客">
 <meta property="og:description" content="requestCode请求码：startActivityForResult()的参数。
-resultCode结果码：setResut()的参数。">
-<meta property="og:updated_time" content="2016-03-24T04:12:02.913Z">
+resultCode结果码：setResult()的参数。">
+<meta property="og:updated_time" content="2016-04-20T02:48:54.541Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="requestcode和resultcode作用">
 <meta name="twitter:description" content="requestCode请求码：startActivityForResult()的参数。
-resultCode结果码：setResut()的参数。">
+resultCode结果码：setResult()的参数。">
 
 
 
@@ -313,7 +313,7 @@ resultCode结果码：setResut()的参数。">
 
       
         <p>requestCode请求码：<code>startActivityForResult()</code>的参数。</p>
-<p>resultCode结果码：<code>setResut()</code>的参数。<br><a id="more"></a></p>
+<p>resultCode结果码：<code>setResult()</code>的参数。<br><a id="more"></a></p>
 <h4 id="requestCode-请求码作用："><a href="#requestCode-请求码作用：" class="headerlink" title="requestCode 请求码作用："></a>requestCode 请求码作用：</h4><p>使用<code>startActivityForResult(Intent intent, int requestCode)</code>方法打开新的Activity，我们需要为<code>startActivityForResult()</code>方法传入一个请求码(第二个参数)。请求码的值是根据业务需要由自已设定，用于标识请求来源。例如：一个Activity有两个按钮，点击这两个按钮都会打开同一个新Activity，不管是哪个按钮打开新Activity，当这个新Activity关闭后，系统都会调用前面Activity的<code>onActivityResult(int requestCode, int resultCode, Intent data)</code>方法。在<code>onActivityResult()</code>方法如果需要知道新Activity是由那个按钮打开的，并且要做出相应的业务处理，就可以用<code>requestCode</code>来区分。</p>
 <h4 id="resultCode-结果码作用："><a href="#resultCode-结果码作用：" class="headerlink" title="resultCode 结果码作用："></a>resultCode 结果码作用：</h4><p>在一个Activity中，可能会使用<code>startActivityForResult()</code>方法打开多个不同的新Activity处理不同的业务，当这些新Activity关闭后，系统都会调用前面Activity的<code>onActivityResult(int requestCode, int resultCode, Intent data)</code>方法。为了知道返回的数据来自于哪个新Activity，在<code>onActivityResult()</code>方法中可以根据<code>resultCode</code>来区分。</p>
 
