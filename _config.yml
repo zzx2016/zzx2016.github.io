@@ -75,4 +75,7 @@ deploy:
   
 # duoshuo
 duoshuo_shortname: zhangzixu
-disqus_shortname: 守心
+#duoshuo_share: true
+jiathis: true
+# disqus_shortname: 守心
+# baidushare: true

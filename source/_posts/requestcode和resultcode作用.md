@@ -6,7 +6,7 @@ tags: Android
 
 requestCode请求码：`startActivityForResult()`的参数。
 
-resultCode结果码：`setResut()`的参数。
+resultCode结果码：`setResult()`的参数。
 <!--more-->
 #### requestCode 请求码作用：
 使用`startActivityForResult(Intent intent, int requestCode)`方法打开新的Activity，我们需要为`startActivityForResult()`方法传入一个请求码(第二个参数)。请求码的值是根据业务需要由自已设定，用于标识请求来源。例如：一个Activity有两个按钮，点击这两个按钮都会打开同一个新Activity，不管是哪个按钮打开新Activity，当这个新Activity关闭后，系统都会调用前面Activity的`onActivityResult(int requestCode, int resultCode, Intent data)`方法。在`onActivityResult()`方法如果需要知道新Activity是由那个按钮打开的，并且要做出相应的业务处理，就可以用`requestCode`来区分。
