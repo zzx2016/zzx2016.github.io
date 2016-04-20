@@ -7,6 +7,7 @@ tags: Android
 转载：[原文地址](http://www.cnblogs.com/and_he/archive/2012/12/22/ARGB.html)
 
 ARGB是一种色彩模式，也就是RGB色彩模式附加上Alpha（透明度）通道，常见于32位位图的存储结构。
+
 <!--more-->
 
 A：透明度 R：红色 G：绿 B：蓝
