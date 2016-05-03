@@ -65,8 +65,7 @@
 <meta property="og:description" content="概述上一篇已经介绍过视图动画，只支持简单的缩放、平移、旋转、透明度基本的动画，且有一定的局限性。比如：你希望View有一个颜色的切换动画；你希望可以使用3D旋转动画；你希望当动画停止时，View的位置就是当前的位置；只能作用在View；这些需求视图动画都无法做到。这就是属性动画产生的原因。">
 <meta property="og:image" content="http://7q5ctm.com1.z0.glb.clouddn.com/%E5%B1%9E%E6%80%A7%E5%8A%A8%E7%94%BB-1.png">
 <meta property="og:image" content="http://7q5ctm.com1.z0.glb.clouddn.com/%E5%B1%9E%E6%80%A7%E5%8A%A8%E7%94%BB-2.png">
-<meta property="og:image" content="http://7q5ctm.com1.z0.glb.clouddn.com/%E5%B1%9E%E6%80%A7%E5%8A%A8%E7%94%BB-3.png">
-<meta property="og:updated_time" content="2016-05-03T04:02:34.032Z">
+<meta property="og:updated_time" content="2016-05-03T11:48:22.198Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android属性动画">
 <meta name="twitter:description" content="概述上一篇已经介绍过视图动画，只支持简单的缩放、平移、旋转、透明度基本的动画，且有一定的局限性。比如：你希望View有一个颜色的切换动画；你希望可以使用3D旋转动画；你希望当动画停止时，View的位置就是当前的位置；只能作用在View；这些需求视图动画都无法做到。这就是属性动画产生的原因。">
@@ -357,10 +356,7 @@
 <h4 id="Interpolators"><a href="#Interpolators" class="headerlink" title="Interpolators"></a>Interpolators</h4><p>插值器：时间的函数，定义了动画的变化律。插值器只需实现一个方法：getInterpolation(float input),其作用就是把0到1的elapsed fraction变化映射到另一个interpolated fraction。 Interpolator接口的直接继承自TimeInterpolator，内部没有任何方法，而TimeInterpolator只有一个getInterpolation方法，所以所有的插值器只需实现getInterpolation方法即可。传入参数是正常执行动画的时间点，返回值是调用者真正想要它执行的时间点。传入参数是{0,1}，返回值一般也是{0,1}。{0,1}表示整段动画的过程。中间的 0.2、0.3 等小数表示在整个动画（原本是匀速的）中的位置，其实就是一个比值。如果返回值是负数，会沿着相反的方向执行。如果返回的是大于 1，会超出正方向执行。也就是说，动画可能在你指定的值上下波动，大多数情况下是在指定值的范围内。getInterpolation(float input)改变了默认动画的时间点elapsed fraction，根据时间点interpolated fraction得到的是与默认时间点不同的属性值，插值器的原理就是通过改变实际执行动画的时间点，提前或延迟默认动画的时间点来达到加速/减速的效果。动画插值器目前都只是对动画执行过程的时间进行修饰，并没有对轨迹进行修饰。</p>
 <p>简单点解释这个方法，就是当要执行 input 的时间时，通过 Interpolator 计算返回另外一个时间点，让系统执行另外一个时间的动画效果。</p>
 <h4 id="Evaluators"><a href="#Evaluators" class="headerlink" title="Evaluators"></a>Evaluators</h4><p>Evaluators 告诉属性动画系统如何去计算一个属性值。它们通过Animator提供的动画的起始和结束值去计算一个动画的属性值。 属性系统提供了以下几种 Evaluators：IntEvaluator、FloatEvaluator、ArgbEvaluator这三个由系统提供，分别用于计算int，float，color型（十六进制）属性的计算器；TypeEvaluator是一个用于用户自定义计算器的接口，如果你的对象属性值类型，不是 int，float，或者 color 类型，你必须实现这个接口，去定义自己的数据类型。TypeEvaluator接口只有一个方法，就是evaluate()方法，它允许你使用的animator返回一个当前动画点的属性值。</p>
-<h3 id="为什么视图动画不会改变View的实际位置"><a href="#为什么视图动画不会改变View的实际位置" class="headerlink" title="为什么视图动画不会改变View的实际位置"></a>为什么视图动画不会改变View的实际位置</h3><p>先看下View的draw方法</p>
-<p><img src="http://7q5ctm.com1.z0.glb.clouddn.com/%E5%B1%9E%E6%80%A7%E5%8A%A8%E7%94%BB-3.png" alt="draw"></p>
-<p>可以看到，在draw方法中，会获取当前view的animation，系统会根据动画的属性去配置Matrix，来改变view的绘制效果；属性动画改变的是view实际的属性值，这也就是为什么视图动画只是改变了view的绘制位置，而没有改变view的实际位置。</p>
-<h3 id="参考链接："><a href="#参考链接：" class="headerlink" title="参考链接："></a>参考链接：</h3><p><a href="http://a.codekk.com/detail/Android/lightSky/%E5%85%AC%E5%85%B1%E6%8A%80%E6%9C%AF%E7%82%B9%E4%B9%8B%20Android%20%E5%8A%A8%E7%94%BB%E5%9F%BA%E7%A1%80" target="_blank" rel="external">链接1</a></p>
+<h3 id="参考链接："><a href="#参考链接：" class="headerlink" title="参考链接："></a>参考链接：</h3><p><a href="http://a.codekk.com/detail/Android/lightSky/%E5%85%AC%E5%85%B1%E6%8A%80%E6%9C%AF%E7%82%B9%E4%B9%8B%20Android%20%E5%8A%A8%E7%94%BB%E5%9F%BA%E7%A1%80" target="_blank" rel="external">链接</a></p>
 
       
     </div>
@@ -491,7 +487,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">33</span>
+              <span class="site-state-item-count">34</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -554,7 +550,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#概述"><span class="nav-number">1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#属性动画"><span class="nav-number">2.</span> <span class="nav-text">属性动画</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-计算属性值"><span class="nav-number">2.1.</span> <span class="nav-text">1. 计算属性值</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-设置值"><span class="nav-number">2.2.</span> <span class="nav-text">2. 设置值</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#动画类继承关系"><span class="nav-number">3.</span> <span class="nav-text">动画类继承关系</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#相关类介绍"><span class="nav-number">4.</span> <span class="nav-text">相关类介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#ValueAnimator"><span class="nav-number">4.1.</span> <span class="nav-text">ValueAnimator</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ObjectAnimator"><span class="nav-number">4.2.</span> <span class="nav-text">ObjectAnimator</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#AnimatorSet"><span class="nav-number">4.3.</span> <span class="nav-text">AnimatorSet</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Interpolators"><span class="nav-number">4.4.</span> <span class="nav-text">Interpolators</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Evaluators"><span class="nav-number">4.5.</span> <span class="nav-text">Evaluators</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么视图动画不会改变View的实际位置"><span class="nav-number">5.</span> <span class="nav-text">为什么视图动画不会改变View的实际位置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参考链接："><span class="nav-number">6.</span> <span class="nav-text">参考链接：</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#概述"><span class="nav-number">1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#属性动画"><span class="nav-number">2.</span> <span class="nav-text">属性动画</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-计算属性值"><span class="nav-number">2.1.</span> <span class="nav-text">1. 计算属性值</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-设置值"><span class="nav-number">2.2.</span> <span class="nav-text">2. 设置值</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#动画类继承关系"><span class="nav-number">3.</span> <span class="nav-text">动画类继承关系</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#相关类介绍"><span class="nav-number">4.</span> <span class="nav-text">相关类介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#ValueAnimator"><span class="nav-number">4.1.</span> <span class="nav-text">ValueAnimator</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ObjectAnimator"><span class="nav-number">4.2.</span> <span class="nav-text">ObjectAnimator</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#AnimatorSet"><span class="nav-number">4.3.</span> <span class="nav-text">AnimatorSet</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Interpolators"><span class="nav-number">4.4.</span> <span class="nav-text">Interpolators</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Evaluators"><span class="nav-number">4.5.</span> <span class="nav-text">Evaluators</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参考链接："><span class="nav-number">5.</span> <span class="nav-text">参考链接：</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">

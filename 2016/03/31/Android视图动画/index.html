@@ -68,8 +68,9 @@
 视图动画概述视图动画，也叫Tween（补间）动画可以在一个视图容器内执行一系列简单变换（位置、大小、旋转、透明度）。譬如，如果你有一个TextView对象，您可以移动、旋转、缩放、透明度设置其文本，当然，如果它有一个背景图像，背景图像会随着文本变化。补间动画通过XML或Android代码定义，建议使用XML文件定义，因为它更具可读性、可重用性。
 如下是视图动画相关的类继承关系：">
 <meta property="og:image" content="http://7q5ctm.com1.z0.glb.clouddn.com/%E8%A7%86%E5%9B%BE%E5%8A%A8%E7%94%BB-1.png">
+<meta property="og:image" content="http://7q5ctm.com1.z0.glb.clouddn.com/%E8%A7%86%E5%9B%BE%E5%8A%A8%E7%94%BB-3.png">
 <meta property="og:image" content="http://7q5ctm.com1.z0.glb.clouddn.com/%E8%A7%86%E5%9B%BE%E5%8A%A8%E7%94%BB-2.png">
-<meta property="og:updated_time" content="2016-05-03T03:27:37.141Z">
+<meta property="og:updated_time" content="2016-05-03T11:48:35.079Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android视图动画">
 <meta name="twitter:description" content="原文地址
@@ -467,12 +468,12 @@
 <tr>
 <td>android:pivotX</td>
 <td>RotateAnimation(…, float pivotX, …)</td>
-<td>缩放起点X坐标（数值、百分数、百分数p，譬如50表示以当前View左上角坐标加50px为初始点、50%表示以当前View的左上角加上当前View宽高的50%做为初始点、50%p表示以当前View的左上角加上父控件宽高的50%做为初始点）</td>
+<td>旋转起点X坐标（数值、百分数、百分数p，譬如50表示以当前View左上角坐标加50px为初始点、50%表示以当前View的左上角加上当前View宽高的50%做为初始点、50%p表示以当前View的左上角加上父控件宽高的50%做为初始点）</td>
 </tr>
 <tr>
 <td>android:pivotY</td>
 <td>RotateAnimation(…, float pivotY)</td>
-<td>缩放起点Y坐标，同上规律</td>
+<td>旋转起点Y坐标，同上规律</td>
 </tr>
 </tbody>
 </table>
@@ -552,7 +553,10 @@
 <h3 id="视图动画使用方法"><a href="#视图动画使用方法" class="headerlink" title="视图动画使用方法"></a>视图动画使用方法</h3><p>通过上面对于动画的属性介绍之后我们来看看在Android中这些动画如何使用（PS：这里直接演示xml方式，至于java方式太简单了就不说了），如下：</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span><br><span class="line"><span class="tag">&lt;<span class="name">set</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></span><br><span class="line">    <span class="attr">android:interpolator</span>=<span class="string">"@[package:]anim/interpolator_resource"</span></span><br><span class="line">    <span class="attr">android:shareInterpolator</span>=<span class="string">["true"</span> | "<span class="attr">false</span>"] &gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">alpha</span></span><br><span class="line">        <span class="attr">android:fromAlpha</span>=<span class="string">"float"</span></span><br><span class="line">        <span class="attr">android:toAlpha</span>=<span class="string">"float"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">scale</span></span><br><span class="line">        <span class="attr">android:fromXScale</span>=<span class="string">"float"</span></span><br><span class="line">        <span class="attr">android:toXScale</span>=<span class="string">"float"</span></span><br><span class="line">        <span class="attr">android:fromYScale</span>=<span class="string">"float"</span></span><br><span class="line">        <span class="attr">android:toYScale</span>=<span class="string">"float"</span></span><br><span class="line">        <span class="attr">android:pivotX</span>=<span class="string">"float"</span></span><br><span class="line">        <span class="attr">android:pivotY</span>=<span class="string">"float"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">translate</span></span><br><span class="line">        <span class="attr">android:fromXDelta</span>=<span class="string">"float"</span></span><br><span class="line">        <span class="attr">android:toXDelta</span>=<span class="string">"float"</span></span><br><span class="line">        <span class="attr">android:fromYDelta</span>=<span class="string">"float"</span></span><br><span class="line">        <span class="attr">android:toYDelta</span>=<span class="string">"float"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">rotate</span></span><br><span class="line">        <span class="attr">android:fromDegrees</span>=<span class="string">"float"</span></span><br><span class="line">        <span class="attr">android:toDegrees</span>=<span class="string">"float"</span></span><br><span class="line">        <span class="attr">android:pivotX</span>=<span class="string">"float"</span></span><br><span class="line">        <span class="attr">android:pivotY</span>=<span class="string">"float"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">set</span>&gt;</span></span><br><span class="line">        ...</span><br><span class="line">    <span class="tag">&lt;/<span class="name">set</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">set</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ImageView spaceshipImage = (ImageView) findViewById(R.id.spaceshipImage);</span><br><span class="line">Animation hyperspaceJumpAnimation = AnimationUtils.loadAnimation(<span class="keyword">this</span>, R.anim.hyperspace_jump);</span><br><span class="line">spaceshipImage.startAnimation(hyperspaceJumpAnimation);</span><br></pre></td></tr></table></figure>
-<h3 id="视图动画注意事项"><a href="#视图动画注意事项" class="headerlink" title="视图动画注意事项"></a>视图动画注意事项</h3><p>补间动画执行之后并未改变View的真实布局属性值。切记这一点，譬如我们在Activity中有一个Button在屏幕上方，我们设置了平移动画移动到屏幕下方然后保持动画最后执行状态呆在屏幕下方，这时如果点击屏幕下方动画执行之后的Button是没有任何反应的，而点击原来屏幕上方没有Button的地方却响应的是点击Button的事件。至于为什么，会在<a href="http://www.in-droid.com/2016/03/31/Android%E5%B1%9E%E6%80%A7%E5%8A%A8%E7%94%BB/">属性动画</a>中介绍。</p>
+<h3 id="视图动画注意事项"><a href="#视图动画注意事项" class="headerlink" title="视图动画注意事项"></a>视图动画注意事项</h3><p>补间动画执行之后并未改变View的真实布局属性值。切记这一点，譬如我们在Activity中有一个Button在屏幕上方，我们设置了平移动画移动到屏幕下方然后保持动画最后执行状态呆在屏幕下方，这时如果点击屏幕下方动画执行之后的Button是没有任何反应的，而点击原来屏幕上方没有Button的地方却响应的是点击Button的事件。这是为什么呢？</p>
+<p>先看下View的draw方法：</p>
+<p><img src="http://7q5ctm.com1.z0.glb.clouddn.com/%E8%A7%86%E5%9B%BE%E5%8A%A8%E7%94%BB-3.png" alt="图"></p>
+<p>可以看到，在draw方法中，会获取当前view的animation，系统会根据动画的属性去配置Matrix，来改变view的绘制效果；属性动画改变的是view实际的属性值，这也就是为什么视图动画只是改变了view的绘制位置，而没有改变view的实际位置。</p>
 <h3 id="视图动画Interpolator插值器详解"><a href="#视图动画Interpolator插值器详解" class="headerlink" title="视图动画Interpolator插值器详解"></a>视图动画Interpolator插值器详解</h3><h4 id="插值器简介"><a href="#插值器简介" class="headerlink" title="插值器简介"></a>插值器简介</h4><p>介绍补间动画插值器之前我们先来看一幅图，如下：</p>
 <p><img src="http://7q5ctm.com1.z0.glb.clouddn.com/%E8%A7%86%E5%9B%BE%E5%8A%A8%E7%94%BB-2.png" alt="补间动画插值器"></p>
 <p>可以看见其实各种插值器都是实现了Interpolator接口而已，同时可以看见系统提供了许多已经实现OK的插值器，具体如下：</p>
@@ -749,7 +753,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">33</span>
+              <span class="site-state-item-count">34</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
