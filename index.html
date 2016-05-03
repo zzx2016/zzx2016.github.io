@@ -412,8 +412,29 @@
 
       
         
-          <p><a href="http://www.jcodecraeer.com/a/anzhuokaifa/androidkaifa/2015/0322/2631.html">原文地址</a>|<a href="https://github.com/lgvalle/Material-Animations">译文地址</a></p>
-<p>Android Transition框架主要运用在以下三种情况：</p>
+          <h3 id="什么是Transition"><a href="#什么是Transition" class="headerlink" title="什么是Transition"></a>什么是Transition</h3><p>安卓5.0中Activity和Fragment 变换是建立在名叫Transitions的安卓新特性之上的。这个诞生于4.4的transition框架为在不同的UI状态之间产生动画效果提供了非常方便的API。该框架主要基于两个概念：场景（scenes）和变换（transitions）。场景（scenes）定义了当前的UI状态，变换（transitions）则定义了在不同场景之间动画变化的过程。虽然transition翻译为变换似乎很确切，但是总觉得还是没有直接使用transition直观，为了更好的理解下面个别地方直接用transition代表变换。</p>
+<p>当一个场景改变的时候，transition主要负责：</p>
+<ol>
+<li>捕捉每个View在开始场景和结束场景时的状态。</li>
+<li>根据两个场景（开始和结束）之间的区别创建一个Animator。</li>
+</ol>
+<p>考虑这样一个例子，当用户点击屏幕，让activity中的view逐渐消失。使用安卓的transition框架，我们只需几行代码就可完成，如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ExampleActivity</span> <span class="keyword">extends</span> <span class="title">Activity</span> <span class="keyword">implements</span> <span class="title">View</span>.<span class="title">OnClickListener</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> ViewGroup mRootView;</span><br><span class="line">    <span class="keyword">private</span> View mRedBox, mGreenBox, mBlueBox, mBlackBox;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">        setContentView(R.layout.activity_main);</span><br><span class="line">        mRootView = (ViewGroup) findViewById(R.id.layout_root_view);</span><br><span class="line">        mRootView.setOnClickListener(<span class="keyword">this</span>);</span><br><span class="line">        mRedBox = findViewById(R.id.red_box);</span><br><span class="line">        mGreenBox = findViewById(R.id.green_box);</span><br><span class="line">        mBlueBox = findViewById(R.id.blue_box);</span><br><span class="line">        mBlackBox = findViewById(R.id.black_box);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View v)</span> </span>&#123;</span><br><span class="line">        TransitionManager.beginDelayedTransition(mRootView, <span class="keyword">new</span> Fade());</span><br><span class="line">        toggleVisibility(mRedBox, mGreenBox, mBlueBox, mBlackBox);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">toggleVisibility</span><span class="params">(View... views)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span> (View view : views) &#123;</span><br><span class="line">            <span class="keyword">boolean</span> isVisible = view.getVisibility() == View.VISIBLE;</span><br><span class="line">            view.setVisibility(isVisible ? View.INVISIBLE : View.VISIBLE);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>为了更好的理解幕后发生的事情，让我们来一步一步的分析，假设最开始每个view都是可见的：</p>
+<ol>
+<li>当点击事件发生之后调用TransitionManager的beginDelayedTransition()方法，并且传递了mRootView和一个Fade对象最为参数。之后，framework会立即调用transition类的captureStartValues()方法为每个view保存其当前的可见状态(visibility)。</li>
+<li>当beginDelayedTransition返回之后，在上面的代码中将每个view设置为不可见。</li>
+<li>在接下来的显示中framework会调用transition类的captureEndValues()方法，记录每个view最新的可见状态。</li>
+<li>接着，framework调用transition的createAnimator()方法。transition会分析每个view的开始和结束时的数据发现view在开始时是可见的，结束时是不可见的。Fade（transition的子类）会利用这些信息创建一个用于把view的alpha属性变为0的AnimatorSet，并且将此AnimatorSet对象返回。</li>
+<li>framework会运行返回的Animator，导致所有的View都渐渐消失。</li>
+</ol>
+<blockquote>
+<p>编者注：读者可以在这里回想假如不使用transition框架，我们自己使用属性动画（Animator）来实现是不是复杂很多，其实transition框架的作用就是封装了属性动画的操作。</p>
+</blockquote>
+<p>这个简单的例子强调了transition框架的两个主要优点。第一、Transitions抽象和封装了属性动画，Animator的概念对开发者来说是透明的，因此它极大的精简了代码量。开发者所做的所有事情只是改变一下view前后的状态数据，Transition就会自动的根据状态的区别去生成动画效果。第二、不同场景之间变换的动画效果可以简单的通过使用不同的Transition类来改变，本例中用的是Fade。</p>
+<p><img src="http://7q5ctm.com1.z0.glb.clouddn.com/Android-Transition-9.gif" alt="效果图"></p>
+<p>实现上图中的那两个不同的动画效果可以将Fade替换成Slide或者Explode即可。在接下来的文章中你将会发现，这些优点将使得我们只用少量代码就可以创建复杂的Activity 和Fragment切换动画。在接下来的小节中，将看到是如何使用Lollipop的Activity 和Fragment transition API来实现这种变换的。</p>
+<h3 id="Android-Transition应用场景"><a href="#Android-Transition应用场景" class="headerlink" title="Android Transition应用场景"></a>Android Transition应用场景</h3><p>Android Transition框架主要运用在以下三种情况：</p>
 <ol>
 <li>activity之间或者Fragment之间的过渡动画。</li>
 <li>activity之间或者Fragment之间的共享元素（又叫hero view）的过渡动画。</li>
