@@ -92,13 +92,5 @@ ObjectAnimator的自动更新功能，依赖于属性身上的setter和getter方
 
 Evaluators 告诉属性动画系统如何去计算一个属性值。它们通过Animator提供的动画的起始和结束值去计算一个动画的属性值。 属性系统提供了以下几种 Evaluators：IntEvaluator、FloatEvaluator、ArgbEvaluator这三个由系统提供，分别用于计算int，float，color型（十六进制）属性的计算器；TypeEvaluator是一个用于用户自定义计算器的接口，如果你的对象属性值类型，不是 int，float，或者 color 类型，你必须实现这个接口，去定义自己的数据类型。TypeEvaluator接口只有一个方法，就是evaluate()方法，它允许你使用的animator返回一个当前动画点的属性值。
 
-### 为什么视图动画不会改变View的实际位置
-
-先看下View的draw方法
-
-![draw](http://7q5ctm.com1.z0.glb.clouddn.com/%E5%B1%9E%E6%80%A7%E5%8A%A8%E7%94%BB-3.png)
-
-可以看到，在draw方法中，会获取当前view的animation，系统会根据动画的属性去配置Matrix，来改变view的绘制效果；属性动画改变的是view实际的属性值，这也就是为什么视图动画只是改变了view的绘制位置，而没有改变view的实际位置。
-
 ### 参考链接：
-[链接1](http://a.codekk.com/detail/Android/lightSky/%E5%85%AC%E5%85%B1%E6%8A%80%E6%9C%AF%E7%82%B9%E4%B9%8B%20Android%20%E5%8A%A8%E7%94%BB%E5%9F%BA%E7%A1%80)
+[链接](http://a.codekk.com/detail/Android/lightSky/%E5%85%AC%E5%85%B1%E6%8A%80%E6%9C%AF%E7%82%B9%E4%B9%8B%20Android%20%E5%8A%A8%E7%94%BB%E5%9F%BA%E7%A1%80)

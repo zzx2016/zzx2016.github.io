@@ -63,8 +63,8 @@ tags:
 |-|-|-|
 |android:fromDegrees|RotateAnimation(float fromDegrees, …)|旋转开始角度，正代表顺时针度数，负代表逆时针度数
 |android:toDegrees|RotateAnimation(…, float toDegrees, …)|旋转结束角度，正代表顺时针度数，负代表逆时针度数
-|android:pivotX|RotateAnimation(…, float pivotX, …)|缩放起点X坐标（数值、百分数、百分数p，譬如50表示以当前View左上角坐标加50px为初始点、50%表示以当前View的左上角加上当前View宽高的50%做为初始点、50%p表示以当前View的左上角加上父控件宽高的50%做为初始点）
-|android:pivotY|RotateAnimation(…, float pivotY)|缩放起点Y坐标，同上规律
+|android:pivotX|RotateAnimation(…, float pivotX, …)|旋转起点X坐标（数值、百分数、百分数p，譬如50表示以当前View左上角坐标加50px为初始点、50%表示以当前View的左上角加上当前View宽高的50%做为初始点、50%p表示以当前View的左上角加上父控件宽高的50%做为初始点）
+|android:pivotY|RotateAnimation(…, float pivotY)|旋转起点Y坐标，同上规律
 
 #### Scale属性详解
 
@@ -133,7 +133,13 @@ spaceshipImage.startAnimation(hyperspaceJumpAnimation);
 
 ### 视图动画注意事项
 
-补间动画执行之后并未改变View的真实布局属性值。切记这一点，譬如我们在Activity中有一个Button在屏幕上方，我们设置了平移动画移动到屏幕下方然后保持动画最后执行状态呆在屏幕下方，这时如果点击屏幕下方动画执行之后的Button是没有任何反应的，而点击原来屏幕上方没有Button的地方却响应的是点击Button的事件。至于为什么，会在[属性动画](http://www.in-droid.com/2016/03/31/Android%E5%B1%9E%E6%80%A7%E5%8A%A8%E7%94%BB/)中介绍。
+补间动画执行之后并未改变View的真实布局属性值。切记这一点，譬如我们在Activity中有一个Button在屏幕上方，我们设置了平移动画移动到屏幕下方然后保持动画最后执行状态呆在屏幕下方，这时如果点击屏幕下方动画执行之后的Button是没有任何反应的，而点击原来屏幕上方没有Button的地方却响应的是点击Button的事件。这是为什么呢？
+
+先看下View的draw方法：
+
+![图](http://7q5ctm.com1.z0.glb.clouddn.com/%E8%A7%86%E5%9B%BE%E5%8A%A8%E7%94%BB-3.png)
+
+可以看到，在draw方法中，会获取当前view的animation，系统会根据动画的属性去配置Matrix，来改变view的绘制效果；属性动画改变的是view实际的属性值，这也就是为什么视图动画只是改变了view的绘制位置，而没有改变view的实际位置。
 
 ### 视图动画Interpolator插值器详解
 
