@@ -41,7 +41,7 @@
 <link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Android," />
+  <meta name="keywords" content="Android,动画," />
 
 
 
@@ -57,16 +57,24 @@
 
 
 
-<meta name="description" content="Android中的坐标系统分为两种：一种是相对整个屏幕而言的，我们称之为Android坐标系；另一种是相对父布局而言的，我们称之为视图坐标系。">
+<meta name="description" content="原文地址
+帧动画概述帧动画允许你实现像播放幻灯片一样的效果，这种动画的实质其实是Drawable，所以这种动画的XML定义方式文件一般放在res/drawable/目录下。
+如下图就是帧动画的源码文件：">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Android中的坐标系统">
-<meta property="og:url" content="http://www.in-droid.com/2016/03/19/Android中的坐标系统/index.html">
+<meta property="og:title" content="Android帧动画">
+<meta property="og:url" content="http://www.in-droid.com/2016/03/15/Android帧动画/index.html">
 <meta property="og:site_name" content="守心的博客">
-<meta property="og:description" content="Android中的坐标系统分为两种：一种是相对整个屏幕而言的，我们称之为Android坐标系；另一种是相对父布局而言的，我们称之为视图坐标系。">
-<meta property="og:updated_time" content="2016-04-20T08:17:10.909Z">
+<meta property="og:description" content="原文地址
+帧动画概述帧动画允许你实现像播放幻灯片一样的效果，这种动画的实质其实是Drawable，所以这种动画的XML定义方式文件一般放在res/drawable/目录下。
+如下图就是帧动画的源码文件：">
+<meta property="og:image" content="http://7q5ctm.com1.z0.glb.clouddn.com/%E5%B8%A7%E5%8A%A8%E7%94%BB-1.png">
+<meta property="og:updated_time" content="2016-05-03T03:35:49.741Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Android中的坐标系统">
-<meta name="twitter:description" content="Android中的坐标系统分为两种：一种是相对整个屏幕而言的，我们称之为Android坐标系；另一种是相对父布局而言的，我们称之为视图坐标系。">
+<meta name="twitter:title" content="Android帧动画">
+<meta name="twitter:description" content="原文地址
+帧动画概述帧动画允许你实现像播放幻灯片一样的效果，这种动画的实质其实是Drawable，所以这种动画的XML定义方式文件一般放在res/drawable/目录下。
+如下图就是帧动画的源码文件：">
+<meta name="twitter:image" content="http://7q5ctm.com1.z0.glb.clouddn.com/%E5%B8%A7%E5%8A%A8%E7%94%BB-1.png">
 
 
 
@@ -84,7 +92,7 @@
   };
 </script>
 
-  <title> Android中的坐标系统 | 守心的博客 </title>
+  <title> Android帧动画 | 守心的博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -263,7 +271,7 @@
             
             
               
-                Android中的坐标系统
+                Android帧动画
               
             
           </h1>
@@ -275,8 +283,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-03-19T15:33:34+08:00" content="2016-03-19">
-              2016-03-19
+            <time itemprop="dateCreated" datetime="2016-03-15T11:27:09+08:00" content="2016-03-15">
+              2016-03-15
             </time>
           </span>
 
@@ -286,8 +294,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/03/19/Android中的坐标系统/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/19/Android中的坐标系统/" itemprop="commentsCount"></span>
+                <a href="/2016/03/15/Android帧动画/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/15/Android帧动画/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -309,11 +317,26 @@
       
 
       
-        <p>Android中的坐标系统分为两种：一种是相对整个屏幕而言的，我们称之为Android坐标系；另一种是相对父布局而言的，我们称之为视图坐标系。<br><a id="more"></a></p>
-<h4 id="Android坐标系"><a href="#Android坐标系" class="headerlink" title="Android坐标系"></a>Android坐标系</h4><p>系统提供了<code>getLocationOnScreen()</code>这样的方法来获取Android坐标系中点的位置，<code>getRawX()</code>，<code>getRawY()</code>同样是获取Android坐标系中的坐标。</p>
-<h4 id="视图坐标系"><a href="#视图坐标系" class="headerlink" title="视图坐标系"></a>视图坐标系</h4><p>通过<code>getX()</code>，<code>getY()</code>获取的坐标就是相对父布局的坐标。</p>
-<h4 id="Canvas坐标系"><a href="#Canvas坐标系" class="headerlink" title="Canvas坐标系"></a>Canvas坐标系</h4><p>Canvas坐标系指的是Canvas本身的坐标系，Canvas坐标系有且只有一个，且是唯一不变的，其坐标原点在View的左上角，从坐标原点向右为x轴的正半轴，从坐标原点向下为y轴的正半轴。</p>
-<h4 id="绘图坐标系"><a href="#绘图坐标系" class="headerlink" title="绘图坐标系"></a>绘图坐标系</h4><p>Canvas的drawXXX方法中传入的各种坐标指的都是绘图坐标系中的坐标，而非Canvas坐标系中的坐标。默认情况下，绘图坐标系与Canvas坐标系完全重合，即初始状况下，绘图坐标系的坐标原点也在View的左上角，从原点向右为x轴正半轴，从原点向下为y轴正半轴。但不同于Canvas坐标系，绘图坐标系并不是一成不变的，可以通过调用Canvas的translate方法平移坐标系，可以通过Canvas的rotate方法旋转坐标系，还可以通过Canvas的scale方法缩放坐标系，而且需要注意的是，translate、rotate、scale的操作都是基于当前绘图坐标系的，而不是基于Canvas坐标系，一旦通过以上方法对坐标系进行了操作之后，当前绘图坐标系就变化了，以后绘图都是基于更新的绘图坐标系了。也就是说，真正对我们绘图有用的是绘图坐标系而非Canvas坐标系。</p>
+        <p><a href="http://blog.csdn.net/yanbober/article/details/46481171" target="_blank" rel="external">原文地址</a></p>
+<h3 id="帧动画概述"><a href="#帧动画概述" class="headerlink" title="帧动画概述"></a>帧动画概述</h3><p>帧动画允许你实现像播放幻灯片一样的效果，这种动画的实质其实是Drawable，所以这种动画的XML定义方式文件一般放在res/drawable/目录下。</p>
+<p>如下图就是帧动画的源码文件：</p>
+<a id="more"></a>
+<p><img src="http://7q5ctm.com1.z0.glb.clouddn.com/%E5%B8%A7%E5%8A%A8%E7%94%BB-1.png" alt="源码文件"></p>
+<p>可以看见实际的真实父类就是Drawable。</p>
+<h3 id="帧动画详细说明"><a href="#帧动画详细说明" class="headerlink" title="帧动画详细说明"></a>帧动画详细说明</h3><p>我们依旧可以使用xml或者java方式实现帧动画。但是依旧推荐使用xml，具体如下：</p>
+<p><animation-list> 必须是根节点，包含一个或者多个<item>元素，属性有：</item></animation-list></p>
+<ul>
+<li>android:oneshot true代表只执行一次，false循环执行。</li>
+</ul>
+<p><item> animation-list的子项，包含属性如下：</item></p>
+<ul>
+<li>android:drawable 一个frame的Drawable资源。</li>
+<li>android:duration 一个frame显示多长时间。</li>
+</ul>
+<h3 id="帧动画使用"><a href="#帧动画使用" class="headerlink" title="帧动画使用"></a>帧动画使用</h3><p>关于帧动画相对来说比较简单，这里给出一个常规使用框架，如下：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 注意：rocket.xml文件位于res/drawable/目录下 --&gt;</span></span><br><span class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span><br><span class="line"><span class="tag">&lt;<span class="name">animation-list</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></span><br><span class="line">    <span class="attr">android:oneshot</span>=<span class="string">["true"</span> | "<span class="attr">false</span>"] &gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">item</span></span><br><span class="line">        <span class="attr">android:drawable</span>=<span class="string">"@[package:]drawable/drawable_resource_name"</span></span><br><span class="line">        <span class="attr">android:duration</span>=<span class="string">"integer"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">animation-list</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ImageView rocketImage = (ImageView) findViewById(R.id.rocket_image);</span><br><span class="line">rocketImage.setBackgroundResource(R.drawable.rocket_thrust);</span><br><span class="line"></span><br><span class="line">rocketAnimation = (AnimationDrawable) rocketImage.getBackground();</span><br><span class="line">rocketAnimation.start();</span><br></pre></td></tr></table></figure>
+<p><strong>特别注意，AnimationDrawable的start()方法不能在Activity的onCreate方法中调运，因为AnimationDrawable还未完全附着到window上，所以最好的调运时机是onWindowFocusChanged()方法中。</strong></p>
 
       
     </div>
@@ -330,6 +353,8 @@
           
             <a href="/tags/Android/" rel="tag">#Android</a>
           
+            <a href="/tags/动画/" rel="tag">#动画</a>
+          
         </div>
       
 
@@ -337,16 +362,12 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/03/19/requestcode和resultcode作用/" rel="next" title="requestcode和resultcode作用">
-                <i class="fa fa-chevron-left"></i> requestcode和resultcode作用
-              </a>
-            
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/03/24/数据库的最简单实现/" rel="prev" title="数据库的最简单实现">
-                数据库的最简单实现 <i class="fa fa-chevron-right"></i>
+              <a href="/2016/03/18/hello-world/" rel="prev" title="Hello World">
+                Hello World <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -396,8 +417,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/03/19/Android中的坐标系统/"
-           data-title="Android中的坐标系统" data-url="http://www.in-droid.com/2016/03/19/Android中的坐标系统/">
+      <div class="ds-thread" data-thread-key="2016/03/15/Android帧动画/"
+           data-title="Android帧动画" data-url="http://www.in-droid.com/2016/03/15/Android帧动画/">
       </div>
     
   </div>
@@ -505,7 +526,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Android坐标系"><span class="nav-number">1.</span> <span class="nav-text">Android坐标系</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#视图坐标系"><span class="nav-number">2.</span> <span class="nav-text">视图坐标系</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Canvas坐标系"><span class="nav-number">3.</span> <span class="nav-text">Canvas坐标系</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#绘图坐标系"><span class="nav-number">4.</span> <span class="nav-text">绘图坐标系</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#帧动画概述"><span class="nav-number">1.</span> <span class="nav-text">帧动画概述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#帧动画详细说明"><span class="nav-number">2.</span> <span class="nav-text">帧动画详细说明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#帧动画使用"><span class="nav-number">3.</span> <span class="nav-text">帧动画使用</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">
