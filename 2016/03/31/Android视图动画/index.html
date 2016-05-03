@@ -58,28 +58,24 @@
 
 
 <meta name="description" content="原文地址
-视图动画的基本用法提起 Android 动画很多初学者就会一脸懵逼二阶茫然，当初翻遍图书馆的一大堆入门书籍都找不到一本书在讲 Android 动画机制，好在一颗痴迷技术的心让我自备燃料有始有终，最后总算弄明白了 Android 动画到底是个什么鬼。其实我们有木有经常用手机拍了很多漂亮照片以后，打开相册，点击更多，点击自动播放，这些静态的照片就会连贯的播放起来了有木有？这其实就是逐帧动画，">
+视图动画概述视图动画，也叫Tween（补间）动画可以在一个视图容器内执行一系列简单变换（位置、大小、旋转、透明度）。譬如，如果你有一个TextView对象，您可以移动、旋转、缩放、透明度设置其文本，当然，如果它有一个背景图像，背景图像会随着文本变化。补间动画通过XML或Android代码定义，建议使用XML文件定义，因为它更具可读性、可重用性。
+如下是视图动画相关的类继承关系：">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Android视图动画">
 <meta property="og:url" content="http://www.in-droid.com/2016/03/31/Android视图动画/index.html">
 <meta property="og:site_name" content="守心的博客">
 <meta property="og:description" content="原文地址
-视图动画的基本用法提起 Android 动画很多初学者就会一脸懵逼二阶茫然，当初翻遍图书馆的一大堆入门书籍都找不到一本书在讲 Android 动画机制，好在一颗痴迷技术的心让我自备燃料有始有终，最后总算弄明白了 Android 动画到底是个什么鬼。其实我们有木有经常用手机拍了很多漂亮照片以后，打开相册，点击更多，点击自动播放，这些静态的照片就会连贯的播放起来了有木有？这其实就是逐帧动画，">
-<meta property="og:image" content="http://images2015.cnblogs.com/blog/917478/201603/917478-20160319184425709-2116992283.gif">
-<meta property="og:image" content="http://images2015.cnblogs.com/blog/917478/201603/917478-20160319184516709-1154612434.gif">
-<meta property="og:image" content="http://images2015.cnblogs.com/blog/917478/201603/917478-20160319184608428-242848189.gif">
-<meta property="og:image" content="http://images2015.cnblogs.com/blog/917478/201603/917478-20160319184644724-2005354517.gif">
-<meta property="og:image" content="http://images2015.cnblogs.com/blog/917478/201603/917478-20160319184710068-2072330936.gif">
-<meta property="og:image" content="http://images2015.cnblogs.com/blog/917478/201603/917478-20160319184733834-1038892820.gif">
-<meta property="og:image" content="http://images2015.cnblogs.com/blog/917478/201603/917478-20160319184910709-2006724748.gif">
-<meta property="og:image" content="http://images2015.cnblogs.com/blog/917478/201603/917478-20160319185142818-1993819298.gif">
-<meta property="og:image" content="http://images2015.cnblogs.com/blog/917478/201603/917478-20160319185224381-1394629663.gif">
-<meta property="og:updated_time" content="2016-04-20T08:17:10.911Z">
+视图动画概述视图动画，也叫Tween（补间）动画可以在一个视图容器内执行一系列简单变换（位置、大小、旋转、透明度）。譬如，如果你有一个TextView对象，您可以移动、旋转、缩放、透明度设置其文本，当然，如果它有一个背景图像，背景图像会随着文本变化。补间动画通过XML或Android代码定义，建议使用XML文件定义，因为它更具可读性、可重用性。
+如下是视图动画相关的类继承关系：">
+<meta property="og:image" content="http://7q5ctm.com1.z0.glb.clouddn.com/%E8%A7%86%E5%9B%BE%E5%8A%A8%E7%94%BB-1.png">
+<meta property="og:image" content="http://7q5ctm.com1.z0.glb.clouddn.com/%E8%A7%86%E5%9B%BE%E5%8A%A8%E7%94%BB-2.png">
+<meta property="og:updated_time" content="2016-05-03T03:22:22.388Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android视图动画">
 <meta name="twitter:description" content="原文地址
-视图动画的基本用法提起 Android 动画很多初学者就会一脸懵逼二阶茫然，当初翻遍图书馆的一大堆入门书籍都找不到一本书在讲 Android 动画机制，好在一颗痴迷技术的心让我自备燃料有始有终，最后总算弄明白了 Android 动画到底是个什么鬼。其实我们有木有经常用手机拍了很多漂亮照片以后，打开相册，点击更多，点击自动播放，这些静态的照片就会连贯的播放起来了有木有？这其实就是逐帧动画，">
-<meta name="twitter:image" content="http://images2015.cnblogs.com/blog/917478/201603/917478-20160319184425709-2116992283.gif">
+视图动画概述视图动画，也叫Tween（补间）动画可以在一个视图容器内执行一系列简单变换（位置、大小、旋转、透明度）。譬如，如果你有一个TextView对象，您可以移动、旋转、缩放、透明度设置其文本，当然，如果它有一个背景图像，背景图像会随着文本变化。补间动画通过XML或Android代码定义，建议使用XML文件定义，因为它更具可读性、可重用性。
+如下是视图动画相关的类继承关系：">
+<meta name="twitter:image" content="http://7q5ctm.com1.z0.glb.clouddn.com/%E8%A7%86%E5%9B%BE%E5%8A%A8%E7%94%BB-1.png">
 
 
 
@@ -322,98 +318,305 @@
       
 
       
-        <p><a href="http://www.cnblogs.com/wondertwo/p/5295976.html" target="_blank" rel="external">原文地址</a></p>
-<h4 id="视图动画的基本用法"><a href="#视图动画的基本用法" class="headerlink" title="视图动画的基本用法"></a>视图动画的基本用法</h4><p>提起 Android 动画很多初学者就会一脸懵逼二阶茫然，当初翻遍图书馆的一大堆入门书籍都找不到一本书在讲 Android 动画机制，好在一颗痴迷技术的心让我自备燃料有始有终，最后总算弄明白了 Android 动画到底是个什么鬼。其实我们有木有经常用手机拍了很多漂亮照片以后，打开相册，点击更多，点击自动播放，这些静态的照片就会连贯的播放起来了有木有？这其实就是逐帧动画，类似于动画片的效果。是不是很简单呢？关于Android动画的分类我查了很多资料，最初只有两种动画即逐帧动画(frame-by-frame animation)和补间动画(tweened animation)，补间动画只需要开发者设置动画的起始值和结束值，中间的动画由系统自动帮我们完成，下面要介绍的视图动画就属于补间动画。但是从Android 3.x开始谷歌引入了一种全新的动画——属性动画，相对于视图动画只能给View对象设置动画效果来说，属性动画要强大的太多，只要是一个Object对象属性动画都能为其设置动画属性，不管这个对象能不能看得见，会不会与用户产生交互。关于属性动画的用法会在下一篇博客中详细介绍，下面的主要以讲解视图动画为主。视图动画即我们常说的 View Animation， 有四种效果如下：</p>
-<a id="more"></a>
-<ul>
-<li>透明度变化(AlphaAnimation)；</li>
-<li>位移(TranslateAnimation)；</li>
-<li>缩放(ScaleAnimation)；</li>
-<li>旋转(RotateAnimation)；</li>
-</ul>
-<p>可以从Android api文档看到视图动画 Add in api level 1 ，算是 Android 动画家族中的老腊肉了。那我们就从视图动画的基本用法着手，一步步深入学习！这里先放上狂炫酷帅的QQ客户端抖一抖动画和3D旋转&amp;电视关闭画面的自定义动画，哈哈，这都是用视图动画做出来的效果哦！</p>
-<p><img src="http://images2015.cnblogs.com/blog/917478/201603/917478-20160319184425709-2116992283.gif" alt=""></p>
-<p><img src="http://images2015.cnblogs.com/blog/917478/201603/917478-20160319184516709-1154612434.gif" alt=""></p>
-<p>哈哈，上面的自定义动画有木有惊艳到你呢？“每一个宅男心中都藏着一个女神”，你看的没错！画面中就是我的女神——张钧甯。上面的动画特效是在四种最基本的视图动画的基础上稍加改进出来的，那么四种基本的视图动画效果如何呢？</p>
-<p><img src="http://images2015.cnblogs.com/blog/917478/201603/917478-20160319184608428-242848189.gif" alt=""></p>
-<p><img src="http://images2015.cnblogs.com/blog/917478/201603/917478-20160319184644724-2005354517.gif" alt=""></p>
-<p><img src="http://images2015.cnblogs.com/blog/917478/201603/917478-20160319184710068-2072330936.gif" alt=""></p>
-<p><img src="http://images2015.cnblogs.com/blog/917478/201603/917478-20160319184733834-1038892820.gif" alt=""></p>
-<p>分别对应着透明度变化(AlphaAnimation)，缩放(ScaleAnimation)，旋转(RotateAnimation)，位移(TranslateAnimation)； View 动画的四种变换效果对应着的 AlphaAnimation ， ScaleAnimation ， RotateAnimation ， TranslateAnimation 这4个动画类都继承自 Animation 类，Animation 类是所有视图动画类的父类，后面讲解的自定义动画类其实也必须继承 Animation 。</p>
-<p>并且既可以在代码中动态的指定这四种动画效果，也可以在 xml 文件中定义， xml 文件中视图动画的目录是 res/anim/file_name.xml ，与视图动画不同， xml 文件中属性动画的目录是 res/animator/file_name.xml ，不过属性动画并不推荐在 xml 文件中定义，关于属性动画请关注我的下一篇博客哦 。xml 文件中视图动画代码如下，透明度动画对应标签 <alpha> ，缩放动画对应标签 <scale> ，旋转动画对应标签 <rotate> ，位移动画对应标签 <translate> ，根标签 <set> 就表示一个动画集合 AnimationSet ；shareInterpolator=”true” 表示动画集合中的所有动画共享插值器，反之shareInterpolator=”false” 表示不共享插值器，关于插值器会在第二篇博客的属性动画中详细介绍。</set></translate></rotate></scale></alpha></p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span><br><span class="line"><span class="tag">&lt;<span class="name">set</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></span><br><span class="line">    <span class="attr">android:shareInterpolator</span>=<span class="string">"true"</span> &gt;</span></span><br><span class="line">    <span class="comment">&lt;!--透明度--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">alpha</span></span><br><span class="line">        <span class="attr">android:fromAlpha</span>=<span class="string">"0"</span></span><br><span class="line">        <span class="attr">android:toAlpha</span>=<span class="string">"1"</span> /&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--缩放--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">scale</span></span><br><span class="line">        <span class="attr">android:fromXScale</span>=<span class="string">"0.5f"</span></span><br><span class="line">        <span class="attr">android:fromYScale</span>=<span class="string">"1.5f"</span></span><br><span class="line">        <span class="attr">android:toXScale</span>=<span class="string">"0.5f"</span></span><br><span class="line">        <span class="attr">android:toYScale</span>=<span class="string">"1.5f"</span></span><br><span class="line">        <span class="attr">android:pivotX</span>=<span class="string">"100"</span></span><br><span class="line">        <span class="attr">android:pivotY</span>=<span class="string">"100"</span> /&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--位移--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">translate</span></span><br><span class="line">        <span class="attr">android:fromXDelta</span>=<span class="string">"0"</span></span><br><span class="line">        <span class="attr">android:toXDelta</span>=<span class="string">"0"</span></span><br><span class="line">        <span class="attr">android:fromYDelta</span>=<span class="string">"200"</span></span><br><span class="line">        <span class="attr">android:toYDelta</span>=<span class="string">"200"</span> /&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--旋转--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">rotate</span></span><br><span class="line">        <span class="attr">android:fromDegrees</span>=<span class="string">"0"</span></span><br><span class="line">        <span class="attr">android:toDegrees</span>=<span class="string">"360"</span></span><br><span class="line">        <span class="attr">android:pivotX</span>=<span class="string">"200"</span></span><br><span class="line">        <span class="attr">android:pivotY</span>=<span class="string">"200"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">set</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>以上代码标签中的属性值，其具体含义如下：</p>
-<ol>
-<li><p>alpha</p>
-<ul>
-<li>fromAlpha —- 透明度起始值，0表示完全透明</li>
-<li>toAlpha —- 透明度最终值，1表示不透明</li>
-</ul>
-</li>
-<li><p>scale</p>
-<ul>
-<li>fromXScale —- 水平方向缩放的起始值，比如0</li>
-<li>fromYScale —- 竖直方向缩放的起始值，比如0</li>
-<li>toXScale —- 水平方向缩放的结束值，比如2</li>
-<li>toYScale —- 竖直方向缩放的结束值，比如2</li>
-<li>pivotX —- 缩放支点的x坐标</li>
-<li>pivotY —- 缩放支点的y坐标（支点可以理解为缩放的中心点，缩放过程中这点的坐标是不变的;支点默认在中心位置）</li>
-</ul>
-</li>
-<li><p>translate</p>
-<ul>
-<li>fromXDelta —- x起始值</li>
-<li>toXDelta —- x结束值</li>
-<li>fromYDelta —- y起始值</li>
-<li>toYDelta —- y结束值</li>
-</ul>
-</li>
-<li><p>rotate</p>
-<ul>
-<li>fromDegrees —- 旋转起始角度</li>
-<li>toDegrees —- 旋转结束角度</li>
-</ul>
-</li>
-</ol>
-<p>除此之外，还有一些常见的属性值，如下：</p>
-<ul>
-<li>android:duration —- 动画的持续时间</li>
-<li>android:fillAfter —- true表示保持动画结束时的状态，false表示不保持</li>
-</ul>
-<p>上面就是通过 xml 文件定义的 View 动画，那怎么应用上面的动画呢？也很简单，通过 View 对象在代码中动态加载即可，代码如下。值得注意的是，AnimationUtils.loadAnimation(this, R.anim.ani_view) 方法接收两个参数，第一个是当前的上下文环境，第二个就是我们通过 xml 定义的动画啦。代码如下：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ImageView ivAni = (ImageView) findViewById(R.id.iv_ani);</span><br><span class="line">Animation ani = AnimationUtils.loadAnimation(<span class="keyword">this</span>, R.anim.ani_view);</span><br><span class="line">ivAni.startAnimation(ani);</span><br></pre></td></tr></table></figure>
-<p>OK那么问题来了，怎样直接通过代码动态定义 View 动画呢？也很简单。</p>
-<p>AlphaAni—-透明度动画代码如下，相信你经过前面的部分已经能很容易就看懂这些代码了，在 beginAnimation() 方法中，我们在3000ms的时间内把一个 LinearLayout 对象 llAlpha 的透明度从0到1，即从完全透明渐变到完全不透明，然后在 onCreate() 方法中调用 beginAnimation() 方法就能以透明度渐变动画的方式跳转到 AlphaAni :</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.wondertwo.viewani;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> android.app.Activity;</span><br><span class="line"><span class="keyword">import</span> android.os.Bundle;</span><br><span class="line"><span class="keyword">import</span> android.view.animation.AlphaAnimation;</span><br><span class="line"><span class="keyword">import</span> android.widget.LinearLayout;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.wondertwo.R;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span><br><span class="line"> * AlphaAni----透明度动画</span><br><span class="line"> * Created by wondertwo on 2016/3/11.</span><br><span class="line"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AlphaAni</span> <span class="keyword">extends</span> <span class="title">Activity</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> LinearLayout llAlpha;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">        setContentView(R.layout.activity_alpha);</span><br><span class="line">        llAlpha = (LinearLayout) findViewById(R.id.ll_alpha);</span><br><span class="line">        beginAnimation();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 启动动画</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">beginAnimation</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        AlphaAnimation alpha = <span class="keyword">new</span> AlphaAnimation(<span class="number">0</span>, <span class="number">1</span>);<span class="comment">// 0----&gt;1从透明到不透明</span></span><br><span class="line">        alpha.setDuration(<span class="number">3000</span>);<span class="comment">// 设置动画持续时间</span></span><br><span class="line">        llAlpha.startAnimation(alpha);<span class="comment">// 启动动画</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>ScaleAni—-缩放动画代码如下，与上面的透明度渐变动画类似，通过 ctrl+左键 查看源码可以知道，在创建 ScaleAnimation 缩放动画的对象的时候， ScaleAnimation(0, 2, 0, 2) 接受的四个参数分别是 ScaleAnimation(float fromX, float toX, float fromY, float toY) ：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.wondertwo.viewani;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> android.app.Activity;</span><br><span class="line"><span class="keyword">import</span> android.os.Bundle;</span><br><span class="line"><span class="keyword">import</span> android.view.animation.ScaleAnimation;</span><br><span class="line"><span class="keyword">import</span> android.widget.LinearLayout;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.wondertwo.R;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span><br><span class="line"> * ScaleAni----缩放动画</span><br><span class="line"> * Created by wondertwo on 2016/3/11.</span><br><span class="line"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ScaleAni</span> <span class="keyword">extends</span> <span class="title">Activity</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> LinearLayout llScale;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">        setContentView(R.layout.activity_scale);</span><br><span class="line">        llScale = (LinearLayout) findViewById(R.id.ll_scale);</span><br><span class="line">        beginAnimation();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 启动动画</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">beginAnimation</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        ScaleAnimation scale = <span class="keyword">new</span> ScaleAnimation(<span class="number">0</span>, <span class="number">2</span>, <span class="number">0</span>, <span class="number">2</span>);</span><br><span class="line">        scale.setDuration(<span class="number">3000</span>);</span><br><span class="line">        llScale.startAnimation(scale);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>RotateAni—-旋转动画代码如下，表示把一个 View 对象从起始角度0旋转到360度，后面的四个参数 RotateAnimation.RELATIVE_TO_SELF, 0.5f, RotateAnimation.RELATIVE_TO_SELF, 0.5f 表示以中心位置为旋转支点：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.wondertwo.viewani;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> android.app.Activity;</span><br><span class="line"><span class="keyword">import</span> android.os.Bundle;</span><br><span class="line"><span class="keyword">import</span> android.view.animation.RotateAnimation;</span><br><span class="line"><span class="keyword">import</span> android.widget.LinearLayout;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.wondertwo.R;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span><br><span class="line"> * RotateAni----旋转动画</span><br><span class="line"> * Created by wondertwo on 2016/3/11.</span><br><span class="line"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RotateAni</span> <span class="keyword">extends</span> <span class="title">Activity</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> LinearLayout llRotate;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">        setContentView(R.layout.activity_rotate);</span><br><span class="line">        llRotate = (LinearLayout) findViewById(R.id.ll_rotate);</span><br><span class="line">        beginAnimation();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 启动动画</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">beginAnimation</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        RotateAnimation rotate = <span class="keyword">new</span> RotateAnimation(<span class="number">0</span>, <span class="number">360</span>,</span><br><span class="line">                RotateAnimation.RELATIVE_TO_SELF, <span class="number">0.5f</span>,</span><br><span class="line">                RotateAnimation.RELATIVE_TO_SELF, <span class="number">0.5f</span>);</span><br><span class="line">        rotate.setDuration(<span class="number">3000</span>);</span><br><span class="line">        llRotate.startAnimation(rotate);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>TranslateAni—-位移动画代码如下，表示把 View 对象从起始坐标 (0, 0) 位移到 (200, 300) ，是不是很简单呢：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.wondertwo.viewani;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> android.app.Activity;</span><br><span class="line"><span class="keyword">import</span> android.os.Bundle;</span><br><span class="line"><span class="keyword">import</span> android.view.animation.TranslateAnimation;</span><br><span class="line"><span class="keyword">import</span> android.widget.LinearLayout;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.wondertwo.R;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span><br><span class="line"> * TranslateAni----位移动画</span><br><span class="line"> * Created by wondertwo on 2016/3/11.</span><br><span class="line"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TranslateAni</span> <span class="keyword">extends</span> <span class="title">Activity</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> LinearLayout llTranslate;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">        setContentView(R.layout.activity_translate);</span><br><span class="line">        llTranslate = (LinearLayout) findViewById(R.id.ll_translate);</span><br><span class="line">        beginAnimation();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 启动动画</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">beginAnimation</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        TranslateAnimation translate = <span class="keyword">new</span> TranslateAnimation(<span class="number">0</span>, <span class="number">200</span>, <span class="number">0</span>, <span class="number">300</span>);</span><br><span class="line">        translate.setDuration(<span class="number">3000</span>);</span><br><span class="line">        llTranslate.startAnimation(translate);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="视图动画的高级用法"><a href="#视图动画的高级用法" class="headerlink" title="视图动画的高级用法"></a>视图动画的高级用法</h4><p>趁热打铁，接下来正是掌握 View 动画高级用法的好时机啦，所谓高级用法，其实也很简单，就是把上面的四种基本效果进行任意的排列组合，然后设定重复次数、重复模式（常用的重复模式有顺序、逆向等等），同时启动或者延迟一定的时间启动动画！为了更直观感受视图动画的高级用法，直接上图请往下看，一种很酷炫的图片旋转飞入效果！</p>
-<p><img src="http://images2015.cnblogs.com/blog/917478/201603/917478-20160319184910709-2006724748.gif" alt=""></p>
-<p>直接上代码如下，看过代码肯定会觉得，不就是把上面介绍的四种动画组合到一起了嘛，事实上就是这么简单。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.wondertwo.viewani;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> android.app.Activity;</span><br><span class="line"><span class="keyword">import</span> android.content.Intent;</span><br><span class="line"><span class="keyword">import</span> android.os.Bundle;</span><br><span class="line"><span class="keyword">import</span> android.view.animation.AlphaAnimation;</span><br><span class="line"><span class="keyword">import</span> android.view.animation.Animation;</span><br><span class="line"><span class="keyword">import</span> android.view.animation.AnimationSet;</span><br><span class="line"><span class="keyword">import</span> android.view.animation.RotateAnimation;</span><br><span class="line"><span class="keyword">import</span> android.view.animation.ScaleAnimation;</span><br><span class="line"><span class="keyword">import</span> android.view.animation.TranslateAnimation;</span><br><span class="line"><span class="keyword">import</span> android.widget.LinearLayout;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.wondertwo.MainActivity;</span><br><span class="line"><span class="keyword">import</span> com.wondertwo.R;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span><br><span class="line"> * AlphaAnimation、RotateAnimation、ScaleAnimation、TranslateAnimation四种视图动画的组合动画</span><br><span class="line"> * Created by wondertwo on 2016/3/11.</span><br><span class="line"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">GroupAni</span> <span class="keyword">extends</span> <span class="title">Activity</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> LinearLayout llGroup;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">        setContentView(R.layout.activity_group);</span><br><span class="line">        llGroup = (LinearLayout) findViewById(R.id.ll_group);</span><br><span class="line">        beginAnimation();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 启动组合动画</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">beginAnimation</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 创建动画集合</span></span><br><span class="line">        AnimationSet aniSet = <span class="keyword">new</span> AnimationSet(<span class="keyword">false</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 透明度动画</span></span><br><span class="line">        AlphaAnimation alpha = <span class="keyword">new</span> AlphaAnimation(<span class="number">0</span>, <span class="number">1</span>);</span><br><span class="line">        alpha.setDuration(<span class="number">4000</span>);</span><br><span class="line">        aniSet.addAnimation(alpha);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 旋转动画</span></span><br><span class="line">        RotateAnimation rotate = <span class="keyword">new</span> RotateAnimation(<span class="number">0</span>, <span class="number">360</span>,</span><br><span class="line">                RotateAnimation.RELATIVE_TO_SELF, <span class="number">0.5f</span>,</span><br><span class="line">                RotateAnimation.RELATIVE_TO_SELF, <span class="number">0.5f</span>);</span><br><span class="line">        rotate.setDuration(<span class="number">4000</span>);</span><br><span class="line">        aniSet.addAnimation(rotate);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 缩放动画</span></span><br><span class="line">        ScaleAnimation scale = <span class="keyword">new</span> ScaleAnimation(<span class="number">1.5f</span>, <span class="number">0.5f</span>, <span class="number">1.5f</span>, <span class="number">0.5f</span>);</span><br><span class="line">        scale.setDuration(<span class="number">4000</span>);</span><br><span class="line">        aniSet.addAnimation(scale);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 位移动画</span></span><br><span class="line">        TranslateAnimation translate = <span class="keyword">new</span> TranslateAnimation(<span class="number">0</span>, <span class="number">160</span>, <span class="number">0</span>, <span class="number">240</span>);</span><br><span class="line">        translate.setDuration(<span class="number">4000</span>);</span><br><span class="line">        aniSet.addAnimation(translate);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 动画监听</span></span><br><span class="line">        aniSet.setAnimationListener(<span class="keyword">new</span> Animation.AnimationListener() &#123;</span><br><span class="line">            <span class="comment">// 动画开始</span></span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onAnimationStart</span><span class="params">(Animation animation)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 动画结束，一般在这里实现页面跳转逻辑</span></span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onAnimationEnd</span><span class="params">(Animation animation)</span> </span>&#123;</span><br><span class="line">                <span class="comment">// 动画结束后，跳转到主页面</span></span><br><span class="line">                startActivity(<span class="keyword">new</span> Intent(GroupAni.<span class="keyword">this</span>, MainActivity.class));</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 动画重复</span></span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onAnimationRepeat</span><span class="params">(Animation animation)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 把动画设置给llGroup</span></span><br><span class="line">        llGroup.startAnimation(aniSet);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>唯一不同的是，我们这次是把四个 View 动画装进了一个动画集合(AnimationSet)中，至于动画集合，你就把他当做普通的 Set 集合使用就好，创建动画集合时传入的参数 false 表示动画集合中装入的和四个 View 动画不共享插值器。到这里你已经学会 View 动画了，但是后面还有更高级用法呢！</p>
-<h4 id="自定义View动画"><a href="#自定义View动画" class="headerlink" title="自定义View动画"></a>自定义View动画</h4><p>当你看完上面的 View 动画，自定义 View 动画对你来说已经不在话下，我准备的两个 demo 你肯定很期待，分别是：模仿QQ客户端的抖一抖特效，和电视画面关闭&amp;3D旋转，效果如下：</p>
-<p><img src="http://images2015.cnblogs.com/blog/917478/201603/917478-20160319185142818-1993819298.gif" alt=""></p>
-<p>模仿QQ客户端的抖一抖特效，先上代码！</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.wondertwo.qqTremble;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> android.view.animation.Animation;</span><br><span class="line"><span class="keyword">import</span> android.view.animation.Transformation;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span><br><span class="line"> * QQ抖一抖特效的自定义View动画实现</span><br><span class="line"> * Created by wondertwo on 2016/3/17.</span><br><span class="line"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">QQTrembleAni</span> <span class="keyword">extends</span> <span class="title">Animation</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">applyTransformation</span><span class="params">(<span class="keyword">float</span> interpolatedTime, Transformation t)</span> </span>&#123;</span><br><span class="line">        t.getMatrix().setTranslate(</span><br><span class="line">                (<span class="keyword">float</span>) Math.sin(interpolatedTime * <span class="number">50</span>) * <span class="number">8</span>,</span><br><span class="line">                (<span class="keyword">float</span>) Math.sin(interpolatedTime * <span class="number">50</span>) * <span class="number">8</span></span><br><span class="line">                );<span class="comment">// 50越大频率越高，8越小振幅越小</span></span><br><span class="line">        <span class="keyword">super</span>.applyTransformation(interpolatedTime, t);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>上面这段代码就是我们自定义的QQ抖一抖动画了，所有的自定义动画都需要继承 android.view.animation.Animation 抽象类，然后重写 initialize() 和 applyTransformation() 这两个方法，在 initialize() 方法中对一些变量进行初始化，在 applyTransformation() 方法中通过矩阵修改动画数值，从而控制动画的实现过程，这也是自定义动画的核心。 applyTransformation(float interpolatedTime, Transformation t) 方法在动画的执行过程中会不断地调用，可以看到接收的两个参数分别是 float interpolatedTime 表示当前动画进行的时间与动画总时间（一般在 setDuration() 方法中设置）的比值，从0逐渐增大到1； Transformation t 传递当前动画对象，一般可以通过代码 android.graphics.Matrix matrix = t.getMatrix() 获得 Matrix 矩阵对象，再设置 Matrix 对象，一般要用到 interpolatedTime 参数，以此达到控制动画实现的结果。可以看到在上面的代码中</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">t.getMatrix().setTranslate((<span class="keyword">float</span>) Math.sin(interpolatedTime * <span class="number">50</span>) * <span class="number">8</span>, (<span class="keyword">float</span>) Math.sin(interpolatedTime * <span class="number">50</span>) * <span class="number">8</span>)</span><br></pre></td></tr></table></figure>
-<p>设置了 Matrix 对象的 Translate ，传入的参数是一个正弦函数值，这个值是通过 interpolatedTime 参数计算出来的，这样就实现了动画在x，y轴两个方向上的来回抖动效果。</p>
-<p>下面是QQ抖一抖动画的测试类 Activity ，代码如下：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.wondertwo.qqTremble;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> android.app.Activity;</span><br><span class="line"><span class="keyword">import</span> android.os.Bundle;</span><br><span class="line"><span class="keyword">import</span> android.view.View;</span><br><span class="line"><span class="keyword">import</span> android.widget.Button;</span><br><span class="line"><span class="keyword">import</span> android.widget.RelativeLayout;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.wondertwo.R;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span><br><span class="line"> * 模仿QQ抖一抖效果的测试类</span><br><span class="line"> * Created by wondertwo on 2016/3/17.</span><br><span class="line"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">QQTrembleTest</span> <span class="keyword">extends</span> <span class="title">Activity</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> RelativeLayout rlTremble;</span><br><span class="line">    <span class="keyword">private</span> Button btnTremble;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">        setContentView(R.layout.activity_qq_tremble);</span><br><span class="line">        rlTremble = (RelativeLayout) findViewById(R.id.rl_tremble);</span><br><span class="line">        btnTremble = (Button) findViewById(R.id.btn_tremble);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 创建抖一抖动画对象</span></span><br><span class="line">        <span class="keyword">final</span> QQTrembleAni tremble = <span class="keyword">new</span> QQTrembleAni();</span><br><span class="line">        tremble.setDuration(<span class="number">800</span>);<span class="comment">// 持续时间800ms，持续时间越短频率越高</span></span><br><span class="line">        tremble.setRepeatCount(<span class="number">2</span>);<span class="comment">// 重复次数，不包含第一次</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">// 设置按钮点击监听</span></span><br><span class="line">        btnTremble.setOnClickListener(<span class="keyword">new</span> View.OnClickListener() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View v)</span> </span>&#123;</span><br><span class="line">                <span class="comment">// 启动抖一抖效果</span></span><br><span class="line">                rlTremble.startAnimation(tremble);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>接着我们再看一个酷炫的自定义动画，类似电视机关机画面和图片3D旋转，效果如下！</p>
-<p><img src="http://images2015.cnblogs.com/blog/917478/201603/917478-20160319185224381-1394629663.gif" alt=""></p>
-<p>直接上代码，电视关机画面效果动画 TVCloseAni 如下：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.wondertwo.custom;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> android.graphics.Matrix;</span><br><span class="line"><span class="keyword">import</span> android.view.animation.Animation;</span><br><span class="line"><span class="keyword">import</span> android.view.animation.Transformation;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span><br><span class="line"> * 通过矩阵变换模拟电视关闭效果，使图片的纵向比例不断缩小</span><br><span class="line"> * Created by wondertwo on 2016/3/13.</span><br><span class="line"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TVCloseAni</span> <span class="keyword">extends</span> <span class="title">Animation</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> mCenterWidth, mCenterHeight;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">initialize</span><span class="params">(<span class="keyword">int</span> width, <span class="keyword">int</span> height, <span class="keyword">int</span> parentWidth, <span class="keyword">int</span> parentHeight)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.initialize(width, height, parentWidth, parentHeight);</span><br><span class="line">        <span class="comment">// 设置默认时长</span></span><br><span class="line">        setDuration(<span class="number">4000</span>);</span><br><span class="line">        <span class="comment">// 保持动画的结束状态</span></span><br><span class="line">        setFillAfter(<span class="keyword">true</span>);</span><br><span class="line">        <span class="comment">// 设置默认插值器</span></span><br><span class="line">        <span class="comment">// setInterpolator(new BounceInterpolator());// 回弹效果的插值器</span></span><br><span class="line">        mCenterWidth = width / <span class="number">2</span>;</span><br><span class="line">        mCenterHeight = height /<span class="number">2</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">applyTransformation</span><span class="params">(<span class="keyword">float</span> interpolatedTime, Transformation t)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.applyTransformation(interpolatedTime, t);</span><br><span class="line">        <span class="keyword">final</span> Matrix matrix = t.getMatrix();</span><br><span class="line">        matrix.preScale(<span class="number">1</span>,</span><br><span class="line">                        <span class="number">1</span> - interpolatedTime,</span><br><span class="line">                        mCenterWidth,</span><br><span class="line">                        mCenterHeight);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>图片3D旋转效果动画代码如下：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.wondertwo.custom;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> android.graphics.Camera;</span><br><span class="line"><span class="keyword">import</span> android.graphics.Matrix;</span><br><span class="line"><span class="keyword">import</span> android.view.animation.Animation;</span><br><span class="line"><span class="keyword">import</span> android.view.animation.BounceInterpolator;</span><br><span class="line"><span class="keyword">import</span> android.view.animation.Transformation;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span><br><span class="line"> *</span><br><span class="line"> * Created by wondertwo on 2016/3/13.</span><br><span class="line"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CustomAni</span> <span class="keyword">extends</span> <span class="title">Animation</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> mCenterWidth, mCenterHeight;</span><br><span class="line">    <span class="keyword">private</span> Camera mCamera = <span class="keyword">new</span> Camera();</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">float</span> mRotateY = <span class="number">0.0f</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 一般在此方法初始化一些动画相关的变量和值</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">initialize</span><span class="params">(<span class="keyword">int</span> width, <span class="keyword">int</span> height, <span class="keyword">int</span> parentWidth, <span class="keyword">int</span> parentHeight)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.initialize(width, height, parentWidth, parentHeight);</span><br><span class="line">        <span class="comment">// 设置默认时长</span></span><br><span class="line">        setDuration(<span class="number">4000</span>);</span><br><span class="line">        <span class="comment">// 保持动画的结束状态</span></span><br><span class="line">        setFillAfter(<span class="keyword">true</span>);</span><br><span class="line">        <span class="comment">// 设置默认插值器</span></span><br><span class="line">        setInterpolator(<span class="keyword">new</span> BounceInterpolator());<span class="comment">// 回弹效果的插值器</span></span><br><span class="line">        mCenterWidth = width / <span class="number">2</span>;</span><br><span class="line">        mCenterHeight = height /<span class="number">2</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 暴露接口设置旋转角度</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setRotateY</span><span class="params">(<span class="keyword">float</span> rotateY)</span> </span>&#123;</span><br><span class="line">        mRotateY = rotateY;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 自定义动画的核心，在动画的执行过程中会不断回调此方法，并且每次回调interpolatedTime值都在不断变化(0----1)</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">applyTransformation</span><span class="params">(<span class="keyword">float</span> interpolatedTime, Transformation t)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.applyTransformation(interpolatedTime, t);</span><br><span class="line">        <span class="keyword">final</span> Matrix matrix = t.getMatrix();</span><br><span class="line">        mCamera.save();</span><br><span class="line">        <span class="comment">// 使用Camera设置Y轴方向的旋转角度</span></span><br><span class="line">        mCamera.rotateY(mRotateY * interpolatedTime);</span><br><span class="line">        <span class="comment">// 将旋转变化作用到matrix上</span></span><br><span class="line">        mCamera.getMatrix(matrix);</span><br><span class="line">        mCamera.restore();</span><br><span class="line">        <span class="comment">// 通过pre方法设置矩阵作用前的偏移量来改变旋转中心</span></span><br><span class="line">        matrix.preTranslate(mCenterWidth, mCenterHeight);<span class="comment">// 在旋转之前开始位移动画</span></span><br><span class="line">        matrix.postTranslate(-mCenterWidth, -mCenterHeight);<span class="comment">// 在旋转之后开始位移动画</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>下面是电视机关机画面和图片3D旋转动画的测试类， CustomAniTest 代码如下！</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.wondertwo.custom;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> android.app.Activity;</span><br><span class="line"><span class="keyword">import</span> android.os.Bundle;</span><br><span class="line"><span class="keyword">import</span> android.view.View;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.wondertwo.R;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span><br><span class="line"> * 自定义动画测试类</span><br><span class="line"> * Created by wondertwo on 2016/3/13.</span><br><span class="line"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CustomAniTest</span> <span class="keyword">extends</span> <span class="title">Activity</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">boolean</span> flag = <span class="keyword">true</span>;<span class="comment">// 标记位，轮换展示两种自定义动画</span></span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">        setContentView(R.layout.activity_custom_ani);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * 设置按钮点击事件</span><br><span class="line">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">startCustomAni</span><span class="params">(View view)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (flag) &#123;</span><br><span class="line">            TVCloseAni tvAni = <span class="keyword">new</span> TVCloseAni();</span><br><span class="line">            view.startAnimation(tvAni);</span><br><span class="line">            <span class="comment">// 重置标记位</span></span><br><span class="line">            flag = <span class="keyword">false</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            CustomAni customAni = <span class="keyword">new</span> CustomAni();</span><br><span class="line">            customAni.setRotateY(<span class="number">30</span>);</span><br><span class="line">            view.startAnimation(customAni);</span><br><span class="line">            <span class="comment">// 重置标记位</span></span><br><span class="line">            flag = <span class="keyword">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>唯一不同的是在上面3D旋转自定义动画中，我们引入了 Camera 的概念， android.graphics.Camera 中的 Camera 类封装了 openGL 的3D动画，因此可以通过 Camera 类实现很多酷炫的3D动画效果。关于Android中矩阵Matrix的概念，在很多地方都会用到，比如图片处理，动画变换等等地方，这里我就不仔细展开啦！贴上<a href="http://www.cnblogs.com/qiengo/archive/2012/06/30/2570874.html" target="_blank" rel="external">矩阵知识</a>，看完你肯定能明白矩阵的巨大威力啦，这里感谢原作者！</p>
+        <p><a href="http://blog.csdn.net/yanbober/article/details/46481171" target="_blank" rel="external">原文地址</a></p>
+<h3 id="视图动画概述"><a href="#视图动画概述" class="headerlink" title="视图动画概述"></a>视图动画概述</h3><p>视图动画，也叫Tween（补间）动画可以在一个视图容器内执行一系列简单变换（位置、大小、旋转、透明度）。譬如，如果你有一个TextView对象，您可以移动、旋转、缩放、透明度设置其文本，当然，如果它有一个背景图像，背景图像会随着文本变化。补间动画通过XML或Android代码定义，建议使用XML文件定义，因为它更具可读性、可重用性。</p>
+<p>如下是视图动画相关的类继承关系：</p>
+<p><img src="http://7q5ctm.com1.z0.glb.clouddn.com/%E8%A7%86%E5%9B%BE%E5%8A%A8%E7%94%BB-1.png" alt="视图动画相关的类继承关系"></p>
+<table>
+<thead>
+<tr>
+<th>java类名</th>
+<th>xml关键字</th>
+<th>描述信息</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AlphaAnimation</td>
+<td><alpha>放置在res/anim/目录下</alpha></td>
+<td>渐变透明度动画效果</td>
+</tr>
+<tr>
+<td>RotateAnimation</td>
+<td><rotate>放置在res/anim/目录下</rotate></td>
+<td>画面转移旋转动画效果</td>
+</tr>
+<tr>
+<td>ScaleAnimation</td>
+<td><scale>放置在res/anim/目录下</scale></td>
+<td>渐变尺寸伸缩动画效果</td>
+</tr>
+<tr>
+<td>TranslateAnimation</td>
+<td><translate>放置在res/anim/目录下</translate></td>
+<td>画面转换位置移动动画效果</td>
+</tr>
+<tr>
+<td>AnimationSet</td>
+<td><set>放置在res/anim/目录下</set></td>
+<td>一个持有其它动画元素alpha、scale、translate、rotate或者其它set元素的容器</td>
+</tr>
+</tbody>
+</table>
+<p>通过上图和上表可以直观的看出来补间动画的关系及种类了吧，接下来我们就详细一个一个的介绍一下各种补间动画。</p>
+<h3 id="视图动画详细说明"><a href="#视图动画详细说明" class="headerlink" title="视图动画详细说明"></a>视图动画详细说明</h3><p>可以看出来Animation抽象类是所有补间动画类的基类，所以基类会提供一些通用的动画属性方法，如下我们就来详细看看这些属性。</p>
+<h4 id="Animation属性详解"><a href="#Animation属性详解" class="headerlink" title="Animation属性详解"></a>Animation属性详解</h4><table>
+<thead>
+<tr>
+<th>xml属性</th>
+<th>java方法</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>android:detachWallpaper</td>
+<td>setDetachWallpaper(boolean)</td>
+<td>是否在壁纸上运行</td>
+</tr>
+<tr>
+<td>android:duration</td>
+<td>setDuration(long)</td>
+<td>动画持续时间，毫秒为单位</td>
+</tr>
+<tr>
+<td>android:fillAfter</td>
+<td>setFillAfter(boolean)</td>
+<td>控件动画结束时是否保持动画最后的状态</td>
+</tr>
+<tr>
+<td>android:fillBefore</td>
+<td>setFillBefore(boolean)</td>
+<td>控件动画结束时是否还原到开始动画前的状态</td>
+</tr>
+<tr>
+<td>android:fillEnabled</td>
+<td>setFillEnabled(boolean)</td>
+<td>与android:fillBefore效果相同</td>
+</tr>
+<tr>
+<td>android:interpolator</td>
+<td>setInterpolator(Interpolator)</td>
+<td>设定插值器（指定的动画效果，譬如回弹等）</td>
+</tr>
+<tr>
+<td>android:repeatCount</td>
+<td>setRepeatCount(int)</td>
+<td>重复次数</td>
+</tr>
+<tr>
+<td>android:repeatMode</td>
+<td>setRepeatMode(int)</td>
+<td>重复类型有两个值，reverse表示倒序回放，restart表示从头播放</td>
+</tr>
+<tr>
+<td>android:startOffset</td>
+<td>setStartOffset(long)</td>
+<td>调用start函数之后等待开始运行的时间，单位为毫秒</td>
+</tr>
+<tr>
+<td>android:zAdjustment</td>
+<td>setZAdjustment(int)</td>
+<td>表示被设置动画的内容运行时在Z轴上的位置（top/bottom/normal），默认为normal</td>
+</tr>
+</tbody>
+</table>
+<p>也就是说，无论我们补间动画的哪一种都已经具备了这种属性，也都可以设置使用这些属性中的一个或多个。</p>
+<p>那接下来我们就看看每种补间动画特有的一些属性说明吧。</p>
+<h4 id="Alpha属性详解"><a href="#Alpha属性详解" class="headerlink" title="Alpha属性详解"></a>Alpha属性详解</h4><table>
+<thead>
+<tr>
+<th>xml属性</th>
+<th>java方法</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>android:fromAlpha</td>
+<td>AlphaAnimation(float fromAlpha, …)</td>
+<td>动画开始的透明度（0.0到1.0，0.0是全透明，1.0是不透明）</td>
+</tr>
+<tr>
+<td>android:toAlpha</td>
+<td>AlphaAnimation(…, float toAlpha)</td>
+<td>动画结束的透明度，同上</td>
+</tr>
+</tbody>
+</table>
+<h4 id="Rotate属性详解"><a href="#Rotate属性详解" class="headerlink" title="Rotate属性详解"></a>Rotate属性详解</h4><table>
+<thead>
+<tr>
+<th>xml属性</th>
+<th>java方法</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>android:fromDegrees</td>
+<td>RotateAnimation(float fromDegrees, …)</td>
+<td>旋转开始角度，正代表顺时针度数，负代表逆时针度数</td>
+</tr>
+<tr>
+<td>android:toDegrees</td>
+<td>RotateAnimation(…, float toDegrees, …)</td>
+<td>旋转结束角度，正代表顺时针度数，负代表逆时针度数</td>
+</tr>
+<tr>
+<td>android:pivotX</td>
+<td>RotateAnimation(…, float pivotX, …)</td>
+<td>缩放起点X坐标（数值、百分数、百分数p，譬如50表示以当前View左上角坐标加50px为初始点、50%表示以当前View的左上角加上当前View宽高的50%做为初始点、50%p表示以当前View的左上角加上父控件宽高的50%做为初始点）</td>
+</tr>
+<tr>
+<td>android:pivotY    RotateAnimation(…, float pivotY)</td>
+<td>缩放起点Y坐标，同上规律</td>
+</tr>
+</tbody>
+</table>
+<h4 id="Scale属性详解"><a href="#Scale属性详解" class="headerlink" title="Scale属性详解"></a>Scale属性详解</h4><table>
+<thead>
+<tr>
+<th>xml属性</th>
+<th>java方法</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>android:fromXScale</td>
+<td>ScaleAnimation(float fromX, …)</td>
+<td>初始X轴缩放比例，1.0表示无变化</td>
+</tr>
+<tr>
+<td>android:toXScale</td>
+<td>ScaleAnimation(…, float toX, …)</td>
+<td>结束X轴缩放比例</td>
+</tr>
+<tr>
+<td>android:fromYScale</td>
+<td>ScaleAnimation(…, float fromY, …)</td>
+<td>初始Y轴缩放比例</td>
+</tr>
+<tr>
+<td>android:toYScale</td>
+<td>ScaleAnimation(…, float toY, …)</td>
+<td>结束Y轴缩放比例</td>
+</tr>
+<tr>
+<td>android:pivotX</td>
+<td>ScaleAnimation(…, float pivotX, …)</td>
+<td>缩放起点X轴坐标（数值、百分数、百分数p，譬如50表示以当前View左上角坐标加50px为初始点、50%表示以当前View的左上角加上当前View宽高的50%做为初始点、50%p表示以当前View的左上角加上父控件宽高的50%做为初始点）</td>
+</tr>
+<tr>
+<td>android:pivotY</td>
+<td>ScaleAnimation(…, float pivotY)</td>
+<td>缩放起点Y轴坐标，同上规律</td>
+</tr>
+</tbody>
+</table>
+<h4 id="Translate属性详解"><a href="#Translate属性详解" class="headerlink" title="Translate属性详解"></a>Translate属性详解</h4><table>
+<thead>
+<tr>
+<th>xml属性</th>
+<th>java方法</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>android:fromXDelta</td>
+<td>TranslateAnimation(float fromXDelta, …)</td>
+<td>起始点X轴坐标（数值、百分数、百分数p，譬如50表示以当前View左上角坐标加50px为初始点、50%表示以当前View的左上角加上当前View宽高的50%做为初始点、50%p表示以当前View的左上角加上父控件宽高的50%做为初始点）</td>
+</tr>
+<tr>
+<td>android:fromYDelta</td>
+<td>TranslateAnimation(…, float fromYDelta, …)</td>
+<td>起始点Y轴从标，同上规律</td>
+</tr>
+<tr>
+<td>android:toXDelta</td>
+<td>TranslateAnimation(…, float toXDelta, …)</td>
+<td>结束点X轴坐标，同上规律</td>
+</tr>
+<tr>
+<td>android:toYDelta</td>
+<td>TranslateAnimation(…, float toYDelta)</td>
+<td>结束点Y轴坐标，同上规律</td>
+</tr>
+</tbody>
+</table>
+<h4 id="AnimationSet详解"><a href="#AnimationSet详解" class="headerlink" title="AnimationSet详解"></a>AnimationSet详解</h4><p>AnimationSet继承自Animation，是上面四种的组合容器管理类，没有自己特有的属性，他的属性继承自Animation，所以特别注意，当我们对set标签使用Animation的属性时会对该标签下的所有子控件都产生影响。</p>
+<h3 id="视图动画使用方法"><a href="#视图动画使用方法" class="headerlink" title="视图动画使用方法"></a>视图动画使用方法</h3><p>通过上面对于动画的属性介绍之后我们来看看在Android中这些动画如何使用（PS：这里直接演示xml方式，至于java方式太简单了就不说了），如下：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span><br><span class="line"><span class="tag">&lt;<span class="name">set</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></span><br><span class="line">    <span class="attr">android:interpolator</span>=<span class="string">"@[package:]anim/interpolator_resource"</span></span><br><span class="line">    <span class="attr">android:shareInterpolator</span>=<span class="string">["true"</span> | "<span class="attr">false</span>"] &gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">alpha</span></span><br><span class="line">        <span class="attr">android:fromAlpha</span>=<span class="string">"float"</span></span><br><span class="line">        <span class="attr">android:toAlpha</span>=<span class="string">"float"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">scale</span></span><br><span class="line">        <span class="attr">android:fromXScale</span>=<span class="string">"float"</span></span><br><span class="line">        <span class="attr">android:toXScale</span>=<span class="string">"float"</span></span><br><span class="line">        <span class="attr">android:fromYScale</span>=<span class="string">"float"</span></span><br><span class="line">        <span class="attr">android:toYScale</span>=<span class="string">"float"</span></span><br><span class="line">        <span class="attr">android:pivotX</span>=<span class="string">"float"</span></span><br><span class="line">        <span class="attr">android:pivotY</span>=<span class="string">"float"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">translate</span></span><br><span class="line">        <span class="attr">android:fromXDelta</span>=<span class="string">"float"</span></span><br><span class="line">        <span class="attr">android:toXDelta</span>=<span class="string">"float"</span></span><br><span class="line">        <span class="attr">android:fromYDelta</span>=<span class="string">"float"</span></span><br><span class="line">        <span class="attr">android:toYDelta</span>=<span class="string">"float"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">rotate</span></span><br><span class="line">        <span class="attr">android:fromDegrees</span>=<span class="string">"float"</span></span><br><span class="line">        <span class="attr">android:toDegrees</span>=<span class="string">"float"</span></span><br><span class="line">        <span class="attr">android:pivotX</span>=<span class="string">"float"</span></span><br><span class="line">        <span class="attr">android:pivotY</span>=<span class="string">"float"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">set</span>&gt;</span></span><br><span class="line">        ...</span><br><span class="line">    <span class="tag">&lt;/<span class="name">set</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">set</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ImageView spaceshipImage = (ImageView) findViewById(R.id.spaceshipImage);</span><br><span class="line">Animation hyperspaceJumpAnimation = AnimationUtils.loadAnimation(<span class="keyword">this</span>, R.anim.hyperspace_jump);</span><br><span class="line">spaceshipImage.startAnimation(hyperspaceJumpAnimation);</span><br></pre></td></tr></table></figure>
+<h3 id="视图动画注意事项"><a href="#视图动画注意事项" class="headerlink" title="视图动画注意事项"></a>视图动画注意事项</h3><p>补间动画执行之后并未改变View的真实布局属性值。切记这一点，譬如我们在Activity中有一个Button在屏幕上方，我们设置了平移动画移动到屏幕下方然后保持动画最后执行状态呆在屏幕下方，这时如果点击屏幕下方动画执行之后的Button是没有任何反应的，而点击原来屏幕上方没有Button的地方却响应的是点击Button的事件。至于为什么，会在<a href="http://www.in-droid.com/2016/03/31/Android%E5%B1%9E%E6%80%A7%E5%8A%A8%E7%94%BB/">属性动画</a>中介绍。</p>
+<h3 id="视图动画Interpolator插值器详解"><a href="#视图动画Interpolator插值器详解" class="headerlink" title="视图动画Interpolator插值器详解"></a>视图动画Interpolator插值器详解</h3><h4 id="插值器简介"><a href="#插值器简介" class="headerlink" title="插值器简介"></a>插值器简介</h4><p>介绍补间动画插值器之前我们先来看一幅图，如下：</p>
+<p><img src="http://7q5ctm.com1.z0.glb.clouddn.com/%E8%A7%86%E5%9B%BE%E5%8A%A8%E7%94%BB-2.png" alt="补间动画插值器"></p>
+<p>可以看见其实各种插值器都是实现了Interpolator接口而已，同时可以看见系统提供了许多已经实现OK的插值器，具体如下：</p>
+<table>
+<thead>
+<tr>
+<th>java类</th>
+<th>xml id值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AccelerateDecelerateInterpolator</td>
+<td>@android:anim/accelerate_decelerate_interpolator</td>
+<td>动画始末速率较慢，中间加速</td>
+</tr>
+<tr>
+<td>AccelerateInterpolator</td>
+<td>@android:anim/accelerate_interpolator</td>
+<td>动画开始速率较慢，之后慢慢加速</td>
+</tr>
+<tr>
+<td>AnticipateInterpolator</td>
+<td>@android:anim/anticipate_interpolator</td>
+<td>开始的时候从后向前甩</td>
+</tr>
+<tr>
+<td>AnticipateOvershootInterpolator</td>
+<td>@android:anim/anticipate_overshoot_interpolator</td>
+<td>类似上面AnticipateInterpolator</td>
+</tr>
+<tr>
+<td>BounceInterpolator</td>
+<td>@android:anim/bounce_interpolator</td>
+<td>动画结束时弹起</td>
+</tr>
+<tr>
+<td>CycleInterpolator</td>
+<td>@android:anim/cycle_interpolator</td>
+<td>循环播放速率改变为正弦曲线</td>
+</tr>
+<tr>
+<td>DecelerateInterpolator</td>
+<td>@android:anim/decelerate_interpolator</td>
+<td>动画开始快然后慢</td>
+</tr>
+<tr>
+<td>LinearInterpolator</td>
+<td>@android:anim/linear_interpolator</td>
+<td>动画匀速改变</td>
+</tr>
+<tr>
+<td>OvershootInterpolator</td>
+<td>@android:anim/overshoot_interpolator</td>
+<td>向前弹出一定值之后回到原来位置</td>
+</tr>
+<tr>
+<td>PathInterpolator</td>
+<td></td>
+<td>新增，定义路径坐标后按照路径坐标来跑。</td>
+</tr>
+</tbody>
+</table>
+<h4 id="插值器使用方法"><a href="#插值器使用方法" class="headerlink" title="插值器使用方法"></a>插值器使用方法</h4><p>插值器的使用比较简答，如下：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">set</span> <span class="attr">android:interpolator</span>=<span class="string">"@android:anim/accelerate_interpolator"</span>&gt;</span></span><br><span class="line">    ...</span><br><span class="line"><span class="tag">&lt;/<span class="name">set</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -447,8 +650,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/03/31/Android属性动画/" rel="prev" title="Android属性动画">
-                Android属性动画 <i class="fa fa-chevron-right"></i>
+              <a href="/2016/03/31/Java单例总结/" rel="prev" title="Java单例模式总结">
+                Java单例模式总结 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -607,7 +810,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#视图动画的基本用法"><span class="nav-number">1.</span> <span class="nav-text">视图动画的基本用法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#视图动画的高级用法"><span class="nav-number">2.</span> <span class="nav-text">视图动画的高级用法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#自定义View动画"><span class="nav-number">3.</span> <span class="nav-text">自定义View动画</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#视图动画概述"><span class="nav-number">1.</span> <span class="nav-text">视图动画概述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#视图动画详细说明"><span class="nav-number">2.</span> <span class="nav-text">视图动画详细说明</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Animation属性详解"><span class="nav-number">2.1.</span> <span class="nav-text">Animation属性详解</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Alpha属性详解"><span class="nav-number">2.2.</span> <span class="nav-text">Alpha属性详解</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Rotate属性详解"><span class="nav-number">2.3.</span> <span class="nav-text">Rotate属性详解</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Scale属性详解"><span class="nav-number">2.4.</span> <span class="nav-text">Scale属性详解</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Translate属性详解"><span class="nav-number">2.5.</span> <span class="nav-text">Translate属性详解</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#AnimationSet详解"><span class="nav-number">2.6.</span> <span class="nav-text">AnimationSet详解</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#视图动画使用方法"><span class="nav-number">3.</span> <span class="nav-text">视图动画使用方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#视图动画注意事项"><span class="nav-number">4.</span> <span class="nav-text">视图动画注意事项</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#视图动画Interpolator插值器详解"><span class="nav-number">5.</span> <span class="nav-text">视图动画Interpolator插值器详解</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#插值器简介"><span class="nav-number">5.1.</span> <span class="nav-text">插值器简介</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#插值器使用方法"><span class="nav-number">5.2.</span> <span class="nav-text">插值器使用方法</span></a></li></ol></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">
