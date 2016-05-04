@@ -72,7 +72,7 @@
 <meta property="og:image" content="http://7q5ctm.com1.z0.glb.clouddn.com/Android-Transition-6.gif">
 <meta property="og:image" content="http://7q5ctm.com1.z0.glb.clouddn.com/Android-Transition-7.gif">
 <meta property="og:image" content="http://7q5ctm.com1.z0.glb.clouddn.com/Android-Transition-8.gif">
-<meta property="og:updated_time" content="2016-05-03T07:53:30.945Z">
+<meta property="og:updated_time" content="2016-05-04T11:37:53.455Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android Transition Animation介绍">
 <meta name="twitter:description" content="什么是Transition安卓5.0中Activity和Fragment 变换是建立在名叫Transitions的安卓新特性之上的。这个诞生于4.4的transition框架为在不同的UI状态之间产生动画效果提供了非常方便的API。该框架主要基于两个概念：场景（scenes）和变换（transitions）。场景（scenes）定义了当前的UI状态，变换（transitions）则定义了在不同场景">
@@ -344,12 +344,12 @@
 <p>实现上图中的那两个不同的动画效果可以将Fade替换成Slide或者Explode即可。在接下来的文章中你将会发现，这些优点将使得我们只用少量代码就可以创建复杂的Activity 和Fragment切换动画。在接下来的小节中，将看到是如何使用Lollipop的Activity 和Fragment transition API来实现这种变换的。</p>
 <h3 id="Android-Transition应用场景"><a href="#Android-Transition应用场景" class="headerlink" title="Android Transition应用场景"></a>Android Transition应用场景</h3><p>Android Transition框架主要运用在以下三种情况：</p>
 <ol>
-<li>activity之间或者Fragment之间的过渡动画。</li>
-<li>activity之间或者Fragment之间的共享元素（又叫hero view）的过渡动画。</li>
-<li>activity中布局元素的过渡动画。</li>
+<li>Activity之间或者Fragment之间的过渡动画。</li>
+<li>Activity之间或者Fragment之间的共享元素（又叫hero view）的过渡动画。</li>
+<li>Activity中布局元素的过渡动画。</li>
 </ol>
-<p>其实1和2都是用于activity（或者）切换的时候。而且1和2是可以同时使用的。ps ：虽然overridePendingTransition也可以实现activity的切换，但是overridePendingTransition 没有共享元素的切换效果。而第三种其实是最简单的，主要调用几个已经定义好的动画类就可以了。</p>
-<h4 id="activity之间的过度动画"><a href="#activity之间的过度动画" class="headerlink" title="activity之间的过度动画"></a>activity之间的过度动画</h4><h5 id="exitTransition和enterTransition"><a href="#exitTransition和enterTransition" class="headerlink" title="exitTransition和enterTransition"></a>exitTransition和enterTransition</h5><p><img src="http://7q5ctm.com1.z0.glb.clouddn.com/Android-Transition-1.png" alt="图1"></p>
+<p>其实1和2都是用于Activity（或者Fragment）切换的时候。而且1和2是可以同时使用的。ps ：虽然overridePendingTransition也可以实现Activity的切换，但是overridePendingTransition 没有共享元素的切换效果。而第三种其实是最简单的，主要调用几个已经定义好的动画类就可以了。</p>
+<h4 id="Activity之间的过度动画"><a href="#Activity之间的过度动画" class="headerlink" title="Activity之间的过度动画"></a>Activity之间的过度动画</h4><h5 id="exitTransition和enterTransition"><a href="#exitTransition和enterTransition" class="headerlink" title="exitTransition和enterTransition"></a>exitTransition和enterTransition</h5><p><img src="http://7q5ctm.com1.z0.glb.clouddn.com/Android-Transition-1.png" alt="图1"></p>
 <p>你可以在xml中定义这种动画</p>
 <p>res/transition/activity_explode.xml</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span><br><span class="line"><span class="tag">&lt;<span class="name">transitionSet</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">explode</span> <span class="attr">android:duration</span>=<span class="string">"2000"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">transitionSet</span>&gt;</span></span><br></pre></td></tr></table></figure>
@@ -598,7 +598,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是Transition"><span class="nav-number">1.</span> <span class="nav-text">什么是Transition</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Android-Transition应用场景"><span class="nav-number">2.</span> <span class="nav-text">Android Transition应用场景</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#activity之间的过度动画"><span class="nav-number">2.1.</span> <span class="nav-text">activity之间的过度动画</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#exitTransition和enterTransition"><span class="nav-number">2.1.1.</span> <span class="nav-text">exitTransition和enterTransition</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#ReturnTransition和ReenterTransition"><span class="nav-number">2.1.2.</span> <span class="nav-text">ReturnTransition和ReenterTransition</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Activity间的共享元素"><span class="nav-number">2.2.</span> <span class="nav-text">Activity间的共享元素</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#布局元素的过渡动画"><span class="nav-number">2.3.</span> <span class="nav-text">布局元素的过渡动画</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参考链接"><span class="nav-number">3.</span> <span class="nav-text">参考链接</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是Transition"><span class="nav-number">1.</span> <span class="nav-text">什么是Transition</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Android-Transition应用场景"><span class="nav-number">2.</span> <span class="nav-text">Android Transition应用场景</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Activity之间的过度动画"><span class="nav-number">2.1.</span> <span class="nav-text">Activity之间的过度动画</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#exitTransition和enterTransition"><span class="nav-number">2.1.1.</span> <span class="nav-text">exitTransition和enterTransition</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#ReturnTransition和ReenterTransition"><span class="nav-number">2.1.2.</span> <span class="nav-text">ReturnTransition和ReenterTransition</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Activity间的共享元素"><span class="nav-number">2.2.</span> <span class="nav-text">Activity间的共享元素</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#布局元素的过渡动画"><span class="nav-number">2.3.</span> <span class="nav-text">布局元素的过渡动画</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参考链接"><span class="nav-number">3.</span> <span class="nav-text">参考链接</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">
