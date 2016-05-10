@@ -57,18 +57,18 @@
 
 
 
-<meta name="description" content="概述上一篇已经介绍过视图动画，只支持简单的缩放、平移、旋转、透明度基本的动画，且有一定的局限性。比如：你希望View有一个颜色的切换动画；你希望可以使用3D旋转动画；你希望当动画停止时，View的位置就是当前的位置；只能作用在View；这些需求视图动画都无法做到。这就是属性动画产生的原因。">
+<meta name="description" content="概述上一篇已经介绍过视图动画，只支持简单的缩放、平移、旋转、透明度基本的动画，且有一定的局限性。比如：你希望View有一个颜色的切换动画；；你希望当动画停止时，View的位置就是当前的位置；不能作用在非View对象。这些需求视图动画都无法做到。这就是属性动画产生的原因。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Android属性动画">
 <meta property="og:url" content="http://www.in-droid.com/2016/04/15/Android属性动画/index.html">
 <meta property="og:site_name" content="守心的博客">
-<meta property="og:description" content="概述上一篇已经介绍过视图动画，只支持简单的缩放、平移、旋转、透明度基本的动画，且有一定的局限性。比如：你希望View有一个颜色的切换动画；你希望可以使用3D旋转动画；你希望当动画停止时，View的位置就是当前的位置；只能作用在View；这些需求视图动画都无法做到。这就是属性动画产生的原因。">
+<meta property="og:description" content="概述上一篇已经介绍过视图动画，只支持简单的缩放、平移、旋转、透明度基本的动画，且有一定的局限性。比如：你希望View有一个颜色的切换动画；；你希望当动画停止时，View的位置就是当前的位置；不能作用在非View对象。这些需求视图动画都无法做到。这就是属性动画产生的原因。">
 <meta property="og:image" content="http://7q5ctm.com1.z0.glb.clouddn.com/%E5%B1%9E%E6%80%A7%E5%8A%A8%E7%94%BB-1.png">
 <meta property="og:image" content="http://7q5ctm.com1.z0.glb.clouddn.com/%E5%B1%9E%E6%80%A7%E5%8A%A8%E7%94%BB-2.png">
-<meta property="og:updated_time" content="2016-05-04T10:17:51.180Z">
+<meta property="og:updated_time" content="2016-05-06T06:06:10.934Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android属性动画">
-<meta name="twitter:description" content="概述上一篇已经介绍过视图动画，只支持简单的缩放、平移、旋转、透明度基本的动画，且有一定的局限性。比如：你希望View有一个颜色的切换动画；你希望可以使用3D旋转动画；你希望当动画停止时，View的位置就是当前的位置；只能作用在View；这些需求视图动画都无法做到。这就是属性动画产生的原因。">
+<meta name="twitter:description" content="概述上一篇已经介绍过视图动画，只支持简单的缩放、平移、旋转、透明度基本的动画，且有一定的局限性。比如：你希望View有一个颜色的切换动画；；你希望当动画停止时，View的位置就是当前的位置；不能作用在非View对象。这些需求视图动画都无法做到。这就是属性动画产生的原因。">
 <meta name="twitter:image" content="http://7q5ctm.com1.z0.glb.clouddn.com/%E5%B1%9E%E6%80%A7%E5%8A%A8%E7%94%BB-1.png">
 
 
@@ -312,10 +312,10 @@
       
 
       
-        <h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p>上一篇已经介绍过<a href="http://zzx2016.github.io/2016/03/31/Android%E8%A7%86%E5%9B%BE%E5%8A%A8%E7%94%BB/" target="_blank" rel="external">视图动画</a>，只支持简单的缩放、平移、旋转、透明度基本的动画，且有一定的局限性。比如：你希望View有一个颜色的切换动画；你希望可以使用3D旋转动画；你希望当动画停止时，View的位置就是当前的位置；只能作用在View；这些需求视图动画都无法做到。这就是属性动画产生的原因。</p>
+        <h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p>上一篇已经介绍过<a href="http://zzx2016.github.io/2016/03/31/Android%E8%A7%86%E5%9B%BE%E5%8A%A8%E7%94%BB/" target="_blank" rel="external">视图动画</a>，只支持简单的缩放、平移、旋转、透明度基本的动画，且有一定的局限性。比如：你希望View有一个颜色的切换动画；；你希望当动画停止时，View的位置就是当前的位置；不能作用在非View对象。这些需求视图动画都无法做到。这就是属性动画产生的原因。</p>
 <a id="more"></a>
-<h3 id="属性动画"><a href="#属性动画" class="headerlink" title="属性动画"></a>属性动画</h3><p>动画从创建到执行总共可以分成以下两步</p>
-<h4 id="计算属性值"><a href="#计算属性值" class="headerlink" title="计算属性值"></a>计算属性值</h4><p><img src="http://7q5ctm.com1.z0.glb.clouddn.com/%E5%B1%9E%E6%80%A7%E5%8A%A8%E7%94%BB-1.png" alt="计算属性值"></p>
+<h3 id="属性动画"><a href="#属性动画" class="headerlink" title="属性动画"></a>属性动画</h3><p>属性动画最关键的部分就是值得计算，下图是计算的过程：</p>
+<p><img src="http://7q5ctm.com1.z0.glb.clouddn.com/%E5%B1%9E%E6%80%A7%E5%8A%A8%E7%94%BB-1.png" alt="计算属性值"></p>
 <p>计算过程分为三个阶段：</p>
 <ol>
 <li>计算已完成分数。为了执行一个动画，你需要创建一个 ValueAnimator，并且指定目标对象属性的开始、结束值和持续时间。在调用 start 后的整个动画过程中， ValueAnimator 会根据已经完成的动画时间计算得到一个 0 到 1 之间的分数，代表该动画的已完成动画百分比。0 表示 0%，1 表示 100%。</li>
@@ -325,7 +325,6 @@
 <blockquote>
 <p>以上分析引入了两个概念：已完成分数（elapsed fraction）、插值分数( interpolated fraction )。</p>
 </blockquote>
-<h4 id="设置值"><a href="#设置值" class="headerlink" title="设置值"></a>设置值</h4><p>需要我们手动给valueAnimator添加监听，并在onAnimationUpdate()方法中将步骤1中计算的值设置给目标对象，即应用和刷新动画。</p>
 <h3 id="动画类继承关系"><a href="#动画类继承关系" class="headerlink" title="动画类继承关系"></a>动画类继承关系</h3><p><img src="http://7q5ctm.com1.z0.glb.clouddn.com/%E5%B1%9E%E6%80%A7%E5%8A%A8%E7%94%BB-2.png" alt="核心类图"></p>
 <h3 id="相关类介绍"><a href="#相关类介绍" class="headerlink" title="相关类介绍"></a>相关类介绍</h3><h4 id="ValueAnimator"><a href="#ValueAnimator" class="headerlink" title="ValueAnimator"></a>ValueAnimator</h4><p>属性动画中的主要的时序引擎，如动画时间，开始、结束属性值，相应时间属性值计算方法等。包含了所有计算动画值的核心函数。也包含了每一个动画时间上的细节，信息，一个动画是否重复，是否监听更新事件等，并且还可以设置自定义的计算类型。使用 ValueAnimator 实现动画需要手动更新：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">ValueAnimator animation = ValueAnimator.ofFloat(<span class="number">0f</span>, <span class="number">1f</span>);</span><br><span class="line">animation.setDuration(<span class="number">1000</span>);</span><br><span class="line">animation.addUpdateListener(<span class="keyword">new</span> AnimatorUpdateListener() &#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onAnimationUpdate</span><span class="params">(ValueAnimator animation)</span> </span>&#123;</span><br><span class="line">        Log.i(<span class="string">"update"</span>, ((Float) animation.getAnimatedValue()).toString());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br><span class="line">animation.setInterpolator(<span class="keyword">new</span> CycleInterpolator(<span class="number">3</span>));</span><br><span class="line">animation.start();</span><br></pre></td></tr></table></figure>
@@ -489,7 +488,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">34</span>
+              <span class="site-state-item-count">33</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -552,7 +551,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#概述"><span class="nav-number">1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#属性动画"><span class="nav-number">2.</span> <span class="nav-text">属性动画</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#计算属性值"><span class="nav-number">2.1.</span> <span class="nav-text">计算属性值</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#设置值"><span class="nav-number">2.2.</span> <span class="nav-text">设置值</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#动画类继承关系"><span class="nav-number">3.</span> <span class="nav-text">动画类继承关系</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#相关类介绍"><span class="nav-number">4.</span> <span class="nav-text">相关类介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#ValueAnimator"><span class="nav-number">4.1.</span> <span class="nav-text">ValueAnimator</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#TimeAnimator"><span class="nav-number">4.2.</span> <span class="nav-text">TimeAnimator</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ObjectAnimator"><span class="nav-number">4.3.</span> <span class="nav-text">ObjectAnimator</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#AnimatorSet"><span class="nav-number">4.4.</span> <span class="nav-text">AnimatorSet</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Interpolators"><span class="nav-number">4.5.</span> <span class="nav-text">Interpolators</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Evaluators"><span class="nav-number">4.6.</span> <span class="nav-text">Evaluators</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参考链接："><span class="nav-number">5.</span> <span class="nav-text">参考链接：</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#概述"><span class="nav-number">1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#属性动画"><span class="nav-number">2.</span> <span class="nav-text">属性动画</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#动画类继承关系"><span class="nav-number">3.</span> <span class="nav-text">动画类继承关系</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#相关类介绍"><span class="nav-number">4.</span> <span class="nav-text">相关类介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#ValueAnimator"><span class="nav-number">4.1.</span> <span class="nav-text">ValueAnimator</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#TimeAnimator"><span class="nav-number">4.2.</span> <span class="nav-text">TimeAnimator</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ObjectAnimator"><span class="nav-number">4.3.</span> <span class="nav-text">ObjectAnimator</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#AnimatorSet"><span class="nav-number">4.4.</span> <span class="nav-text">AnimatorSet</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Interpolators"><span class="nav-number">4.5.</span> <span class="nav-text">Interpolators</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Evaluators"><span class="nav-number">4.6.</span> <span class="nav-text">Evaluators</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参考链接："><span class="nav-number">5.</span> <span class="nav-text">参考链接：</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">

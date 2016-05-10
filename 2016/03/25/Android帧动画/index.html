@@ -68,7 +68,7 @@
 帧动画概述帧动画允许你实现像播放幻灯片一样的效果，这种动画的实质其实是Drawable，所以这种动画的XML定义方式文件一般放在res/drawable/目录下。
 如下图就是帧动画的源码文件：">
 <meta property="og:image" content="http://7q5ctm.com1.z0.glb.clouddn.com/%E5%B8%A7%E5%8A%A8%E7%94%BB-1.png">
-<meta property="og:updated_time" content="2016-05-03T03:39:25.052Z">
+<meta property="og:updated_time" content="2016-05-06T05:52:04.083Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android帧动画">
 <meta name="twitter:description" content="原文地址
@@ -336,7 +336,7 @@
 <h3 id="帧动画使用"><a href="#帧动画使用" class="headerlink" title="帧动画使用"></a>帧动画使用</h3><p>关于帧动画相对来说比较简单，这里给出一个常规使用框架，如下：</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 注意：rocket.xml文件位于res/drawable/目录下 --&gt;</span></span><br><span class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span><br><span class="line"><span class="tag">&lt;<span class="name">animation-list</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></span><br><span class="line">    <span class="attr">android:oneshot</span>=<span class="string">["true"</span> | "<span class="attr">false</span>"] &gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">item</span></span><br><span class="line">        <span class="attr">android:drawable</span>=<span class="string">"@[package:]drawable/drawable_resource_name"</span></span><br><span class="line">        <span class="attr">android:duration</span>=<span class="string">"integer"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">animation-list</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ImageView rocketImage = (ImageView) findViewById(R.id.rocket_image);</span><br><span class="line">rocketImage.setBackgroundResource(R.drawable.rocket_thrust);</span><br><span class="line"></span><br><span class="line">rocketAnimation = (AnimationDrawable) rocketImage.getBackground();</span><br><span class="line">rocketAnimation.start();</span><br></pre></td></tr></table></figure>
-<p><strong>特别注意，AnimationDrawable的start()方法不能在Activity的onCreate方法中调运，因为AnimationDrawable还未完全附着到window上，所以最好的调运时机是onWindowFocusChanged()方法中。</strong></p>
+<p><strong>特别注意，AnimationDrawable的start()方法不能在Activity的onCreate方法中调用，因为AnimationDrawable还未完全附着到window上，所以最好的调运时机是onWindowFocusChanged()方法中。</strong></p>
 
       
     </div>
@@ -467,7 +467,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">34</span>
+              <span class="site-state-item-count">33</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
