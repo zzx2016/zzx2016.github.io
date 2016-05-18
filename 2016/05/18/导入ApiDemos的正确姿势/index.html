@@ -41,7 +41,7 @@
 <link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Android," />
+  <meta name="keywords" content="Android,ApiDemos," />
 
 
 
@@ -57,19 +57,29 @@
 
 
 
-<meta name="description" content="Picasso开源库做过ListView和GridView加载图片的，都没少为出现OOM以及图片缓存而烦恼，Picasso的出现让我们摆脱了窘境，Picasso是由一家名叫square的公司开源的，这家公司的开源项目不止这一个，Android上比较优秀的okhttp，retrofit框架都是出自这家公司，也算得上是良心企业了，下面是来自官网的翻译。">
+<meta name="description" content="准备ApiDemos可谓是很好的学习Android开发的源码资料，本来想着跑下源码云雨一番，但是在导入之后会报很多错误，试着Google了下，终于找到一篇英文原文很好的解决了各种报错，英文好的可以看下原文，本文是根据原文从头到尾操作了一遍，特此记录分享个出来。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Picasso图片加载库">
-<meta property="og:url" content="http://www.in-droid.com/2016/03/19/Picasso图片加载库/index.html">
+<meta property="og:title" content="导入ApiDemos的正确姿势">
+<meta property="og:url" content="http://www.in-droid.com/2016/05/18/导入ApiDemos的正确姿势/index.html">
 <meta property="og:site_name" content="守心的博客">
-<meta property="og:description" content="Picasso开源库做过ListView和GridView加载图片的，都没少为出现OOM以及图片缓存而烦恼，Picasso的出现让我们摆脱了窘境，Picasso是由一家名叫square的公司开源的，这家公司的开源项目不止这一个，Android上比较优秀的okhttp，retrofit框架都是出自这家公司，也算得上是良心企业了，下面是来自官网的翻译。">
-<meta property="og:image" content="http://182.92.8.217/picture/30">
-<meta property="og:image" content="http://182.92.8.217/picture/29">
-<meta property="og:updated_time" content="2016-04-20T08:17:10.914Z">
+<meta property="og:description" content="准备ApiDemos可谓是很好的学习Android开发的源码资料，本来想着跑下源码云雨一番，但是在导入之后会报很多错误，试着Google了下，终于找到一篇英文原文很好的解决了各种报错，英文好的可以看下原文，本文是根据原文从头到尾操作了一遍，特此记录分享个出来。">
+<meta property="og:image" content="http://7q5ctm.com1.z0.glb.clouddn.com/ApiDemos1.png">
+<meta property="og:image" content="http://7q5ctm.com1.z0.glb.clouddn.com/ApiDemos2.png">
+<meta property="og:image" content="http://7q5ctm.com1.z0.glb.clouddn.com/ApiDemos3.png">
+<meta property="og:image" content="http://7q5ctm.com1.z0.glb.clouddn.com/ApiDemos4.png">
+<meta property="og:image" content="http://7q5ctm.com1.z0.glb.clouddn.com/ApiDemos11.png">
+<meta property="og:image" content="http://7q5ctm.com1.z0.glb.clouddn.com/ApiDemos12.png">
+<meta property="og:image" content="http://7q5ctm.com1.z0.glb.clouddn.com/ApiDemos13.png">
+<meta property="og:image" content="http://7q5ctm.com1.z0.glb.clouddn.com/ApiDemos6.png">
+<meta property="og:image" content="http://7q5ctm.com1.z0.glb.clouddn.com/ApiDemos7.png">
+<meta property="og:image" content="http://7q5ctm.com1.z0.glb.clouddn.com/ApiDemos9.png">
+<meta property="og:image" content="http://7q5ctm.com1.z0.glb.clouddn.com/ApiDemos8.png">
+<meta property="og:image" content="http://7q5ctm.com1.z0.glb.clouddn.com/ApiDemos10.png">
+<meta property="og:updated_time" content="2016-05-18T03:54:39.382Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Picasso图片加载库">
-<meta name="twitter:description" content="Picasso开源库做过ListView和GridView加载图片的，都没少为出现OOM以及图片缓存而烦恼，Picasso的出现让我们摆脱了窘境，Picasso是由一家名叫square的公司开源的，这家公司的开源项目不止这一个，Android上比较优秀的okhttp，retrofit框架都是出自这家公司，也算得上是良心企业了，下面是来自官网的翻译。">
-<meta name="twitter:image" content="http://182.92.8.217/picture/30">
+<meta name="twitter:title" content="导入ApiDemos的正确姿势">
+<meta name="twitter:description" content="准备ApiDemos可谓是很好的学习Android开发的源码资料，本来想着跑下源码云雨一番，但是在导入之后会报很多错误，试着Google了下，终于找到一篇英文原文很好的解决了各种报错，英文好的可以看下原文，本文是根据原文从头到尾操作了一遍，特此记录分享个出来。">
+<meta name="twitter:image" content="http://7q5ctm.com1.z0.glb.clouddn.com/ApiDemos1.png">
 
 
 
@@ -87,7 +97,7 @@
   };
 </script>
 
-  <title> Picasso图片加载库 | 守心的博客 </title>
+  <title> 导入ApiDemos的正确姿势 | 守心的博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -266,7 +276,7 @@
             
             
               
-                Picasso图片加载库
+                导入ApiDemos的正确姿势
               
             
           </h1>
@@ -278,8 +288,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-03-19T14:48:48+08:00" content="2016-03-19">
-              2016-03-19
+            <time itemprop="dateCreated" datetime="2016-05-18T11:04:27+08:00" content="2016-05-18">
+              2016-05-18
             </time>
           </span>
 
@@ -289,8 +299,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/03/19/Picasso图片加载库/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/19/Picasso图片加载库/" itemprop="commentsCount"></span>
+                <a href="/2016/05/18/导入ApiDemos的正确姿势/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/18/导入ApiDemos的正确姿势/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -312,39 +322,48 @@
       
 
       
-        <h4 id="Picasso开源库"><a href="#Picasso开源库" class="headerlink" title="Picasso开源库"></a>Picasso开源库</h4><p>做过<code>ListView</code>和<code>GridView</code>加载图片的，都没少为出现OOM以及图片缓存而烦恼，Picasso的出现让我们摆脱了窘境，Picasso是由一家名叫square的公司开源的，这家公司的开源项目不止这一个，Android上比较优秀的okhttp，retrofit框架都是出自这家公司，也算得上是良心企业了，下面是来自<a href="http://square.github.io/picasso/" target="_blank" rel="external">官网</a>的翻译。<br><a id="more"></a></p>
-<h4 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h4><p>Picasso允许你只用简单的一行代码就能完成对网络图片的加载，代码如下：<br><code>Picasso.with(context).load(&quot;http://i.imgur.com/DvpvklR.png&quot;).into(imageView);</code><br>注：我觉得Picasso的语法风格很符合我们的语言表达，如上代码可以翻译成Picasso在（with）当前上下文中加载（load）一张图片到（into）imageView控件。这样的代码写起来很舒服。<br>许多Android上常见的图片加载问题都被Picasso自动处理了，例如：</p>
+        <h4 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h4><p>ApiDemos可谓是很好的学习Android开发的源码资料，本来想着跑下源码云雨一番，但是在导入之后会报很多错误，试着Google了下，终于找到一篇英文原文很好的解决了各种报错，英文好的可以看下<a href="http://apidemos22.blogspot.com/2015/08/how-to-import-and-generate-apk-from.html" target="_blank" rel="external">原文</a>，本文是根据原文从头到尾操作了一遍，特此记录分享个出来。</p>
+<a id="more"></a>
+<p>导入源码会用到以下资源：</p>
 <ol>
-<li>在<code>adapter</code>中处理图像的回收和取消下载</li>
-<li>使用很少的内存进行复杂的图像转换</li>
-<li>自动处理内存缓存和磁盘缓存<br><img src="http://182.92.8.217/picture/30" alt=""></li>
+<li>ApiDemos源码 <a href="">下载地址</a></li>
+<li>Android Files <a href="">下载地址</a></li>
 </ol>
-<h4 id="特性"><a href="#特性" class="headerlink" title="特性"></a>特性</h4><ol>
-<li><p>Adapter中的加载<br>在Adapter中自动检测复用和取消下载,例如:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">getView</span><span class="params">(<span class="keyword">int</span> position, View convertView, ViewGroup parent)</span> </span>&#123;</span><br><span class="line">    SquaredImageView view = (SquaredImageView) convertView;</span><br><span class="line">    <span class="keyword">if</span> (view == <span class="keyword">null</span>) &#123;</span><br><span class="line">        view = <span class="keyword">new</span> SquaredImageView(context);</span><br><span class="line">    &#125;</span><br><span class="line">    String url = getItem(position); <span class="comment">//仅需要一句话搞定    </span></span><br><span class="line">    Picasso.with(context).load(url).into(view);&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>图像变换<br>转换图像以便更好的适配布局和减少存储空间，代码如下：<br><code>Picasso.with(context).load(url).resize(50, 50).centerCrop().into(imageView);</code><br>你也可以自定义更高效的转换方法，代码如下：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CropSquareTransformation</span> <span class="keyword">implements</span> <span class="title">Transformation</span> </span>&#123;       </span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> Bitmap <span class="title">transform</span><span class="params">(Bitmap source)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">int</span> size = Math.min(source.getWidth(), source.getHeight());   </span><br><span class="line">            <span class="keyword">int</span> x = (source.getWidth() - size) / <span class="number">2</span>;</span><br><span class="line">            <span class="keyword">int</span> y = (source.getHeight() - size) / <span class="number">2</span>;</span><br><span class="line">            Bitmap result = Bitmap.createBitmap(source, x, y, size, size);</span><br><span class="line">            <span class="keyword">if</span> (result != source) &#123;</span><br><span class="line">                source.recycle();</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> result;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> String <span class="title">key</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="string">"square()"</span>;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>只需要传递一个Bitmap实例到transform方法。</p>
+<p>ApiDemos的源码在<code>android-sdk\samples\android-23\legacy\ApiDemos</code>目录下，上面提供的源码版本为API23</p>
+<h4 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h4><p>打开Android Studio直接选择导入源码即可，然后编译，会发现报了错：</p>
+<p><img src="http://7q5ctm.com1.z0.glb.clouddn.com/ApiDemos1.png" alt="错误"></p>
+<p>这个错误是因为xml目录下的文件必须以<code>.xml</code>作为后缀，手动给这个报错的文件加个后缀即可。重新编译后，发现错误更多了：</p>
+<p><img src="http://7q5ctm.com1.z0.glb.clouddn.com/ApiDemos2.png" alt="错误"></p>
+<p>这时候Android Files中的文件就派上用场了，首先将<code>PrintHelper.java</code>和<code>PrintHelperKitkat.java</code>文件拷贝到app这个包下，即</p>
+<p><img src="http://7q5ctm.com1.z0.glb.clouddn.com/ApiDemos3.png" alt="错误"></p>
+<p>重新编译之后发现只剩下mms这个错误了</p>
+<p><img src="http://7q5ctm.com1.z0.glb.clouddn.com/ApiDemos4.png" alt="错误"></p>
+<p>下面就要将Android Files下的mms作为项目的module导入了，右键app选择红框中的选项</p>
+<p><img src="http://7q5ctm.com1.z0.glb.clouddn.com/ApiDemos11.png" alt="module"></p>
+<p><img src="http://7q5ctm.com1.z0.glb.clouddn.com/ApiDemos12.png" alt="module"></p>
+<p>点击上图的加号，导入module，添加完如2所示，多了个mms的module，最后将mms添加为app依赖的module</p>
+<p><img src="http://7q5ctm.com1.z0.glb.clouddn.com/ApiDemos13.png" alt="module"></p>
+<p>重新编译之后发现仍然有错</p>
+<p><img src="http://7q5ctm.com1.z0.glb.clouddn.com/ApiDemos6.png" alt="module"></p>
+<p>这个错误是因为变量中有以下划线命名的变量，手动改掉就行了，改掉之后再编译，握草，还报错</p>
+<p><img src="http://7q5ctm.com1.z0.glb.clouddn.com/ApiDemos7.png" alt="module"></p>
+<p>这时需要在Manifest文件中添加相应内容：</p>
 <ol>
-<li><p>设置占位图片<br>Picasso可以设置下载前和下载出错时的图像，代码如下：<br><code>Picasso.with(context).load(url).placeholder(R.drawable.user_placeholder).error(R.drawable.user_placeholder_error).into(imageView);</code><br>在下载出错的图像被设置前，Picasso会尝试三次请求</p>
+<li><p>为manifest标签添加如下属性</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">android:versionCode="1"</span><br><span class="line">android:versionName="1.0"</span><br><span class="line">xmlns:tools="http://schemas.android.com/tools"</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>资源加载<br>加载的图片来源还可以来自Resources, assets, files以及content providers，代码如下：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Picasso.with(context).load(R.drawable.landing_screen).into(imageView1);</span><br><span class="line">Picasso.with(context).load(<span class="string">"file:///android_asset/DvpvklR.png"</span>).into(imageView2);</span><br><span class="line">Picasso.with(context).load(<span class="keyword">new</span> File(...)).into(imageView3);</span><br></pre></td></tr></table></figure>
+<li><p>在<code>&lt;uses-permission... &gt;</code>标签下添加如下标签</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">uses-sdk</span> <span class="attr">tools:overrideLibrary</span>=<span class="string">"com.google.android"</span> /&gt;</span></span><br></pre></td></tr></table></figure>
 </li>
-<li><p>调试标识<br>在开发阶段，我们可以通过调用setIndicatorsEnabled(true)方法，设置Picasso可以根据图片来源的不同在图片上做出不同颜色的标记。<br><img src="http://182.92.8.217/picture/29" alt=""></p>
-</li>
-</ol>
-<h4 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h4><ol>
-<li>jar包的方式<br><a href="http://repo1.maven.org/maven2/com/squareup/picasso/picasso/2.5.2/picasso-2.5.2.jar" target="_blank" rel="external">下载jar</a>，直接导入即可使用。</li>
-<li><p>maven的方式</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupid</span>&gt;</span>com.squareup.picasso<span class="tag">&lt;/<span class="name">groupid</span>&gt;</span>           </span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactid</span>&gt;</span>picasso<span class="tag">&lt;/<span class="name">artifactid</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.5.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>gradle的方式<br><code>compile &#39;com.squareup.picasso:picasso:2.5.2&#39;</code></p>
+<li><p>最后在application标签中添加如下属性</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tools:replace="android:label,android:icon"</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
+<p>添加完之后是这个样子</p>
+<p><img src="http://7q5ctm.com1.z0.glb.clouddn.com/ApiDemos9.png" alt="module"></p>
+<p><img src="http://7q5ctm.com1.z0.glb.clouddn.com/ApiDemos8.png" alt="module"></p>
+<p><img src="http://7q5ctm.com1.z0.glb.clouddn.com/ApiDemos10.png" alt="module"></p>
+<p>这时候再编译，终于没有错误了，下面就跑demo，看源码，好好云雨一番吧！</p>
 
       
     </div>
@@ -361,6 +380,8 @@
           
             <a href="/tags/Android/" rel="tag">#Android</a>
           
+            <a href="/tags/ApiDemos/" rel="tag">#ApiDemos</a>
+          
         </div>
       
 
@@ -368,17 +389,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/03/19/帧率、刷新率和垂直同步/" rel="next" title="帧率、刷新率和垂直同步">
-                <i class="fa fa-chevron-left"></i> 帧率、刷新率和垂直同步
+              <a href="/2016/04/29/看懂UML类图/" rel="next" title="看懂UML类图">
+                <i class="fa fa-chevron-left"></i> 看懂UML类图
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/03/19/禁止ViewPager滑动/" rel="prev" title="禁止ViewPager滑动">
-                禁止ViewPager滑动 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -427,8 +444,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/03/19/Picasso图片加载库/"
-           data-title="Picasso图片加载库" data-url="http://www.in-droid.com/2016/03/19/Picasso图片加载库/">
+      <div class="ds-thread" data-thread-key="2016/05/18/导入ApiDemos的正确姿势/"
+           data-title="导入ApiDemos的正确姿势" data-url="http://www.in-droid.com/2016/05/18/导入ApiDemos的正确姿势/">
       </div>
     
   </div>
@@ -536,7 +553,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Picasso开源库"><span class="nav-number">1.</span> <span class="nav-text">Picasso开源库</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#介绍"><span class="nav-number">2.</span> <span class="nav-text">介绍</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#特性"><span class="nav-number">3.</span> <span class="nav-text">特性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用"><span class="nav-number">4.</span> <span class="nav-text">使用</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#准备"><span class="nav-number">1.</span> <span class="nav-text">准备</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#正文"><span class="nav-number">2.</span> <span class="nav-text">正文</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">
