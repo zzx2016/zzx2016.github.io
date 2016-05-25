@@ -70,13 +70,13 @@ public class ExampleActivity extends Activity implements View.OnClickListener {
 
 Android Transition框架主要运用在以下三种情况：
 
-1. activity之间或者Fragment之间的过渡动画。
-2. activity之间或者Fragment之间的共享元素（又叫hero view）的过渡动画。
-3. activity中布局元素的过渡动画。
+1. Activity之间或者Fragment之间的过渡动画。
+2. Activity之间或者Fragment之间共享元素的过渡动画。
+3. Activity中布局元素的过渡动画。
 
-其实1和2都是用于activity（或者）切换的时候。而且1和2是可以同时使用的。ps ：虽然overridePendingTransition也可以实现activity的切换，但是overridePendingTransition 没有共享元素的切换效果。而第三种其实是最简单的，主要调用几个已经定义好的动画类就可以了。
+其实1和2都是用于Activity（或者Fragment）切换的时候。而且1和2是可以同时使用的。ps ：虽然overridePendingTransition也可以实现Activity的切换，但是overridePendingTransition 没有共享元素的切换效果。3其实是最简单的，主要调用几个已经定义好的动画类就可以了。
 
-#### activity之间的过度动画
+#### Activity之间的过渡动画
 
 ##### exitTransition和enterTransition
 
@@ -202,7 +202,7 @@ private void setupWindowAnimations() {
 
 #### Activity间的共享元素
 
-共 享元素过度动画的背后是通过过度动画将两个不同布局中的不同view关联起来。Transition框架知道用适当的动画向用户展示从一个view向另外 一个view过度。请记住：共享元素过度的过程中，view并没有真正从一个布局跑到另外一个布局，整个过程基本都是在后一个布局中完成的。
+共享元素过渡动画的背后是通过过渡动画将两个不同布局中的不同view关联起来。Transition框架知道用适当的动画向用户展示从一个view向另外一个view过渡。请记住：共享元素过渡的过程中，view并没有真正从一个布局跑到另外一个布局，整个过程基本都是在后一个布局中完成的。
 
 ![图5](http://7q5ctm.com1.z0.glb.clouddn.com/Android-Transition-5.png)
 
@@ -273,6 +273,16 @@ layou/details_activity2.xml
 运行之后你可以看到这次有相同的行为，但是作用在了一个不同的view上：
 
 ![图7](http://7q5ctm.com1.z0.glb.clouddn.com/Android-Transition-7.gif)
+
+共享元素原理简析：
+
+共享元素变换是通过运行时改变View属性实现的，当Activity A调用Activity B ，发生的事件流如下：
+
+1. Activity A调用startActivity()， Activity B被创建，测量，同时初始化为半透明的窗口和透明的背景颜色。
+2. framework重新分配共享元素在B中的位置与大小，使其跟A中一模一样。之后，B的进入变换（enter transition）捕获到共享元素在B中的初始状态。
+3. framework重新分配共享元素在B中的位置与大小，使其跟B中的最终状态一致。之后，B的进入变换（enter transition）捕获到共享元素在B中的结束状态。
+4. B的进入变换（enter transition）拥有了共享元素的初始和结束状态，同时基于前后状态的区别创建一个Animator(属性动画对象)。
+5. framework使A隐藏其共享元素，动画开始运行。随着动画的进行，framework逐渐将B的activity窗口显示出来，当动画完成，B的窗口才完全可见。
 
 #### 布局元素的过渡动画
 

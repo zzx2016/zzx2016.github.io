@@ -8,29 +8,23 @@ tags:
 
 ### 概述
 
-上一篇已经介绍过[视图动画](http://zzx2016.github.io/2016/03/31/Android%E8%A7%86%E5%9B%BE%E5%8A%A8%E7%94%BB/)，只支持简单的缩放、平移、旋转、透明度基本的动画，且有一定的局限性。比如：你希望View有一个颜色的切换动画；你希望可以使用3D旋转动画；你希望当动画停止时，View的位置就是当前的位置；只能作用在View；这些需求视图动画都无法做到。这就是属性动画产生的原因。
+上一篇已经介绍过[视图动画](http://zzx2016.github.io/2016/03/31/Android%E8%A7%86%E5%9B%BE%E5%8A%A8%E7%94%BB/)，只支持简单的缩放、平移、旋转、透明度基本的动画，且有一定的局限性。比如：你希望View有一个颜色的切换动画；；你希望当动画停止时，View的位置就是当前的位置；不能作用在非View对象。这些需求视图动画都无法做到。这就是属性动画产生的原因。
 
 <!--more-->
 
 ### 属性动画
 
-动画从创建到执行总共可以分成以下两步
-
-#### 1. 计算属性值
+属性动画最关键的部分就是值得计算，下图是计算的过程：
 
 ![计算属性值](http://7q5ctm.com1.z0.glb.clouddn.com/%E5%B1%9E%E6%80%A7%E5%8A%A8%E7%94%BB-1.png)
 
-计算过程分为三步：
+计算过程分为三个阶段：
 
-- 计算已完成动画分数。为了执行一个动画，你需要创建一个 ValueAnimator，并且指定目标对象属性的开始、结束值和持续时间。在调用 start 后的整个动画过程中， ValueAnimator 会根据已经完成的动画时间计算得到一个 0 到 1 之间的分数，代表该动画的已完成动画百分比。0 表示 0%，1 表示 100%。
-- 计算插值（动画变化率）。 当 ValueAnimator 计算完已完成动画分数后，它会调用当前设置的 TimeInterpolator，去计算得到一个 interpolated（插值）分数，在计算过程中，已完成动画百分比会被加入到新的插值计算中。
-- 计算属性值。当插值分数计算完成后，ValueAnimator 会根据插值分数调用合适的 TypeEvaluator 去计算运动中的属性值。
+1. 计算已完成分数。为了执行一个动画，你需要创建一个 ValueAnimator，并且指定目标对象属性的开始、结束值和持续时间。在调用 start 后的整个动画过程中， ValueAnimator 会根据已经完成的动画时间计算得到一个 0 到 1 之间的分数，代表该动画的已完成动画百分比。0 表示 0%，1 表示 100%。
+2. 计算插值（动画变化率）。 当 ValueAnimator 计算完已完成动画分数后，它会调用当前设置的 TimeInterpolator，去计算得到一个 interpolated（插值）分数，在计算过程中，已完成动画百分比会被加入到新的插值计算中。
+3. 计算属性值。当插值分数计算完成后，ValueAnimator 会根据插值分数调用合适的 TypeEvaluator 去计算运动中的属性值。
 
->以上分析引入了两个概念：已完成动画分数（elapsed fraction）、插值分数( interpolated fraction )。
-
-#### 2. 设置值
-
-将步骤1中计算的值设置给目标对象，即应用和刷新动画
+>以上分析引入了两个概念：已完成分数（elapsed fraction）、插值分数( interpolated fraction )。
 
 ### 动画类继承关系
 
@@ -53,6 +47,22 @@ animation.addUpdateListener(new AnimatorUpdateListener() {
 });
 animation.setInterpolator(new CycleInterpolator(3));
 animation.start();
+```
+
+#### TimeAnimator
+
+继承自ValueAnimator，只有三个方法，并不常用。下面是具体用法：
+
+```Java
+TimeAnimator timeAnimator = new TimeAnimator();
+timeAnimator.setTimeListener(new TimeAnimator.TimeListener() {
+    @Override
+    public void onTimeUpdate(TimeAnimator animation, long totalTime, long deltaTime) {
+        //totalTime：从动画开始到现在的时间
+        //deltaTime：从上一帧到现在的时间
+    }
+});
+timeAnimator.start();
 ```
 
 #### ObjectAnimator
@@ -80,7 +90,7 @@ ObjectAnimator的自动更新功能，依赖于属性身上的setter和getter方
 
 #### AnimatorSet
 
-提供组合动画能力的类。并可设置组中动画的时序关系，如同时播放、有序播放或延迟播放。Elevator会告诉属性动画系统如何计算一个属性的值，它们会从Animator类中获取时序数据，比如开始和结束值，并依据这些数据计算动画的属性值。
+提供组合动画能力的类。并可设置组中动画的时序关系，如同时播放、有序播放或延迟播放。Evaluator会告诉属性动画系统如何计算一个属性的值，它们会从Animator类中获取时序数据，比如开始和结束值，并依据这些数据计算动画的属性值。
 
 #### Interpolators
 

@@ -56,4 +56,4 @@ rocketAnimation = (AnimationDrawable) rocketImage.getBackground();
 rocketAnimation.start();
 ```
 
-**特别注意，AnimationDrawable的start()方法不能在Activity的onCreate方法中调运，因为AnimationDrawable还未完全附着到window上，所以最好的调运时机是onWindowFocusChanged()方法中。**
+**特别注意，AnimationDrawable的start()方法不能在Activity的onCreate方法中调用，因为AnimationDrawable还未完全附着到window上，所以最好的调运时机是onWindowFocusChanged()方法中。**
