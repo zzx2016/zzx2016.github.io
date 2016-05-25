@@ -41,7 +41,7 @@
 <link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="数据库," />
+  <meta name="keywords" content="Android,Support Library," />
 
 
 
@@ -57,25 +57,25 @@
 
 
 
-<meta name="description" content="转载：原文地址
-所有应用软件之中，数据库可能是最复杂的。
-MySQL的手册有3000多页，PostgreSQL的手册有2000多页，Oracle的手册更是比它们相加还要厚。
-但是，自己写一个最简单的数据库，做起来并不难。Reddit上面有一个帖子，只用了几百个字，就把原理讲清楚了。下面是我根据这个帖子整理的内容。">
+<meta name="description" content="英文地址
+Android Support Library包中包含了很多可以被我们app使用的类库，每个类库支持特定的Android版本和一些特性。
+本文将介绍Support Library的重要特性和支持的系统版本，来帮助开发者决定在app中导入哪种Support Library。通常，我们建议导入v4和v7的Support Library，因为他们支持了大部分的系统版本以及推荐UI的API。
+为">
 <meta property="og:type" content="article">
-<meta property="og:title" content="数据库的最简单实现">
-<meta property="og:url" content="http://www.in-droid.com/2016/03/24/数据库的最简单实现/index.html">
+<meta property="og:title" content="Android支持库特性">
+<meta property="og:url" content="http://www.in-droid.com/2016/05/23/Android支持库特性/index.html">
 <meta property="og:site_name" content="守心的博客">
-<meta property="og:description" content="转载：原文地址
-所有应用软件之中，数据库可能是最复杂的。
-MySQL的手册有3000多页，PostgreSQL的手册有2000多页，Oracle的手册更是比它们相加还要厚。
-但是，自己写一个最简单的数据库，做起来并不难。Reddit上面有一个帖子，只用了几百个字，就把原理讲清楚了。下面是我根据这个帖子整理的内容。">
-<meta property="og:updated_time" content="2016-04-20T08:17:10.917Z">
+<meta property="og:description" content="英文地址
+Android Support Library包中包含了很多可以被我们app使用的类库，每个类库支持特定的Android版本和一些特性。
+本文将介绍Support Library的重要特性和支持的系统版本，来帮助开发者决定在app中导入哪种Support Library。通常，我们建议导入v4和v7的Support Library，因为他们支持了大部分的系统版本以及推荐UI的API。
+为">
+<meta property="og:updated_time" content="2016-05-25T02:57:48.827Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="数据库的最简单实现">
-<meta name="twitter:description" content="转载：原文地址
-所有应用软件之中，数据库可能是最复杂的。
-MySQL的手册有3000多页，PostgreSQL的手册有2000多页，Oracle的手册更是比它们相加还要厚。
-但是，自己写一个最简单的数据库，做起来并不难。Reddit上面有一个帖子，只用了几百个字，就把原理讲清楚了。下面是我根据这个帖子整理的内容。">
+<meta name="twitter:title" content="Android支持库特性">
+<meta name="twitter:description" content="英文地址
+Android Support Library包中包含了很多可以被我们app使用的类库，每个类库支持特定的Android版本和一些特性。
+本文将介绍Support Library的重要特性和支持的系统版本，来帮助开发者决定在app中导入哪种Support Library。通常，我们建议导入v4和v7的Support Library，因为他们支持了大部分的系统版本以及推荐UI的API。
+为">
 
 
 
@@ -93,7 +93,7 @@ MySQL的手册有3000多页，PostgreSQL的手册有2000多页，Oracle的手册
   };
 </script>
 
-  <title> 数据库的最简单实现 | 守心的博客 </title>
+  <title> Android支持库特性 | 守心的博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -272,7 +272,7 @@ MySQL的手册有3000多页，PostgreSQL的手册有2000多页，Oracle的手册
             
             
               
-                数据库的最简单实现
+                Android支持库特性
               
             
           </h1>
@@ -284,8 +284,8 @@ MySQL的手册有3000多页，PostgreSQL的手册有2000多页，Oracle的手册
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-03-24T11:27:29+08:00" content="2016-03-24">
-              2016-03-24
+            <time itemprop="dateCreated" datetime="2016-05-23T10:47:07+08:00" content="2016-05-23">
+              2016-05-23
             </time>
           </span>
 
@@ -295,8 +295,8 @@ MySQL的手册有3000多页，PostgreSQL的手册有2000多页，Oracle的手册
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/03/24/数据库的最简单实现/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/24/数据库的最简单实现/" itemprop="commentsCount"></span>
+                <a href="/2016/05/23/Android支持库特性/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/23/Android支持库特性/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -318,54 +318,62 @@ MySQL的手册有3000多页，PostgreSQL的手册有2000多页，Oracle的手册
       
 
       
-        <p>转载：<a href="http://www.ruanyifeng.com/blog/2014/07/database_implementation.html" target="_blank" rel="external">原文地址</a></p>
-<p>所有应用软件之中，数据库可能是最复杂的。</p>
-<p>MySQL的手册有3000多页，PostgreSQL的手册有2000多页，Oracle的手册更是比它们相加还要厚。</p>
-<p>但是，自己写一个最简单的数据库，做起来并不难。Reddit上面有一个帖子，只用了几百个字，就把原理讲清楚了。下面是我根据这个帖子整理的内容。</p>
+        <p><a href="https://developer.android.com/topic/libraries/support-library/features.html" target="_blank" rel="external">英文地址</a></p>
+<p>Android Support Library包中包含了很多可以被我们app使用的类库，每个类库支持特定的Android版本和一些特性。</p>
+<p>本文将介绍Support Library的重要特性和支持的系统版本，来帮助开发者决定在app中导入哪种Support Library。通常，我们建议导入v4和v7的Support Library，因为他们支持了大部分的系统版本以及推荐UI的API。</p>
+<p>为了使用这些Support Library，必须使用Android SDK installation来下载这些库文件。具体下载方法请自行Google，下载完库文件后还要在项目中引用，下面将详细介绍每个库的用途，以及导入方法。</p>
 <a id="more"></a>
-<h4 id="数据以文本形式保存"><a href="#数据以文本形式保存" class="headerlink" title="数据以文本形式保存"></a>数据以文本形式保存</h4><p>第一步，就是将所要保存的数据，写入文本文件。这个文本文件就是你的数据库。</p>
-<p>为了方便读取，数据必须分成记录，每一条记录的长度规定为等长。比如，假定每条记录的长度是800字节，那么第5条记录的开始位置就在3200字节。</p>
-<p>大多数时候，我们不知道某一条记录在第几个位置，只知道主键（primary key）的值。这时为了读取数据，可以一条条比对记录。但是这样做效率太低，实际应用中，数据库往往采用B树（B-tree）格式储存数据。</p>
-<h4 id="什么是B树？"><a href="#什么是B树？" class="headerlink" title="什么是B树？"></a>什么是B树？</h4><p>要理解B树，必须从二叉查找树（Binary search tree）讲起。</p>
-<h5 id="二叉查找树"><a href="#二叉查找树" class="headerlink" title="二叉查找树"></a>二叉查找树</h5><p>二叉查找树是一种查找效率非常高的数据结构，它有三个特点。</p>
-<ol>
-<li><p>每个节点最多只有两个子树。</p>
+<h3 id="v4-Support-Library"><a href="#v4-Support-Library" class="headerlink" title="v4 Support Library"></a>v4 Support Library</h3><p>v4包支持Android 1.6（API level 4）及以上，相对其他库，v4包提供的API更多，包括应用程序组件，用户界面，无障碍功能，数据处理，网络连接和编程工具。下面列举一下v4包中比较关键的类。</p>
+<ul>
+<li><p>应用组件（App Components）</p>
+<ul>
+<li>Fragment -封装了Fragment的UI和功能，使应用程序能够根据小屏设备和大屏设备进行布局调整</li>
+<li>NotificationCompat -提供更丰富的Notification。注：主要是兼容</li>
+<li>LocalBroadcastManager -支持应用内的注册和接收广播，而不是使用全局的广播</li>
+</ul>
 </li>
-<li><p>左子树都为小于父节点的值，右子树都为大于父节点的值。</p>
+<li><p>UI（User Interface）</p>
+<ul>
+<li>ViewPager -管理子view，支持用户滑动</li>
+<li>PagerTitleStrip -非交互式标题条，可以添加为ViewPager的子view</li>
+<li>PagerTabStrip -增加了对页面访问之间进行切换的导航部件，也可以与ViewPager一起使用</li>
+<li>DrawerLayout -平时用的侧滑菜单控件</li>
+<li>SlidingPaneLayout -多层显示控件，左侧显示摘要（可导航），右侧显示详情</li>
+</ul>
 </li>
-<li><p>在n个节点中找到目标值，一般只需要log(n)次比较。</p>
+<li><p>无障碍（Accessibility）</p>
+<ul>
+<li>ExploreByTouchHelper -工具类，帮助自定义view实现无障碍访问</li>
+<li>AccessibilityEventCompat -兼容AccessibilityEvent</li>
+<li>AccessibilityNodeInfoCompat -兼容AccessibilityNodeInfo</li>
+<li>AccessibilityNodeProviderCompat -兼容AccessibilityNodeProvider</li>
+<li>AccessibilityDelegateCompat -兼容View.AccessibilityDelegate</li>
+</ul>
 </li>
-</ol>
-<p>二叉查找树的结构不适合数据库，因为它的查找效率与层数相关。越处在下层的数据，就需要越多次比较。极端情况下，n个数据需要n次比较才能找到目标值。对于数据库来说，每进入一层，就要从硬盘读取一次数据，这非常致命，因为硬盘的读取时间远远大于数据处理时间，数据库读取硬盘的次数越少越好。</p>
-<h5 id="B-tree"><a href="#B-tree" class="headerlink" title="B-tree"></a>B-tree</h5><p>B树是对二叉查找树的改进。它的设计思想是，将相关数据尽量集中在一起，以便一次读取多个数据，减少硬盘操作次数。</p>
-<p>B树的特点也有三个。</p>
-<ol>
-<li><p>一个节点可以容纳多个值。比如上图中，最多的一个节点容纳了4个值。</p>
+<li><p>内容（Content）</p>
+<ul>
+<li>Loader -支持异步加载数据，提供两个实现类CursorLoader和AsyncTaskLoader</li>
+<li>FileProvider -不同程序之间的文件共享</li>
+</ul>
 </li>
-<li><p>除非数据已经填满，否则不会增加新的层。也就是说，B树追求”层”越少越好。</p>
-</li>
-<li><p>子节点中的值，与父节点中的值，有严格的大小对应关系。一般来说，如果父节点有a个值，那么就有a+1个子节点。比如上图中，父节点有两个值（7和16），就对应三个子节点，第一个子节点都是小于7的值，最后一个子节点都是大于16的值，中间的子节点就是7和16之间的值。</p>
-</li>
-</ol>
-<p>这种数据结构，非常有利于减少读取硬盘的次数。假定一个节点可以容纳100个值，那么3层的B树可以容纳100万个数据，如果换成二叉查找树，则需要20层！假定操作系统一次读取一个节点，并且根节点保留在内存中，那么B树在100万个数据中查找目标值，只需要读取两次硬盘。</p>
-<h4 id="索引"><a href="#索引" class="headerlink" title="索引"></a>索引</h4><p>数据库以B树格式储存，只解决了按照”主键”查找数据的问题。如果想查找其他字段，就需要建立索引（index）。</p>
-<p>所谓索引，就是以某个字段为关键字的B树文件。假定有一张”雇员表”，包含了员工号（主键）和姓名两个字段。可以对姓名建立索引文件，该文件以B树格式对姓名进行储存，每个姓名后面是其在数据库中的位置（即第几条记录）。查找姓名的时候，先从索引中找到对应第几条记录，然后再从表格中读取。</p>
-<p>这种索引查找方法，叫做”索引顺序存取方法”（Indexed Sequential Access Method），缩写为ISAM。它已经有多种实现（比如C-ISAM库和D-ISAM库），只要使用这些代码库，就能自己写一个最简单的数据库。</p>
-<h4 id="高级功能"><a href="#高级功能" class="headerlink" title="高级功能"></a>高级功能</h4><p>部署了最基本的数据存取（包括索引）以后，还可以实现一些高级功能。</p>
-<ol>
-<li><p>SQL语言是数据库通用操作语言，所以需要一个SQL解析器，将SQL命令解析为对应的ISAM操作。</p>
-</li>
-<li><p>数据库连接（join）是指数据库的两张表通过”外键”，建立连接关系。你需要对这种操作进行优化。</p>
-</li>
-<li><p>数据库事务（transaction）是指批量进行一系列数据库操作，只要有一步不成功，整个操作都不成功。所以需要有一个”操作日志”，以便失败时对操作进行回滚。</p>
-</li>
-<li><p>备份机制：保存数据库的副本。</p>
-</li>
-<li><p>远程操作：使得用户可以在不同的机器上，通过TCP/IP协议操作数据库。</p>
-</li>
-</ol>
-<p>（完）</p>
-
+</ul>
+<p>在Gradle中引用：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">### Multidex Support Library</span><br><span class="line"></span><br><span class="line">解决方法数超过65536的问题，实现dex分包。</span><br><span class="line"></span><br><span class="line">在Gradle中引用：</span><br><span class="line"></span><br><span class="line">```com.android.support:multidex:1.0.0</span><br></pre></td></tr></table></figure>
+<h3 id="v7-Support-Libraries"><a href="#v7-Support-Libraries" class="headerlink" title="v7 Support Libraries"></a>v7 Support Libraries</h3><p>提供了很多支持Android 2.1 (API level 7)及以上的库。这些库提供了很多特性并且这些库是相互独立的。</p>
+<h4 id="v7-appcompat-library"><a href="#v7-appcompat-library" class="headerlink" title="v7 appcompat library"></a>v7 appcompat library</h4><p>提供了对ActionBar的支持，同时还包括对material design的支持。</p>
+<blockquote>
+<p>这个库依赖v4 Support Library。</p>
+</blockquote>
+<p>下面列举一些v7 appcompat library中的关键类:</p>
+<ul>
+<li>ActionBar -提供了ActionBar的用户界面的实现</li>
+<li>AppCompatActivity -支持ActionBar的兼容Activity</li>
+<li>AppCompatDialog -支持AppCompat themed的兼容Dialog</li>
+<li>ShareActionProvider -支持ActionBar中标准的分享动作(邮件或者社交应用)</li>
+</ul>
+<p>在Gradle中引用：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#### v7 cardview library</span><br><span class="line"></span><br><span class="line">符合material design的卡片组件，广泛的在TV app中应用</span><br><span class="line"></span><br><span class="line">在Gradle中引用：</span><br><span class="line"></span><br><span class="line">```com.android.support:cardview-v7:23.3.0</span><br></pre></td></tr></table></figure>
+<h4 id="未完待续…"><a href="#未完待续…" class="headerlink" title="未完待续…"></a>未完待续…</h4><h4 id="v7-gridlayout-library"><a href="#v7-gridlayout-library" class="headerlink" title="v7 gridlayout library"></a>v7 gridlayout library</h4><h4 id="v7-mediarouter-library"><a href="#v7-mediarouter-library" class="headerlink" title="v7 mediarouter library"></a>v7 mediarouter library</h4><h4 id="v7-palette-library"><a href="#v7-palette-library" class="headerlink" title="v7 palette library"></a>v7 palette library</h4><h4 id="v7-recyclerview-library"><a href="#v7-recyclerview-library" class="headerlink" title="v7 recyclerview library"></a>v7 recyclerview library</h4><h4 id="v7-preference-library"><a href="#v7-preference-library" class="headerlink" title="v7 preference library"></a>v7 preference library</h4><h3 id="v8-Support-Library"><a href="#v8-Support-Library" class="headerlink" title="v8 Support Library"></a>v8 Support Library</h3><h3 id="v13-Support-Library"><a href="#v13-Support-Library" class="headerlink" title="v13 Support Library"></a>v13 Support Library</h3><h3 id="v14-Preference-Support-Library"><a href="#v14-Preference-Support-Library" class="headerlink" title="v14 Preference Support Library"></a>v14 Preference Support Library</h3><h3 id="v17-Leanback-Library"><a href="#v17-Leanback-Library" class="headerlink" title="v17 Leanback Library"></a>v17 Leanback Library</h3><h3 id="v17-Preference-Library-for-TV"><a href="#v17-Preference-Library-for-TV" class="headerlink" title="v17 Preference Library for TV"></a>v17 Preference Library for TV</h3><h3 id="Annotations-Support-Library"><a href="#Annotations-Support-Library" class="headerlink" title="Annotations Support Library"></a>Annotations Support Library</h3><h3 id="Design-Support-Library"><a href="#Design-Support-Library" class="headerlink" title="Design Support Library"></a>Design Support Library</h3><h3 id="Custom-Tabs-Support-Library"><a href="#Custom-Tabs-Support-Library" class="headerlink" title="Custom Tabs Support Library"></a>Custom Tabs Support Library</h3><h3 id="Percent-Support-Library"><a href="#Percent-Support-Library" class="headerlink" title="Percent Support Library"></a>Percent Support Library</h3><h3 id="Recommendation-Support-Library-for-TV"><a href="#Recommendation-Support-Library-for-TV" class="headerlink" title="Recommendation Support Library for TV"></a>Recommendation Support Library for TV</h3>
       
     </div>
 
@@ -379,7 +387,9 @@ MySQL的手册有3000多页，PostgreSQL的手册有2000多页，Oracle的手册
       
         <div class="post-tags">
           
-            <a href="/tags/数据库/" rel="tag">#数据库</a>
+            <a href="/tags/Android/" rel="tag">#Android</a>
+          
+            <a href="/tags/Support-Library/" rel="tag">#Support Library</a>
           
         </div>
       
@@ -388,16 +398,16 @@ MySQL的手册有3000多页，PostgreSQL的手册有2000多页，Oracle的手册
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/03/19/Android中的坐标系统/" rel="next" title="Android中的坐标系统">
-                <i class="fa fa-chevron-left"></i> Android中的坐标系统
+              <a href="/2016/05/18/导入ApiDemos的正确姿势/" rel="next" title="导入ApiDemos的正确姿势">
+                <i class="fa fa-chevron-left"></i> 导入ApiDemos的正确姿势
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/03/25/Android-push方案调研/" rel="prev" title="Android push方案调研">
-                Android push方案调研 <i class="fa fa-chevron-right"></i>
+              <a href="/2016/05/25/Java线程/" rel="prev" title="Java线程">
+                Java线程 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -447,8 +457,8 @@ MySQL的手册有3000多页，PostgreSQL的手册有2000多页，Oracle的手册
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/03/24/数据库的最简单实现/"
-           data-title="数据库的最简单实现" data-url="http://www.in-droid.com/2016/03/24/数据库的最简单实现/">
+      <div class="ds-thread" data-thread-key="2016/05/23/Android支持库特性/"
+           data-title="Android支持库特性" data-url="http://www.in-droid.com/2016/05/23/Android支持库特性/">
       </div>
     
   </div>
@@ -556,7 +566,7 @@ MySQL的手册有3000多页，PostgreSQL的手册有2000多页，Oracle的手册
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#数据以文本形式保存"><span class="nav-number">1.</span> <span class="nav-text">数据以文本形式保存</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#什么是B树？"><span class="nav-number">2.</span> <span class="nav-text">什么是B树？</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#二叉查找树"><span class="nav-number">2.1.</span> <span class="nav-text">二叉查找树</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#B-tree"><span class="nav-number">2.2.</span> <span class="nav-text">B-tree</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#索引"><span class="nav-number">3.</span> <span class="nav-text">索引</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#高级功能"><span class="nav-number">4.</span> <span class="nav-text">高级功能</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#v4-Support-Library"><span class="nav-number">1.</span> <span class="nav-text">v4 Support Library</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#v7-Support-Libraries"><span class="nav-number">2.</span> <span class="nav-text">v7 Support Libraries</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#v7-appcompat-library"><span class="nav-number">2.1.</span> <span class="nav-text">v7 appcompat library</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#未完待续…"><span class="nav-number">2.2.</span> <span class="nav-text">未完待续…</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#v7-gridlayout-library"><span class="nav-number">2.3.</span> <span class="nav-text">v7 gridlayout library</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#v7-mediarouter-library"><span class="nav-number">2.4.</span> <span class="nav-text">v7 mediarouter library</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#v7-palette-library"><span class="nav-number">2.5.</span> <span class="nav-text">v7 palette library</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#v7-recyclerview-library"><span class="nav-number">2.6.</span> <span class="nav-text">v7 recyclerview library</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#v7-preference-library"><span class="nav-number">2.7.</span> <span class="nav-text">v7 preference library</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#v8-Support-Library"><span class="nav-number">3.</span> <span class="nav-text">v8 Support Library</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#v13-Support-Library"><span class="nav-number">4.</span> <span class="nav-text">v13 Support Library</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#v14-Preference-Support-Library"><span class="nav-number">5.</span> <span class="nav-text">v14 Preference Support Library</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#v17-Leanback-Library"><span class="nav-number">6.</span> <span class="nav-text">v17 Leanback Library</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#v17-Preference-Library-for-TV"><span class="nav-number">7.</span> <span class="nav-text">v17 Preference Library for TV</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Annotations-Support-Library"><span class="nav-number">8.</span> <span class="nav-text">Annotations Support Library</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Design-Support-Library"><span class="nav-number">9.</span> <span class="nav-text">Design Support Library</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Custom-Tabs-Support-Library"><span class="nav-number">10.</span> <span class="nav-text">Custom Tabs Support Library</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Percent-Support-Library"><span class="nav-number">11.</span> <span class="nav-text">Percent Support Library</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Recommendation-Support-Library-for-TV"><span class="nav-number">12.</span> <span class="nav-text">Recommendation Support Library for TV</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">
