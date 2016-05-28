@@ -58,21 +58,20 @@
 
 
 <meta name="description" content="原文地址
-概述代理模式是常用的结构型设计模式之一，当无法直接访问某个对象或访问某个对象存在困难时可以通过一个代理对象来间接访问，为了保证客户端使用的透明性，所访问的真实对象与代理对象需要实现相同的接口。根据代理模式的使用目的不同，代理模式又可以分为多种类型，例如保护代理、远程代理、虚拟代理、缓冲代理等，它们应用于不同的场合，满足用户的不同需求。
-核心概念： 给某一个对象提供一个代理或占位符，并由代">
+概述代理模式是常用的结构型设计模式之一，当无法直接访问某个对象或访问某个对象存在困难时可以通过一个代理对象来间接访问，为了保证客户端使用的透明性，所访问的真实对象与代理对象需要实现相同的接口。根据代理模式的使用目的不同，代理模式又可以分为多种类型，例如保护代理、远程代理、虚拟代理、缓冲代理等，它们应用于不同的场合，满足用户的不同需求。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="设计模式(结构型)之代理模式(Proxy Pattern)">
 <meta property="og:url" content="http://www.in-droid.com/2016/05/28/设计模式-结构型-之代理模式-Proxy-Pattern/index.html">
 <meta property="og:site_name" content="守心的博客">
 <meta property="og:description" content="原文地址
-概述代理模式是常用的结构型设计模式之一，当无法直接访问某个对象或访问某个对象存在困难时可以通过一个代理对象来间接访问，为了保证客户端使用的透明性，所访问的真实对象与代理对象需要实现相同的接口。根据代理模式的使用目的不同，代理模式又可以分为多种类型，例如保护代理、远程代理、虚拟代理、缓冲代理等，它们应用于不同的场合，满足用户的不同需求。
-核心概念： 给某一个对象提供一个代理或占位符，并由代">
-<meta property="og:updated_time" content="2016-05-28T09:07:22.451Z">
+概述代理模式是常用的结构型设计模式之一，当无法直接访问某个对象或访问某个对象存在困难时可以通过一个代理对象来间接访问，为了保证客户端使用的透明性，所访问的真实对象与代理对象需要实现相同的接口。根据代理模式的使用目的不同，代理模式又可以分为多种类型，例如保护代理、远程代理、虚拟代理、缓冲代理等，它们应用于不同的场合，满足用户的不同需求。">
+<meta property="og:image" content="http://7q5ctm.com1.z0.glb.clouddn.com/%E4%BB%A3%E7%90%86%E6%A8%A1%E5%BC%8F1.png">
+<meta property="og:updated_time" content="2016-05-28T10:01:33.788Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="设计模式(结构型)之代理模式(Proxy Pattern)">
 <meta name="twitter:description" content="原文地址
-概述代理模式是常用的结构型设计模式之一，当无法直接访问某个对象或访问某个对象存在困难时可以通过一个代理对象来间接访问，为了保证客户端使用的透明性，所访问的真实对象与代理对象需要实现相同的接口。根据代理模式的使用目的不同，代理模式又可以分为多种类型，例如保护代理、远程代理、虚拟代理、缓冲代理等，它们应用于不同的场合，满足用户的不同需求。
-核心概念： 给某一个对象提供一个代理或占位符，并由代">
+概述代理模式是常用的结构型设计模式之一，当无法直接访问某个对象或访问某个对象存在困难时可以通过一个代理对象来间接访问，为了保证客户端使用的透明性，所访问的真实对象与代理对象需要实现相同的接口。根据代理模式的使用目的不同，代理模式又可以分为多种类型，例如保护代理、远程代理、虚拟代理、缓冲代理等，它们应用于不同的场合，满足用户的不同需求。">
+<meta name="twitter:image" content="http://7q5ctm.com1.z0.glb.clouddn.com/%E4%BB%A3%E7%90%86%E6%A8%A1%E5%BC%8F1.png">
 
 
 
@@ -317,6 +316,7 @@
       
         <p><a href="http://blog.csdn.net/yanbober" target="_blank" rel="external">原文地址</a></p>
 <h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p>代理模式是常用的结构型设计模式之一，当无法直接访问某个对象或访问某个对象存在困难时可以通过一个代理对象来间接访问，为了保证客户端使用的透明性，所访问的真实对象与代理对象需要实现相同的接口。根据代理模式的使用目的不同，代理模式又可以分为多种类型，例如保护代理、远程代理、虚拟代理、缓冲代理等，它们应用于不同的场合，满足用户的不同需求。</p>
+<a id="more"></a>
 <h3 id="核心"><a href="#核心" class="headerlink" title="核心"></a>核心</h3><p><strong>概念：</strong> 给某一个对象提供一个代理或占位符，并由代理对象来控制对原对象的访问。</p>
 <p><strong>代理模式结构重要核心模块：</strong></p>
 <ol>
@@ -356,7 +356,7 @@
 <p>当需要为一个对象的访问（引用）提供一些额外的操作时可以使用智能引用代理。</p>
 <h3 id="程序猿实例"><a href="#程序猿实例" class="headerlink" title="程序猿实例"></a>程序猿实例</h3><p>简单的实例：</p>
 <p>如下图片结构就是一个代理模式的UML图：</p>
-<p><img src="" alt="picture"></p>
+<p><img src="http://7q5ctm.com1.z0.glb.clouddn.com/%E4%BB%A3%E7%90%86%E6%A8%A1%E5%BC%8F1.png" alt="picture"></p>
 <p>如下是一个入门代理模式的简单示例，遵循了代理模式的几大核心模块。我们以程序猿买 港版MacBook为例来说明代理模式。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//抽象对象角色</span></span><br><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">IMacBook</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">buyIt</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//目标对象角色</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">HangKangMacBook</span> <span class="keyword">implements</span> <span class="title">IMacBook</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">buyIt</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"This computer is from HangKang!"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//代理对象角色</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ProxyMacBook</span> <span class="keyword">implements</span> <span class="title">IMacBook</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">buyIt</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        HangKangMacBook mac = <span class="keyword">new</span> HangKangMacBook();</span><br><span class="line">        mac.buyIt();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//客户端</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        IMacBook macBook = <span class="keyword">new</span> ProxyMacBook();</span><br><span class="line">        macBook.buyIt();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><strong>在Android中的一个代理模式运用实例：</strong></p>

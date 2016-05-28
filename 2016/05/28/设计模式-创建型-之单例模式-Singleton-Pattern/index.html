@@ -65,7 +65,7 @@
 <meta property="og:site_name" content="守心的博客">
 <meta property="og:description" content="原文地址
 概述单例模式可能是23种设计模式中最简单的。应用也非常广泛，譬如Android中的数据库访问等操作都可以运用单例模式。">
-<meta property="og:updated_time" content="2016-05-28T08:16:55.754Z">
+<meta property="og:updated_time" content="2016-05-28T10:07:22.659Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="设计模式(创建型)之单例模式(Singleton Pattern)">
 <meta name="twitter:description" content="原文地址
@@ -327,8 +327,7 @@
 </ol>
 <p><strong>模式：</strong> 根据实例化对象时机不同分为懒汉模式与饿汉模式。饿汉模式是单例类被加载时候就实例化一个对象交给自己的引用；懒汉模式时在调用取得实例方法的时候才会实例化对象。</p>
 <p><strong>记忆小技巧：</strong> 饿汉模式（E）-加载类初始化实例化（先），懒汉模式（L）-调运实例初始化（后）；所以E先L后，依据字母表顺序记忆即可。</p>
-<p>##使用场景</p>
-<ul>
+<h3 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a>使用场景</h3><ul>
 <li>系统只需要一个实例对象。</li>
 <li>需要频繁实例化且销毁的对象。</li>
 <li>创建对象时耗时过多或者耗资源过多，但又经常用到的对象。</li>
@@ -551,7 +550,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#概述"><span class="nav-number">1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#核心"><span class="nav-number">2.</span> <span class="nav-text">核心</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#程序猿实例"><span class="nav-number">3.</span> <span class="nav-text">程序猿实例</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#饿汉模式代码示例："><span class="nav-number">3.1.</span> <span class="nav-text">饿汉模式代码示例：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#懒汉模式Bug版本："><span class="nav-number">3.2.</span> <span class="nav-text">懒汉模式Bug版本：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#懒汉模式常规性能Ok版本："><span class="nav-number">3.3.</span> <span class="nav-text">懒汉模式常规性能Ok版本：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#懒汉模式Bug版本：-1"><span class="nav-number">3.4.</span> <span class="nav-text">懒汉模式Bug版本：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#懒汉模式相对靠谱版："><span class="nav-number">3.5.</span> <span class="nav-text">懒汉模式相对靠谱版：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#个人学到的相对最靠谱优化的懒汉模式："><span class="nav-number">3.6.</span> <span class="nav-text">个人学到的相对最靠谱优化的懒汉模式：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结一把"><span class="nav-number">4.</span> <span class="nav-text">总结一把</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#单例模式的主要优点如下："><span class="nav-number">4.1.</span> <span class="nav-text">单例模式的主要优点如下：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#单例模式的主要缺点如下："><span class="nav-number">4.2.</span> <span class="nav-text">单例模式的主要缺点如下：</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#概述"><span class="nav-number">1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#核心"><span class="nav-number">2.</span> <span class="nav-text">核心</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用场景"><span class="nav-number">3.</span> <span class="nav-text">使用场景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#程序猿实例"><span class="nav-number">4.</span> <span class="nav-text">程序猿实例</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#饿汉模式代码示例："><span class="nav-number">4.1.</span> <span class="nav-text">饿汉模式代码示例：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#懒汉模式Bug版本："><span class="nav-number">4.2.</span> <span class="nav-text">懒汉模式Bug版本：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#懒汉模式常规性能Ok版本："><span class="nav-number">4.3.</span> <span class="nav-text">懒汉模式常规性能Ok版本：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#懒汉模式Bug版本：-1"><span class="nav-number">4.4.</span> <span class="nav-text">懒汉模式Bug版本：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#懒汉模式相对靠谱版："><span class="nav-number">4.5.</span> <span class="nav-text">懒汉模式相对靠谱版：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#个人学到的相对最靠谱优化的懒汉模式："><span class="nav-number">4.6.</span> <span class="nav-text">个人学到的相对最靠谱优化的懒汉模式：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结一把"><span class="nav-number">5.</span> <span class="nav-text">总结一把</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#单例模式的主要优点如下："><span class="nav-number">5.1.</span> <span class="nav-text">单例模式的主要优点如下：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#单例模式的主要缺点如下："><span class="nav-number">5.2.</span> <span class="nav-text">单例模式的主要缺点如下：</span></a></li></ol></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">
