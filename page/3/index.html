@@ -265,8 +265,8 @@
             
               
                 
-                <a class="post-title-link" target="_blank" href="/2016/03/19/Android中的坐标系统/" itemprop="url">
-                  Android中的坐标系统
+                <a class="post-title-link" target="_blank" href="/2016/05/28/设计模式-创建型-之单例模式-Singleton-Pattern/" itemprop="url">
+                  设计模式(创建型)之单例模式(Singleton Pattern)
                 </a>
               
             
@@ -279,8 +279,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-03-19T15:33:34+08:00" content="2016-03-19">
-              2016-03-19
+            <time itemprop="dateCreated" datetime="2016-05-28T16:08:44+08:00" content="2016-05-28">
+              2016-05-28
             </time>
           </span>
 
@@ -290,8 +290,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/03/19/Android中的坐标系统/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/19/Android中的坐标系统/" itemprop="commentsCount"></span>
+                <a href="/2016/05/28/设计模式-创建型-之单例模式-Singleton-Pattern/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/28/设计模式-创建型-之单例模式-Singleton-Pattern/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -314,9 +314,10 @@
 
       
         
-          <p>Android中的坐标系统分为两种：一种是相对整个屏幕而言的，我们称之为Android坐标系；另一种是相对父布局而言的，我们称之为视图坐标系。<br>
+          <p><a href="http://blog.csdn.net/yanbober">原文地址</a></p>
+<h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p>单例模式可能是23种设计模式中最简单的。应用也非常广泛，譬如Android中的数据库访问等操作都可以运用单例模式。</p>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2016/03/19/Android中的坐标系统/#more" rel="contents" target="_blank">
+            <a class="btn" href="/2016/05/28/设计模式-创建型-之单例模式-Singleton-Pattern/#more" rel="contents" target="_blank">
               阅读全文 &raquo;
             </a>
           </div>
@@ -363,8 +364,8 @@
             
               
                 
-                <a class="post-title-link" target="_blank" href="/2016/03/19/requestcode和resultcode作用/" itemprop="url">
-                  requestcode和resultcode作用
+                <a class="post-title-link" target="_blank" href="/2016/05/28/设计模式-创建型-之抽象工厂模式-Abstract-Factory-Pattern/" itemprop="url">
+                  设计模式(创建型)之抽象工厂模式(Abstract Factory Pattern)
                 </a>
               
             
@@ -377,8 +378,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-03-19T15:32:14+08:00" content="2016-03-19">
-              2016-03-19
+            <time itemprop="dateCreated" datetime="2016-05-28T16:03:08+08:00" content="2016-05-28">
+              2016-05-28
             </time>
           </span>
 
@@ -388,8 +389,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/03/19/requestcode和resultcode作用/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/19/requestcode和resultcode作用/" itemprop="commentsCount"></span>
+                <a href="/2016/05/28/设计模式-创建型-之抽象工厂模式-Abstract-Factory-Pattern/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/28/设计模式-创建型-之抽象工厂模式-Abstract-Factory-Pattern/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -412,10 +413,13 @@
 
       
         
-          <p>requestCode请求码：<code>startActivityForResult()</code>的参数。</p>
-<p>resultCode结果码：<code>setResult()</code>的参数。<br>
+          <p><a href="http://blog.csdn.net/yanbober">原文地址</a></p>
+<h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p>前面介绍了工厂方法模式通过引入工厂等级结构（实现统一的工厂接口），解决了简单工厂模式中工厂类职责太重（违背单一职责原则）的问题，但是由于工厂方法模式中的每个工厂只生产一类产品（通过实现同一个工厂接口），带来的问题就是系统中会增加大量的工厂类。</p>
+<p>问题来了。。。</p>
+<p>如何解决如上描述的工厂方法相对来说的缺点呢？</p>
+<p>可以考虑将一些相关的产品组成一个“产品族”，由同一个工厂来统一生产，这就是抽象工厂模式。也就是说抽象工厂模式是工厂方法模式的升级牛逼版本，他用来创建一组相关或者相互依赖的对象。与工厂方法模式的区别在于工厂方法模式针对的是一个产品等级结构；抽象工厂模式则是针对的多个产品等级结构。工厂方法模式提供的所有产品都是实现同一个接口，而抽象工厂模式所提供的产品是实现自不同的接口。</p>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2016/03/19/requestcode和resultcode作用/#more" rel="contents" target="_blank">
+            <a class="btn" href="/2016/05/28/设计模式-创建型-之抽象工厂模式-Abstract-Factory-Pattern/#more" rel="contents" target="_blank">
               阅读全文 &raquo;
             </a>
           </div>
@@ -462,8 +466,8 @@
             
               
                 
-                <a class="post-title-link" target="_blank" href="/2016/03/19/measure方法详解/" itemprop="url">
-                  measure方法详解
+                <a class="post-title-link" target="_blank" href="/2016/05/28/设计模式-创建型-之工厂方法模式-Factory-Method-Pattern/" itemprop="url">
+                  设计模式(创建型)之工厂方法模式(Factory Method Pattern)
                 </a>
               
             
@@ -476,8 +480,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-03-19T15:26:07+08:00" content="2016-03-19">
-              2016-03-19
+            <time itemprop="dateCreated" datetime="2016-05-28T15:57:40+08:00" content="2016-05-28">
+              2016-05-28
             </time>
           </span>
 
@@ -487,8 +491,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/03/19/measure方法详解/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/19/measure方法详解/" itemprop="commentsCount"></span>
+                <a href="/2016/05/28/设计模式-创建型-之工厂方法模式-Factory-Method-Pattern/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/28/设计模式-创建型-之工厂方法模式-Factory-Method-Pattern/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -511,10 +515,13 @@
 
       
         
-          <p><a href="http://blog.csdn.net/jjwwmlp456/article/details/43964785">原文地址</a></p>
-<p>measure方法用来测量控件的大小，此方法不能重载，系统提供onMeasure方法来供我们重写。<br>
+          <p><a href="http://blog.csdn.net/yanbober">原文地址</a></p>
+<h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p>前面介绍了简单工厂模式，在最后代码示例部分展示的程序猿技能工厂类时提到了一个严重的问题。当FactoryCreater中需要引入新对象时需要修改源代码，这违背了“开放封闭原则”，使得具体产品与工厂类之间的耦合度高，严重影响了系统的灵活性和扩展性。</p>
+<p>问题来了。。。</p>
+<p>如何实现增加新类别对象而不影响已有代码？</p>
+<p>那必须是得看工厂方法模式啊。在工厂方法模式中，我们不再提供一个统一的工厂类来创建所有的产品对象，而是针对不同的产品提供不同的工厂，系统提供一个与产品等级结构对应的工厂等级结构。</p>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2016/03/19/measure方法详解/#more" rel="contents" target="_blank">
+            <a class="btn" href="/2016/05/28/设计模式-创建型-之工厂方法模式-Factory-Method-Pattern/#more" rel="contents" target="_blank">
               阅读全文 &raquo;
             </a>
           </div>
@@ -561,8 +568,8 @@
             
               
                 
-                <a class="post-title-link" target="_blank" href="/2016/03/19/Activity的结构/" itemprop="url">
-                  Activity的结构
+                <a class="post-title-link" target="_blank" href="/2016/05/28/设计模式-创建型-之简单工厂模式-Simple-Factory-Pattern/" itemprop="url">
+                  设计模式(创建型)之简单工厂模式(Simple Factory Pattern)
                 </a>
               
             
@@ -575,8 +582,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-03-19T15:22:57+08:00" content="2016-03-19">
-              2016-03-19
+            <time itemprop="dateCreated" datetime="2016-05-28T15:51:52+08:00" content="2016-05-28">
+              2016-05-28
             </time>
           </span>
 
@@ -586,8 +593,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/03/19/Activity的结构/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/19/Activity的结构/" itemprop="commentsCount"></span>
+                <a href="/2016/05/28/设计模式-创建型-之简单工厂模式-Simple-Factory-Pattern/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/28/设计模式-创建型-之简单工厂模式-Simple-Factory-Pattern/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -610,108 +617,12 @@
 
       
         
-          
-            <p><a href="http://www.imooc.com/article/3411" target="_blank" rel="external">节选出处</a></p>
-<p>每个Activity包含一个<code>PhoneWindow</code>对象，<code>PhoneWindow</code>设置<code>DecorView</code>为应用窗口的根视图。在里面就是熟悉的<code>TitleView</code>和<code>ContentView</code>，没错，平时使用的<code>setContentView()</code>就是设置的<code>ContentView</code>。</p>
-<p><img src="http://7q5ctm.com1.z0.glb.clouddn.com/1425690-02aca4cf429df16d.png" alt="结构图"></p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" target="_blank" href="/2016/03/19/Android术语/" itemprop="url">
-                  Android术语
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-03-19T15:18:52+08:00" content="2016-03-19">
-              2016-03-19
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/03/19/Android术语/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/19/Android术语/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p><a href="http://blog.qiji.tech/archives/1296">原文地址</a></p>
-<h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><p>接触了这么久的Android，发现有些术语的理解还是模模糊糊，所以今天就来理清一下这些概念。<br>
+          <p><a href="http://blog.csdn.net/yanbober">原文地址</a></p>
+<h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p>简单工厂模式（Simple Factory Pattern）又叫静态工厂方法模式（Static FactoryMethod Pattern），是通过专门定义一个类来负责创建其他类的实例，被创建的实例通常都具有共同的父类。当你需要什么，只需要传入一个正确的参数，就可以获取你所需要的对象，而无须知道其创建细节。</p>
+<p>通常脱口而出所说的工厂模式是指工厂方法模式，它是几种工厂模式里使用频率最高的模式。而这里先不说工厂方法模式，先来说说工厂模式系列中不属于设计模式的一种模式–简单工厂模式。它不属于设计模式，但在软件开发中应用也较为频繁，通常将它作为学习其他工厂模式的入门。其实工厂模式分为了最弱的简单工厂模式，工厂方法模式，牛逼的抽象工厂模式。</p>
+<p>切记，简单工厂模式不属于设计模式，是一种编码的习惯，但他又和工厂模式有些关系，所以先说。</p>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2016/03/19/Android术语/#more" rel="contents" target="_blank">
+            <a class="btn" href="/2016/05/28/设计模式-创建型-之简单工厂模式-Simple-Factory-Pattern/#more" rel="contents" target="_blank">
               阅读全文 &raquo;
             </a>
           </div>
@@ -758,8 +669,8 @@
             
               
                 
-                <a class="post-title-link" target="_blank" href="/2016/03/19/Android中的序列化/" itemprop="url">
-                  Android中的序列化
+                <a class="post-title-link" target="_blank" href="/2016/05/28/设计模式之面向对象七大基本原则/" itemprop="url">
+                  设计模式之面向对象七大基本原则
                 </a>
               
             
@@ -772,8 +683,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-03-19T15:10:02+08:00" content="2016-03-19">
-              2016-03-19
+            <time itemprop="dateCreated" datetime="2016-05-28T15:47:59+08:00" content="2016-05-28">
+              2016-05-28
             </time>
           </span>
 
@@ -783,8 +694,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/03/19/Android中的序列化/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/19/Android中的序列化/" itemprop="commentsCount"></span>
+                <a href="/2016/05/28/设计模式之面向对象七大基本原则/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/28/设计模式之面向对象七大基本原则/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -807,12 +718,22 @@
 
       
         
-          <h4 id="为什么要序列化"><a href="#为什么要序列化" class="headerlink" title="为什么要序列化"></a>为什么要序列化</h4><ol>
-<li>将对象的字节序列保存到本地文件。</li>
-<li>在网络中传递对象。</li>
-<li>在进程或者Activity中传递对象。
+          <p><a href="http://blog.csdn.net/yanbober">原文地址</a></p>
+<h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p>在运用面向对象的思想进行软件设计时，需要遵循的原则一共有7个，他们是：</p>
+<ol>
+<li>单一职责原则（Single Responsibility Principle）</li>
+</ol>
+<p>每一个类应该专注于做一件事情。</p>
+<ol>
+<li>里氏替换原则（Liskov Substitution Principle）</li>
+</ol>
+<p>超类存在的地方，子类是可以替换的。</p>
+<ol>
+<li>依赖倒置原则（Dependence Inversion Principle）</li>
+</ol>
+<p>实现尽量依赖抽象，不依赖具体实现。</p>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2016/03/19/Android中的序列化/#more" rel="contents" target="_blank">
+            <a class="btn" href="/2016/05/28/设计模式之面向对象七大基本原则/#more" rel="contents" target="_blank">
               阅读全文 &raquo;
             </a>
           </div>
@@ -859,8 +780,8 @@
             
               
                 
-                <a class="post-title-link" target="_blank" href="/2016/03/19/兼容低版本的setAlpha/" itemprop="url">
-                  兼容低版本的setAlpha
+                <a class="post-title-link" target="_blank" href="/2016/05/28/设计模式之面向对象与类基础特征概念/" itemprop="url">
+                  设计模式之面向对象与类基础特征概念
                 </a>
               
             
@@ -873,8 +794,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-03-19T15:03:50+08:00" content="2016-03-19">
-              2016-03-19
+            <time itemprop="dateCreated" datetime="2016-05-28T15:37:13+08:00" content="2016-05-28">
+              2016-05-28
             </time>
           </span>
 
@@ -884,8 +805,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/03/19/兼容低版本的setAlpha/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/19/兼容低版本的setAlpha/" itemprop="commentsCount"></span>
+                <a href="/2016/05/28/设计模式之面向对象与类基础特征概念/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/28/设计模式之面向对象与类基础特征概念/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -908,9 +829,10 @@
 
       
         
-          <p>setAlpha方法在API 11之上才开始支持。<br>
+          <p><a href="http://blog.csdn.net/yanbober">原文地址</a></p>
+<h3 id="背景知识"><a href="#背景知识" class="headerlink" title="背景知识"></a>背景知识</h3><p>设计模式（Design pattern）是一套被反复使用、多数人知晓的、经过分类编目的、代码设计经验的总结。使用设计模式是为了可重用代码、让代码更容易被他人理解、保证代码可靠性。 毫无疑问，设计模式于己于他人于系统都是多赢的；设计模式使代码编制真正工程化；设计模式是软件工程的基石脉络，如同大厦的结构一样。这是官方的专业解释。大白话意思就是说设计模式就经验的总结，模板的运用。</p>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2016/03/19/兼容低版本的setAlpha/#more" rel="contents" target="_blank">
+            <a class="btn" href="/2016/05/28/设计模式之面向对象与类基础特征概念/#more" rel="contents" target="_blank">
               阅读全文 &raquo;
             </a>
           </div>
@@ -957,8 +879,8 @@
             
               
                 
-                <a class="post-title-link" target="_blank" href="/2016/03/19/ARGB详解/" itemprop="url">
-                  ARGB详解
+                <a class="post-title-link" target="_blank" href="/2016/05/25/Java线程/" itemprop="url">
+                  Java线程
                 </a>
               
             
@@ -971,8 +893,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-03-19T14:59:26+08:00" content="2016-03-19">
-              2016-03-19
+            <time itemprop="dateCreated" datetime="2016-05-25T10:56:30+08:00" content="2016-05-25">
+              2016-05-25
             </time>
           </span>
 
@@ -982,8 +904,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/03/19/ARGB详解/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/19/ARGB详解/" itemprop="commentsCount"></span>
+                <a href="/2016/05/25/Java线程/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/25/Java线程/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -1006,10 +928,12 @@
 
       
         
-          <p>转载：<a href="http://www.cnblogs.com/and_he/archive/2012/12/22/ARGB.html">原文地址</a></p>
-<p>ARGB是一种色彩模式，也就是RGB色彩模式附加上Alpha（透明度）通道，常见于32位位图的存储结构。</p>
+          <p><a href="http://express.ruanko.com/ruanko-express_6/webpage/tech4.html">原文地址</a></p>
+<h3 id="进程、线程、并发执行"><a href="#进程、线程、并发执行" class="headerlink" title="进程、线程、并发执行"></a>进程、线程、并发执行</h3><p>首先我们先来认识一下进程、线程、并发执行的概念：</p>
+<p>一般来说，当运行一个应用程序的时候，就启动了一个进程，当然有些会启动多个进程。启动进程的时候，操作系统会为进程分配资源，其中最主要的资源是内存空间，因为程序是在内存中运行的。</p>
+<p>在进程中，有些程序流程块是可以乱序执行的，并且这个代码块可以同时被多次执行。实际上，这样的代码块就是线程体。线程是进程中乱序执行的代码流程。当多个线程同时运行的时候，这样的执行模式成为并发执行。</p>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2016/03/19/ARGB详解/#more" rel="contents" target="_blank">
+            <a class="btn" href="/2016/05/25/Java线程/#more" rel="contents" target="_blank">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1056,8 +980,8 @@
             
               
                 
-                <a class="post-title-link" target="_blank" href="/2016/03/19/屏幕适配尺寸/" itemprop="url">
-                  屏幕适配尺寸
+                <a class="post-title-link" target="_blank" href="/2016/05/23/Android支持库特性/" itemprop="url">
+                  Android支持库特性
                 </a>
               
             
@@ -1070,8 +994,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-03-19T14:57:24+08:00" content="2016-03-19">
-              2016-03-19
+            <time itemprop="dateCreated" datetime="2016-05-23T10:47:07+08:00" content="2016-05-23">
+              2016-05-23
             </time>
           </span>
 
@@ -1081,8 +1005,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/03/19/屏幕适配尺寸/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/19/屏幕适配尺寸/" itemprop="commentsCount"></span>
+                <a href="/2016/05/23/Android支持库特性/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/23/Android支持库特性/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -1105,9 +1029,12 @@
 
       
         
-          <p>Android项目中不同的dpi对应不同的文件夹，有ldpi，mdpi，hdpi，xhdpi，xxhdpi，xxxhdpi；下面是文件夹对应的dpi范围：<br>
+          <p><a href="https://developer.android.com/topic/libraries/support-library/features.html">英文地址</a></p>
+<p>Android Support Library包中包含了很多可以被我们app使用的类库，每个类库支持特定的Android版本和一些特性。</p>
+<p>本文将介绍Support Library的重要特性和支持的系统版本，来帮助开发者决定在app中导入哪种Support Library。通常，我们建议导入v4和v7的Support Library，因为他们支持了大部分的系统版本以及推荐UI的API。</p>
+<p>为了使用这些Support Library，必须使用Android SDK installation来下载这些库文件。具体下载方法请自行Google，下载完库文件后还要在项目中引用，下面将详细介绍每个库的用途，以及导入方法。</p>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2016/03/19/屏幕适配尺寸/#more" rel="contents" target="_blank">
+            <a class="btn" href="/2016/05/23/Android支持库特性/#more" rel="contents" target="_blank">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1154,8 +1081,8 @@
             
               
                 
-                <a class="post-title-link" target="_blank" href="/2016/03/19/禁止ViewPager滑动/" itemprop="url">
-                  禁止ViewPager滑动
+                <a class="post-title-link" target="_blank" href="/2016/05/18/导入ApiDemos的正确姿势/" itemprop="url">
+                  导入ApiDemos的正确姿势
                 </a>
               
             
@@ -1168,8 +1095,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-03-19T14:54:37+08:00" content="2016-03-19">
-              2016-03-19
+            <time itemprop="dateCreated" datetime="2016-05-18T11:04:27+08:00" content="2016-05-18">
+              2016-05-18
             </time>
           </span>
 
@@ -1179,8 +1106,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/03/19/禁止ViewPager滑动/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/19/禁止ViewPager滑动/" itemprop="commentsCount"></span>
+                <a href="/2016/05/18/导入ApiDemos的正确姿势/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/18/导入ApiDemos的正确姿势/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -1203,9 +1130,107 @@
 
       
         
-          <p>项目实际需求中可能会有设置ViewPager禁止滑动的需求，此时需要重写ViewPager处理触屏事件<br>
+          <h4 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h4><p>ApiDemos可谓是很好的学习Android开发的源码资料，本来想着跑下源码看看，但是在导入之后报了很多错误，试着Google了下，终于找到一篇英文原文，很好的解决了各种报错，英文好的可以看下<a href="http://apidemos22.blogspot.com/2015/08/how-to-import-and-generate-apk-from.html">原文</a>，本文是根据原文从头到尾操作了一遍，特此记录分享一下。</p>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2016/03/19/禁止ViewPager滑动/#more" rel="contents" target="_blank">
+            <a class="btn" href="/2016/05/18/导入ApiDemos的正确姿势/#more" rel="contents" target="_blank">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" target="_blank" href="/2016/04/29/看懂UML类图/" itemprop="url">
+                  看懂UML类图
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-04-29T11:48:47+08:00" content="2016-04-29">
+              2016-04-29
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/04/29/看懂UML类图/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/29/看懂UML类图/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>统一建模语言（UML，UnifiedModelingLanguage）是面向对象软件的标准化建模语言。UML因其简单、统一的特点，而且能表达软件设计中的动态和静态信息，目前已成为可视化建模语言的工业标准。本文针对静态类图。</p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/04/29/看懂UML类图/#more" rel="contents" target="_blank">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1235,7 +1260,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1276,7 +1301,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">33</span>
+              <span class="site-state-item-count">59</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>

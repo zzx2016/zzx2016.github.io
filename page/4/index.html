@@ -265,8 +265,8 @@
             
               
                 
-                <a class="post-title-link" target="_blank" href="/2016/03/19/Picasso图片加载库/" itemprop="url">
-                  Picasso图片加载库
+                <a class="post-title-link" target="_blank" href="/2016/04/28/Android-Transition-Animation介绍/" itemprop="url">
+                  Android Transition Animation介绍
                 </a>
               
             
@@ -279,8 +279,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-03-19T14:48:48+08:00" content="2016-03-19">
-              2016-03-19
+            <time itemprop="dateCreated" datetime="2016-04-28T16:19:21+08:00" content="2016-04-28">
+              2016-04-28
             </time>
           </span>
 
@@ -290,8 +290,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/03/19/Picasso图片加载库/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/19/Picasso图片加载库/" itemprop="commentsCount"></span>
+                <a href="/2016/04/28/Android-Transition-Animation介绍/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/28/Android-Transition-Animation介绍/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -314,9 +314,14 @@
 
       
         
-          <h4 id="Picasso开源库"><a href="#Picasso开源库" class="headerlink" title="Picasso开源库"></a>Picasso开源库</h4><p>做过<code>ListView</code>和<code>GridView</code>加载图片的，都没少为出现OOM以及图片缓存而烦恼，Picasso的出现让我们摆脱了窘境，Picasso是由一家名叫square的公司开源的，这家公司的开源项目不止这一个，Android上比较优秀的okhttp，retrofit框架都是出自这家公司，也算得上是良心企业了，下面是来自<a href="http://square.github.io/picasso/">官网</a>的翻译。<br>
+          <h3 id="什么是Transition"><a href="#什么是Transition" class="headerlink" title="什么是Transition"></a>什么是Transition</h3><p>安卓5.0中Activity和Fragment 变换是建立在名叫Transitions的安卓新特性之上的。这个诞生于4.4的transition框架为在不同的UI状态之间产生动画效果提供了非常方便的API。该框架主要基于两个概念：场景（scenes）和变换（transitions）。场景（scenes）定义了当前的UI状态，变换（transitions）则定义了在不同场景之间动画变化的过程。虽然transition翻译为变换似乎很确切，但是总觉得还是没有直接使用transition直观，为了更好的理解下面个别地方直接用transition代表变换。</p>
+<p>当一个场景改变的时候，transition主要负责：</p>
+<ol>
+<li>捕捉每个View在开始场景和结束场景时的状态。</li>
+<li>根据两个场景（开始和结束）之间的区别创建一个Animator。</li>
+</ol>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2016/03/19/Picasso图片加载库/#more" rel="contents" target="_blank">
+            <a class="btn" href="/2016/04/28/Android-Transition-Animation介绍/#more" rel="contents" target="_blank">
               阅读全文 &raquo;
             </a>
           </div>
@@ -363,8 +368,8 @@
             
               
                 
-                <a class="post-title-link" target="_blank" href="/2016/03/19/帧率、刷新率和垂直同步/" itemprop="url">
-                  帧率、刷新率和垂直同步
+                <a class="post-title-link" target="_blank" href="/2016/04/21/ClassLoader工作机制/" itemprop="url">
+                  ClassLoader工作机制
                 </a>
               
             
@@ -377,8 +382,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-03-19T14:30:49+08:00" content="2016-03-19">
-              2016-03-19
+            <time itemprop="dateCreated" datetime="2016-04-21T20:33:48+08:00" content="2016-04-21">
+              2016-04-21
             </time>
           </span>
 
@@ -388,8 +393,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/03/19/帧率、刷新率和垂直同步/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/19/帧率、刷新率和垂直同步/" itemprop="commentsCount"></span>
+                <a href="/2016/04/21/ClassLoader工作机制/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/21/ClassLoader工作机制/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -412,9 +417,13 @@
 
       
         
-          <p>提到显卡的帧率（FPS）、显示器刷新率和垂直同步的关系，第一印象是这些概念之间似乎没有直接的关系，实则不然。<br>首先来解释帧率（FPS，即Frame Per Second，帧/秒）。通俗来说，帧率是用来衡量显卡渲染能力的一个指标。显卡在处理图像数据时，性能越强的显卡，在均等时间内（比如1秒），渲染出的静态图像的数量（这一幅静态图像就称为一帧）。一幅一幅的静态图像按顺序以一定的速度出现在我们面前，由于人眼具有的视觉暂留特性，使得我们感觉画面里的物体似乎在运动，也就形成了动画（和典型的动画片一个原理）。如果在一定时间内出现在我们眼前的静态画面越多（帧率越高），我们就感觉画面越流畅。性能强悍的显卡可以在一秒内渲染更多的帧，画面也自然越流畅，其FPS指标自然就高。<br>
+          <p><a href="https://segmentfault.com/a/1190000004062880">原文地址</a></p>
+<h3 id="类加载器ClassLoader"><a href="#类加载器ClassLoader" class="headerlink" title="类加载器ClassLoader"></a>类加载器ClassLoader</h3><p>早期使用过Eclipse等Java编写的软件的同学可能比较熟悉，Eclipse可以加载许多第三方的插件（或者叫扩展），这就是动态加载。这些插件大多是一些Jar包，而使用插件其实就是动态加载Jar包里的Class进行工作。这其实非常好理解，Java代码都是写在Class里面的，程序运行在虚拟机上时，虚拟机需要把需要的Class加载进来才能创建实例对象并工作，而完成这一个加载工作的角色就是ClassLoader。</p>
+<blockquote>
+<p>对于Java程序来说，编写程序就是编写类，运行程序也就是运行类（编译得到的class文件），其中起到关键作用的就是类加载器ClassLoader。</p>
+</blockquote>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2016/03/19/帧率、刷新率和垂直同步/#more" rel="contents" target="_blank">
+            <a class="btn" href="/2016/04/21/ClassLoader工作机制/#more" rel="contents" target="_blank">
               阅读全文 &raquo;
             </a>
           </div>
@@ -461,8 +470,8 @@
             
               
                 
-                <a class="post-title-link" target="_blank" href="/2016/03/18/hello-world/" itemprop="url">
-                  Hello World
+                <a class="post-title-link" target="_blank" href="/2016/04/21/Activity和Fragment生命周期图解/" itemprop="url">
+                  Activity和Fragment生命周期图解
                 </a>
               
             
@@ -475,8 +484,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-03-18T11:27:29+08:00" content="2016-03-18">
-              2016-03-18
+            <time itemprop="dateCreated" datetime="2016-04-21T11:16:14+08:00" content="2016-04-21">
+              2016-04-21
             </time>
           </span>
 
@@ -486,8 +495,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/03/18/hello-world/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/18/hello-world/" itemprop="commentsCount"></span>
+                <a href="/2016/04/21/Activity和Fragment生命周期图解/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/21/Activity和Fragment生命周期图解/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -510,9 +519,708 @@
 
       
         
-          <p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.<br>
+          <h3 id="Activity生命周期"><a href="#Activity生命周期" class="headerlink" title="Activity生命周期"></a>Activity生命周期</h3><h4 id="图1"><a href="#图1" class="headerlink" title="图1"></a>图1</h4><p><img src="http://7q5ctm.com1.z0.glb.clouddn.com/activity%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F1.png" alt="图1"></p>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2016/03/18/hello-world/#more" rel="contents" target="_blank">
+            <a class="btn" href="/2016/04/21/Activity和Fragment生命周期图解/#more" rel="contents" target="_blank">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" target="_blank" href="/2016/04/15/Android属性动画/" itemprop="url">
+                  Android属性动画
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-04-15T16:43:41+08:00" content="2016-04-15">
+              2016-04-15
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/04/15/Android属性动画/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/15/Android属性动画/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p>上一篇已经介绍过<a href="http://zzx2016.github.io/2016/03/31/Android%E8%A7%86%E5%9B%BE%E5%8A%A8%E7%94%BB/">视图动画</a>，只支持简单的缩放、平移、旋转、透明度基本的动画，且有一定的局限性。比如：你希望View有一个颜色的切换动画；；你希望当动画停止时，View的位置就是当前的位置；不能作用在非View对象。这些需求视图动画都无法做到。这就是属性动画产生的原因。</p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/04/15/Android属性动画/#more" rel="contents" target="_blank">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" target="_blank" href="/2016/04/13/招聘Java研发工程师/" itemprop="url">
+                  招聘Java研发工程师
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-04-13T10:34:50+08:00" content="2016-04-13">
+              2016-04-13
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/04/13/招聘Java研发工程师/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/13/招聘Java研发工程师/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h3 id="58赶集Java工程师"><a href="#58赶集Java工程师" class="headerlink" title="58赶集Java工程师"></a>58赶集Java工程师</h3><p>招聘Java工程师，走过路过不要错过。</p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/04/13/招聘Java研发工程师/#more" rel="contents" target="_blank">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" target="_blank" href="/2016/04/11/Data-Binding-指南/" itemprop="url">
+                  Data Binding 指南
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-04-11T16:48:19+08:00" content="2016-04-11">
+              2016-04-11
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/04/11/Data-Binding-指南/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/11/Data-Binding-指南/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p><a href="http://yanghui.name/blog/2016/02/17/data-binding-guide/">原文地址</a></p>
+<p>这个文档用于解释如何使用 Data Binding Library 编写声明式的布局，减少应用中逻辑以及布局所需要的“胶水代码”。</p>
+<p>Data Binding Library 提供了灵活性与通用性 － 它是一个 support library，可以在 Android 2.1(API level 7+)以上的平台使用。</p>
+<p>为了使用 data binding，gradle plugin的版本必须是 1.5.0-alpha1以上。</p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/04/11/Data-Binding-指南/#more" rel="contents" target="_blank">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" target="_blank" href="/2016/04/11/Android消息机制-Handler-Java层/" itemprop="url">
+                  Android消息机制-Handler(Java层)
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-04-11T14:27:47+08:00" content="2016-04-11">
+              2016-04-11
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/04/11/Android消息机制-Handler-Java层/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/11/Android消息机制-Handler-Java层/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p><a href="http://gityuan.com/2015/12/26/handler-message-framework/">原文链接</a></p>
+<blockquote>
+<p>本文基于Android 6.0的源代码，来分析Java层的handler消息处理机制</p>
+</blockquote>
+<p>相关源码</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">framework/base/core/java/andorid/os/Handler.java</span><br><span class="line">framework/base/core/java/andorid/os/Looper.java</span><br><span class="line">framework/base/core/java/andorid/os/Message.java</span><br><span class="line">framework/base/core/java/andorid/os/MessageQueue.java</span><br></pre></td></tr></table></figure>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/04/11/Android消息机制-Handler-Java层/#more" rel="contents" target="_blank">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" target="_blank" href="/2016/04/06/Android-Binder设计与实现-设计篇/" itemprop="url">
+                  Android Binder设计与实现-设计篇
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-04-06T17:56:38+08:00" content="2016-04-06">
+              2016-04-06
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/04/06/Android-Binder设计与实现-设计篇/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/06/Android-Binder设计与实现-设计篇/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p><a href="http://blog.csdn.net/universus/article/details/6211589">原文地址</a></p>
+<h3 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h3><p>Binder是Android系统进程间通信（IPC）方式之一。Linux已经拥有管道，system V IPC，socket等IPC手段，却还要倚赖Binder来实现进程间通信，说明Binder具有无可比拟的优势。深入了解Binder并将之与传统IPC做对比有助于我们深入领会进程间通信的实现和性能优化。本文将对Binder的设计细节做一个全面的阐述，首先通过介绍Binder通信模型和Binder通信协议了解Binder的设计需求；然后分别阐述Binder在系统不同部分的表述方式和起的作用；最后还会解释Binder在数据接收端的设计考虑，包括线程池管理，内存映射和等待队列管理等。通过本文对Binder的详细介绍以及与其它IPC通信方式的对比，读者将对Binder的优势和使用Binder作为Android主要IPC方式的原因有深入了解。</p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/04/06/Android-Binder设计与实现-设计篇/#more" rel="contents" target="_blank">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" target="_blank" href="/2016/04/05/Binder学习指南/" itemprop="url">
+                  Binder学习指南
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-04-05T14:38:50+08:00" content="2016-04-05">
+              2016-04-05
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/04/05/Binder学习指南/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/05/Binder学习指南/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p><a href="http://www.jianshu.com/p/af2993526daf">原文地址</a></p>
+<p>毫不夸张地说，Binder是Android系统中最重要的特性之一；正如其名“粘合剂”所喻，它是系统间各个组件的桥梁，Android系统的开放式设计也很大程度上得益与这种及其方便的跨进程通信机制。</p>
+<p>理解Binder对于理解整个Android系统有着非常重要的作用，Android系统的四大组件，AMS，PMS等系统服务无一不与Binder挂钩；如果对Binder不甚了解，那么就很难了解这些系统机制，从而仅仅浮游与表面，不懂Binder你都不好意思说自己会Android开发；要深入Android，Binder是必须迈出的一步。</p>
+<p>现在网上有不少资料介绍Binder，个人觉得最好的两篇如下：</p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/04/05/Binder学习指南/#more" rel="contents" target="_blank">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" target="_blank" href="/2016/03/31/Java单例总结/" itemprop="url">
+                  Java单例模式总结
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-03-31T17:36:11+08:00" content="2016-03-31">
+              2016-03-31
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/03/31/Java单例总结/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/31/Java单例总结/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p><a href="http://hukai.me/java-notes-singleton-pattern/">原文地址</a></p>
+<p>这里不赘述单例模式的概念了，直接演示几种不同的实现方式。</p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/03/31/Java单例总结/#more" rel="contents" target="_blank">
               阅读全文 &raquo;
             </a>
           </div>
@@ -542,7 +1250,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span>
+    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/5/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -583,7 +1291,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">33</span>
+              <span class="site-state-item-count">59</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
