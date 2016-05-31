@@ -265,6 +265,105 @@
             
               
                 
+                <a class="post-title-link" target="_blank" href="/2016/05/28/设计模式-行为型-之迭代器模式-Iterator-Pattern/" itemprop="url">
+                  设计模式(行为型)之迭代器模式(Iterator Pattern)
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-05-28T17:16:41+08:00" content="2016-05-28">
+              2016-05-28
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/05/28/设计模式-行为型-之迭代器模式-Iterator-Pattern/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/28/设计模式-行为型-之迭代器模式-Iterator-Pattern/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p><a href="http://blog.csdn.net/yanbober">原文地址</a></p>
+<h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p>在软件构建过程中，集合对象内部结构常常变化各异。但对于这些集合对象，我们希望在不暴露其内部结构的同时，可以让外部客户代码透明地访问其中包含的元素;同时这种“透明遍历”也为“ 同一种算法在多种集合对象上进行操作”提供了可能。使用面向对象技术将这种遍历机制抽象为“迭代器对象”为“应对变化中的集合对象”提供了一种优雅的方法。</p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/05/28/设计模式-行为型-之迭代器模式-Iterator-Pattern/#more" rel="contents" target="_blank">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" target="_blank" href="/2016/05/28/设计模式-行为型-之观察者模式-Observer-Pattern/" itemprop="url">
                   设计模式(行为型)之观察者模式(Observer Pattern)
                 </a>
@@ -1135,107 +1234,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" target="_blank" href="/2016/05/28/设计模式-创建型-之建造者模式-Builder-Pattern/" itemprop="url">
-                  设计模式(创建型)之建造者模式(Builder Pattern)
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-05-28T16:17:27+08:00" content="2016-05-28">
-              2016-05-28
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/05/28/设计模式-创建型-之建造者模式-Builder-Pattern/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/28/设计模式-创建型-之建造者模式-Builder-Pattern/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p><a href="http://blog.csdn.net/yanbober">原文地址</a></p>
-<h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p>建造者模式将客户端与包含多个组成部分的复杂对象的创建过程分离，客户端压根不用知道复杂对象的内部组成部分与装配方式，只需要知道所需建造者的类型即可。它关注如何一步一步创建一个的复杂对象，不同的具体建造者定义了不同的创建过程，且具体建造者相互独立，增加新的建造者非常方便，无须修改已有代码，系统具有较好的扩展性。</p>
-<p>问题来了。。。</p>
-<p>你可能会有疑惑，建造者模式和抽象工厂模式有啥区别呢？</p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/05/28/设计模式-创建型-之建造者模式-Builder-Pattern/#more" rel="contents" target="_blank">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1281,7 +1279,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">59</span>
+              <span class="site-state-item-count">60</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1291,7 +1289,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">16</span>
+                <span class="site-state-item-count">17</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
