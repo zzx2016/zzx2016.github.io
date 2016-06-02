@@ -57,16 +57,19 @@
 
 
 
-<meta name="description" content="之前对注解的认识，只是局限在@Override @Deprecated @SuppressWarnings，好处也只是知道使用注解可以有更加干净易读的代码、可以在编译期进行类型检查，其他的知之甚少。但随着目前新技术的蓬勃发展，各种新技术、新框架涌现了出来，其中好多会用到注解，目前知道的有Dragger2 EventBus3 Retrofit ActiveAndroid等等。如果不深入了解注解的相关">
+<meta name="description" content="原文地址
+之前对注解的认识，只是局限在@Override @Deprecated @SuppressWarnings，好处也只是知道使用注解可以有更加干净易读的代码、可以在编译期进行类型检查，其他的知之甚少。但随着目前新技术的蓬勃发展，各种新技术、新框架涌现了出来，其中好多会用到注解，目前知道的有Dragger2 EventBus3 Retrofit ActiveAndroid等等。如果不深入了解">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java注解">
 <meta property="og:url" content="http://www.in-droid.com/2016/06/02/Java注解/index.html">
 <meta property="og:site_name" content="守心的博客">
-<meta property="og:description" content="之前对注解的认识，只是局限在@Override @Deprecated @SuppressWarnings，好处也只是知道使用注解可以有更加干净易读的代码、可以在编译期进行类型检查，其他的知之甚少。但随着目前新技术的蓬勃发展，各种新技术、新框架涌现了出来，其中好多会用到注解，目前知道的有Dragger2 EventBus3 Retrofit ActiveAndroid等等。如果不深入了解注解的相关">
-<meta property="og:updated_time" content="2016-06-02T06:51:06.073Z">
+<meta property="og:description" content="原文地址
+之前对注解的认识，只是局限在@Override @Deprecated @SuppressWarnings，好处也只是知道使用注解可以有更加干净易读的代码、可以在编译期进行类型检查，其他的知之甚少。但随着目前新技术的蓬勃发展，各种新技术、新框架涌现了出来，其中好多会用到注解，目前知道的有Dragger2 EventBus3 Retrofit ActiveAndroid等等。如果不深入了解">
+<meta property="og:updated_time" content="2016-06-02T06:55:23.822Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java注解">
-<meta name="twitter:description" content="之前对注解的认识，只是局限在@Override @Deprecated @SuppressWarnings，好处也只是知道使用注解可以有更加干净易读的代码、可以在编译期进行类型检查，其他的知之甚少。但随着目前新技术的蓬勃发展，各种新技术、新框架涌现了出来，其中好多会用到注解，目前知道的有Dragger2 EventBus3 Retrofit ActiveAndroid等等。如果不深入了解注解的相关">
+<meta name="twitter:description" content="原文地址
+之前对注解的认识，只是局限在@Override @Deprecated @SuppressWarnings，好处也只是知道使用注解可以有更加干净易读的代码、可以在编译期进行类型检查，其他的知之甚少。但随着目前新技术的蓬勃发展，各种新技术、新框架涌现了出来，其中好多会用到注解，目前知道的有Dragger2 EventBus3 Retrofit ActiveAndroid等等。如果不深入了解">
 
 
 
@@ -309,7 +312,8 @@
       
 
       
-        <p>之前对注解的认识，只是局限在@Override @Deprecated @SuppressWarnings，好处也只是知道使用注解可以有更加干净易读的代码、可以在编译期进行类型检查，其他的知之甚少。但随着目前新技术的蓬勃发展，各种新技术、新框架涌现了出来，其中好多会用到注解，目前知道的有Dragger2 EventBus3 Retrofit ActiveAndroid等等。如果不深入了解注解的相关知识，可能在学习这些新东西时徒增一些困惑。所以接下来，我会由浅入深地带你走进注解的殿堂，一起学习，一起探索。</p>
+        <p><a href="http://daishiwen.github.io/Java-Annotation.html" target="_blank" rel="external">原文地址</a></p>
+<p>之前对注解的认识，只是局限在@Override @Deprecated @SuppressWarnings，好处也只是知道使用注解可以有更加干净易读的代码、可以在编译期进行类型检查，其他的知之甚少。但随着目前新技术的蓬勃发展，各种新技术、新框架涌现了出来，其中好多会用到注解，目前知道的有Dragger2 EventBus3 Retrofit ActiveAndroid等等。如果不深入了解注解的相关知识，可能在学习这些新东西时徒增一些困惑。所以接下来，我会由浅入深地带你走进注解的殿堂，一起学习，一起探索。</p>
 <a id="more"></a>
 <h3 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h3><p>在下面的例子中，使用@Test对testExecute()方法进行注解。该注解本身并不做任何事情，我们可以创建一个通过反射机制来运行testExecute()方法的工具。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Testable</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">execute</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"Executing..."</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">testExecute</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        execute();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
