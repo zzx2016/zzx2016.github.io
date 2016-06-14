@@ -265,6 +265,109 @@
             
               
                 
+                <a class="post-title-link" target="_blank" href="/2016/04/11/Android消息机制-Handler-Java层/" itemprop="url">
+                  Android消息机制-Handler(Java层)
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-04-11T14:27:47+08:00" content="2016-04-11">
+              2016-04-11
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/04/11/Android消息机制-Handler-Java层/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/11/Android消息机制-Handler-Java层/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p><a href="http://gityuan.com/2015/12/26/handler-message-framework/">原文链接</a></p>
+<blockquote>
+<p>本文基于Android 6.0的源代码，来分析Java层的handler消息处理机制</p>
+</blockquote>
+<p>相关源码</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">framework/base/core/java/andorid/os/Handler.java</span><br><span class="line">framework/base/core/java/andorid/os/Looper.java</span><br><span class="line">framework/base/core/java/andorid/os/Message.java</span><br><span class="line">framework/base/core/java/andorid/os/MessageQueue.java</span><br></pre></td></tr></table></figure>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/04/11/Android消息机制-Handler-Java层/#more" rel="contents" target="_blank">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" target="_blank" href="/2016/04/06/Android-Binder设计与实现-设计篇/" itemprop="url">
                   Android Binder设计与实现-设计篇
                 </a>
@@ -1010,8 +1113,9 @@
 
       
         
-          <h1 id="push调研"><a href="#push调研" class="headerlink" title="push调研"></a>push调研</h1><p>Android push通道调研文档</p>
-<h2 id="第三方push通道"><a href="#第三方push通道" class="headerlink" title="第三方push通道"></a>第三方push通道</h2><p>较早的JPush、个推，后来小米push、腾讯信鸽、百度推送、华为推送、友盟推送。官方统计的到达率都是99%+，算法是 <em>送达率 = 送达数 / 计划推送 × 100%</em>，计划推送是指目标推送的设备数，已去除了错误或无效的设备，所以到达率算出来很高。而大众反馈的到达率基本在40%~60%之间。</p>
+          <h3 id="push调研"><a href="#push调研" class="headerlink" title="push调研"></a>push调研</h3><p>Android push通道调研文档，输出本文档是为了选择合适的push通道。</p>
+<p>消息透传：server push一条消息到app而用户无感知。</p>
+<h3 id="第三方push通道"><a href="#第三方push通道" class="headerlink" title="第三方push通道"></a>第三方push通道</h3><p>目前市面上第三方的push通道还是很多的，较早的JPush、个推，后来小米push、腾讯信鸽、百度推送、华为推送、友盟推送。官方统计的到达率都是99%+，算法是 <em>送达率 = 送达数 / 计划推送 × 100%</em>，计划推送是指目标推送的设备数，已去除了错误或无效的设备，所以到达率算出来很高。而开发者反馈的到达率基本在40%~60%之间。</p>
           <div class="post-more-link text-center">
             <a class="btn" href="/2016/03/25/Android-push方案调研/#more" rel="contents" target="_blank">
               阅读全文 &raquo;
@@ -1140,104 +1244,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" target="_blank" href="/2016/03/19/Android中的坐标系统/" itemprop="url">
-                  Android中的坐标系统
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-03-19T15:33:34+08:00" content="2016-03-19">
-              2016-03-19
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/03/19/Android中的坐标系统/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/19/Android中的坐标系统/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>Android中的坐标系统分为两种：一种是相对整个屏幕而言的，我们称之为Android坐标系；另一种是相对父布局而言的，我们称之为视图坐标系。<br>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/03/19/Android中的坐标系统/#more" rel="contents" target="_blank">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1283,7 +1289,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">62</span>
+              <span class="site-state-item-count">63</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1293,7 +1299,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">17</span>
+                <span class="site-state-item-count">18</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
