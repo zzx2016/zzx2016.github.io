@@ -58,27 +58,21 @@
 
 
 <meta name="description" content="原文地址
-浏览器一般缓存图片、CSS、JS等静态文件，因为这些文件的更新频率相对来说比较低，合理利用浏览器的缓存对网站的性能提升有很大帮助。HTTP缓存分为两部分，分别是本地缓存和缓存协商，当本地缓存不生效时会启用缓存协商。HTTP缓存主要由HTTP协议的头（Header）信息来制定。
-
-本地缓存本地缓存是指当浏览器请求资源时，如果命中了浏览器本地的缓存资源，那么浏览器就不会发送真正请求给服务器。">
+浏览器一般缓存图片、CSS、JS等静态文件，因为这些文件的更新频率相对来说比较低，合理利用浏览器的缓存对网站的性能提升有很大帮助。HTTP缓存分为两部分，分别是本地缓存和缓存协商，当本地缓存不生效时会启用缓存协商。HTTP缓存主要由HTTP协议的头（Header）信息来制定。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="http缓存">
 <meta property="og:url" content="http://www.in-droid.com/2016/06/15/http缓存/index.html">
 <meta property="og:site_name" content="守心的博客">
 <meta property="og:description" content="原文地址
-浏览器一般缓存图片、CSS、JS等静态文件，因为这些文件的更新频率相对来说比较低，合理利用浏览器的缓存对网站的性能提升有很大帮助。HTTP缓存分为两部分，分别是本地缓存和缓存协商，当本地缓存不生效时会启用缓存协商。HTTP缓存主要由HTTP协议的头（Header）信息来制定。
-
-本地缓存本地缓存是指当浏览器请求资源时，如果命中了浏览器本地的缓存资源，那么浏览器就不会发送真正请求给服务器。">
+浏览器一般缓存图片、CSS、JS等静态文件，因为这些文件的更新频率相对来说比较低，合理利用浏览器的缓存对网站的性能提升有很大帮助。HTTP缓存分为两部分，分别是本地缓存和缓存协商，当本地缓存不生效时会启用缓存协商。HTTP缓存主要由HTTP协议的头（Header）信息来制定。">
 <meta property="og:image" content="http://7q5ctm.com1.z0.glb.clouddn.com/http%E7%BC%93%E5%AD%981.png">
 <meta property="og:image" content="http://7q5ctm.com1.z0.glb.clouddn.com/http%E7%BC%93%E5%AD%982.png">
 <meta property="og:image" content="http://7q5ctm.com1.z0.glb.clouddn.com/http%E7%BC%93%E5%AD%983.png">
-<meta property="og:updated_time" content="2016-06-15T06:27:59.110Z">
+<meta property="og:updated_time" content="2016-06-16T09:19:03.731Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="http缓存">
 <meta name="twitter:description" content="原文地址
-浏览器一般缓存图片、CSS、JS等静态文件，因为这些文件的更新频率相对来说比较低，合理利用浏览器的缓存对网站的性能提升有很大帮助。HTTP缓存分为两部分，分别是本地缓存和缓存协商，当本地缓存不生效时会启用缓存协商。HTTP缓存主要由HTTP协议的头（Header）信息来制定。
-
-本地缓存本地缓存是指当浏览器请求资源时，如果命中了浏览器本地的缓存资源，那么浏览器就不会发送真正请求给服务器。">
+浏览器一般缓存图片、CSS、JS等静态文件，因为这些文件的更新频率相对来说比较低，合理利用浏览器的缓存对网站的性能提升有很大帮助。HTTP缓存分为两部分，分别是本地缓存和缓存协商，当本地缓存不生效时会启用缓存协商。HTTP缓存主要由HTTP协议的头（Header）信息来制定。">
 <meta name="twitter:image" content="http://7q5ctm.com1.z0.glb.clouddn.com/http%E7%BC%93%E5%AD%981.png">
 
 
@@ -325,6 +319,7 @@
         <p><a href="http://foofish.net/blog/95/http-cache-policy" target="_blank" rel="external">原文地址</a></p>
 <p>浏览器一般缓存图片、CSS、JS等静态文件，因为这些文件的更新频率相对来说比较低，合理利用浏览器的缓存对网站的性能提升有很大帮助。HTTP缓存分为两部分，分别是本地缓存和缓存协商，当本地缓存不生效时会启用缓存协商。HTTP缓存主要由HTTP协议的头（Header）信息来制定。</p>
 <p><img src="http://7q5ctm.com1.z0.glb.clouddn.com/http%E7%BC%93%E5%AD%981.png" alt="picture"></p>
+<a id="more"></a>
 <h3 id="本地缓存"><a href="#本地缓存" class="headerlink" title="本地缓存"></a>本地缓存</h3><p>本地缓存是指当浏览器请求资源时，如果命中了浏览器本地的缓存资源，那么浏览器就不会发送真正请求给服务器。它的执行过程是：</p>
 <ol>
 <li>第一次浏览器发送请求给服务器时，此时浏览器还没有本地缓存副本，服务器返回资源给浏览器，响应码是200 OK，浏览器收到资源后，把资源和对应的响应头一起缓存下来。</li>
